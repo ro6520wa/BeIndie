@@ -5,10 +5,10 @@
         </div>
         <div id="navbar">
             <ul class="topnav" id="myTopnav">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-                <li><a href="#projects">Projekte</a></li>
+                <li><a href="includes/pages/start/start.php">Home</a></li>
+                <li><a href="includes/pages/about/about.php">Über Uns</a></li>
+                <li><a href="includes/pages/about/contact.php">Kontakt</a></li>
+                <li><a href="includes/pages/projects/projects.php">Projekte</a></li>
                 <li class="login"><a href="#login"><i class="fa fa-user-o" style="font-size:24px"></i></a></li>
                 <li class="icon">
                     <a href="javascript:void(0);" onclick="openMenu()">&#9776;</a>
