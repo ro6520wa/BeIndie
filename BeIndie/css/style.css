@@ -146,6 +146,16 @@ footer article {
     padding-top: 50px;
 }
 
+#footer_link a {
+    line-height: 50px;
+    text-decoration: none;
+    color: #4CAF50;
+}
+
+#footer_link a:hover {
+    text-decoration: underline;
+}
+
 
 
 /*

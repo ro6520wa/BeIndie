@@ -48,9 +48,9 @@ if (!empty($_GET['page'])) {
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <script src="js/nav.js" type="text/javascript"></script>
-
+        
         <?php if ($cssPath != "") : ?>
             <link rel="stylesheet" href="<?php echo $cssPath; ?>">
         <?php endif; ?>

@@ -1,0 +1,69 @@
+
+#content {
+    background-color: #f1f1f1;
+}
+
+#faq {
+    width: 980px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+#faq h1 {
+    line-height: 75px;
+    color: #4CAF50;
+}
+
+#links {
+    padding-bottom: 30px;
+    color: #4CAF50;
+}
+
+#links a:visited {
+    color: #4CAF50;
+}
+
+button.accordion {
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color:#007222;
+}
+
+button.accordion:after {
+    content: '\002B'; /* Unicode character for "plus" sign (+) */
+    font-size: 20px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+    content: "\2212"; /* Unicode character for "minus" sign (-) */
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: #f1f1f1;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+}
+
+div.panel.show {
+    opacity: 1;
+    max-height: 500px; /* more than height of content!!!*/
+    margin-bottom: 10px;
+}
