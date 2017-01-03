@@ -1,6 +1,6 @@
 <?php
 // Variable zum Projektverzeichnis, welches unter 'htdocs' liegt (Hinweis: falls das Projekt im ROOT-Verzeichnis liegt, einen Leerstring eintragen.)
-$projectDir = "/ProjektDM1/public_html/BeIndie/";
+$projectDir = "Website/BeIndie/";
 
 // Pfadvariable, die zur Steuerung der Inhalt verwendet wird
 // Der Standardwert ist der Pfad zum Inhalt der Startseite
