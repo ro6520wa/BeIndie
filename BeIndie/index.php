@@ -1,6 +1,6 @@
 <?php
 // Variable zum Projektverzeichnis, welches unter 'htdocs' liegt (Hinweis: falls das Projekt im ROOT-Verzeichnis liegt, einen Leerstring eintragen.)
-$projectDir = "Website/BeIndie/";
+$projectDir = "/DM1/Website/BeIndie/";
 
 // Pfadvariable, die zur Steuerung der Inhalt verwendet wird
 // Der Standardwert ist der Pfad zum Inhalt der Startseite
@@ -47,9 +47,9 @@ if (!empty($_GET['page'])) {
         <meta name="author" content="BeIndie">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="js/nav.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+        <script src="js/nav.js" type="text/javascript"></script>
 
         <?php if ($cssPath != "") : ?>
             <link rel="stylesheet" href="<?php echo $cssPath; ?>">
