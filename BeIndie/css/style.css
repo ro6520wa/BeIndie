@@ -164,6 +164,7 @@ ul.login li a:hover {
 }
 
 footer {
+    clear: both;
     background-color: #333;
     color: white;
     height: 150px;
