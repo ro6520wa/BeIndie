@@ -1,7 +1,7 @@
 <?php
 
-$user = "student";
-$pw = "pwa";
+$user = "root";
+$pw = "";
 $server = "localhost";
 $db = "beindie";
 $conn = @mysqli_connect($server, $user, $pw, $db);

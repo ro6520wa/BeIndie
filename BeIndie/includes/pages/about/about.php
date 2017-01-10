@@ -25,6 +25,8 @@
                     } else if ($current_month > $date_parts[1]) {
                         echo ($current_year - $date_parts[2]);
                     }
+                    echo "<br/>";
+                    include ("e_texts/" . $row["e_ID"] . ".txt");
                     ?>
                 </span>
             </article>
@@ -32,7 +34,13 @@
         }
         ?>
         <?php include ("includes/functions/swClose.php"); ?>
-        Gegründet 2016 
+        <article>
+            <img src="images/logo.png" alt="logo" height="35"/>
+            <br/>
+            <span id="beindie">
+                <?php include ("e_texts/beindie.txt"); ?>
+            </span>
+        </article>
         <!--placholder-->
     </div>
 </div>
