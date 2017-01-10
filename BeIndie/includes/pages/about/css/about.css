@@ -31,3 +31,8 @@
     padding-bottom: 35px;
 }
 
+p.invis {
+    visibility: hidden;
+    margin-bottom: -50px;
+}
+

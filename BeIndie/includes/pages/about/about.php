@@ -41,6 +41,7 @@
                 <?php include ("e_texts/beindie.txt"); ?>
             </span>
         </article>
-        <!--placholder-->
+        <!--Otherwise the div wrapper won't lengthen to the bottom of the page somehow-->
+        <p class="invis">placeholder</p>
     </div>
 </div>
