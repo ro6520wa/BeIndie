@@ -1,6 +1,46 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.2
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Erstellungszeit: 10. Jan 2017 um 15:14
+-- Server-Version: 10.1.16-MariaDB
+-- PHP-Version: 5.6.24
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
 -- Datenbank: `beindie`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `employee`
+--
+
+CREATE TABLE `employee` (
+  `e_ID` int(11) NOT NULL,
+  `e_firstname` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `e_lastname` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `e_birthdate` varchar(20) NOT NULL,
+  `e_image` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_cs DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Daten für Tabelle `employee`
+--
+
+INSERT INTO `employee` (`e_ID`, `e_firstname`, `e_lastname`, `e_birthdate`, `e_image`) VALUES
+(1, 'Ron', 'Wagner', '25.07.1996', 'images/e_images/ronw.jpg'),
+(2, 'Paul', 'Hentgen', '25.08.1992', 'images/e_images/paulh.jpg');
 
 -- --------------------------------------------------------
 
@@ -54,6 +94,12 @@ INSERT INTO `user` (`user_ID`, `e-mail`, `first_name`, `last_name`, `avatar`, `l
 --
 
 --
+-- Indizes für die Tabelle `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`e_ID`);
+
+--
 -- Indizes für die Tabelle `project`
 --
 ALTER TABLE `project`
@@ -71,6 +117,11 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT für exportierte Tabellen
 --
 
+--
+-- AUTO_INCREMENT für Tabelle `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `e_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT für Tabelle `project`
 --

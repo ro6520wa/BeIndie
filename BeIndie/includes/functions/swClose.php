@@ -3,10 +3,10 @@
 
 if(mysqli_close($conn))
 {
-    echo "Verbindung getrennt!";
+    echo " ";
 }
 else
 {
-    echo "Fehler";
+    echo " ";
 }
 
