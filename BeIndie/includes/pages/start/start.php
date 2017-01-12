@@ -30,15 +30,6 @@
                             <div class="inputs"><input type="checkbox" name="category" value="cosmetics"><div class="input_text">Beauty & Kosmetik</div></div>
                         </td>
                     </tr>
-
-                    <!--                    <b>Suche Projekte nach:</b><br/>
-                                        <input type="checkbox" name="searchfor" value="project_name" checked>Projektnamen
-                                        <input type="checkbox" name="searchfor" value="user_name">Nutzernamen
-                                        <b>Nach Projektkategorie suchen:</b><br/>
-                                        <input type="checkbox" name="category" value="technology">Technologie
-                                        <input type="checkbox" name="category" value="sports">Sport
-                                        <input type="checkbox" name="category" value="games">Spiele
-                                        <input type="checkbox" name="category" value="cosmetics">Beauty & Kosmetik-->
                 </table>
             </div>
             <p>
