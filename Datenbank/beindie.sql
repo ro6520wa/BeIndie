@@ -1,3 +1,21 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Erstellungszeit: 12. Jan 2017 um 19:52
+-- Server-Version: 10.1.19-MariaDB
+-- PHP-Version: 5.6.28
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
 -- Datenbank: `beindie`
 --
@@ -21,7 +39,7 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`e_ID`, `e_firstname`, `e_lastname`, `e_birthdate`, `e_image`) VALUES
-(1, 'Ran', 'Wogner', '25.07.1996', 'images/e_images/ronw.jpg'),
+(1, 'Ron', 'Wagner', '25.07.1996', 'images/e_images/ronw.jpg'),
 (2, 'Paul', 'Hentgen', '25.08.1992', 'images/e_images/paulh.jpg');
 
 -- --------------------------------------------------------
@@ -37,15 +55,22 @@ CREATE TABLE `project` (
   `goal` int(11) NOT NULL,
   `current_status` int(11) NOT NULL,
   `start_date` date NOT NULL,
-  `end_date` date NOT NULL
+  `end_date` date NOT NULL,
+  `category` varchar(200) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `project`
 --
 
-INSERT INTO `project` (`project_ID`, `creator`, `title`, `goal`, `current_status`, `start_date`, `end_date`) VALUES
-(2, 'John.D@gmail.com', 'Awesome Project', 500000, 125000, '2016-12-01', '2017-01-16');
+INSERT INTO `project` (`project_ID`, `creator`, `title`, `goal`, `current_status`, `start_date`, `end_date`, `category`) VALUES
+(2, 'John.D@gmail.com', 'Awesome Project', 500000, 125000, '2016-12-01', '2017-01-16', 'Technologie'),
+(3, 'kelixf@gmx.de', 'Barbie 2.0', 1000, 10, '2017-01-12', '2017-04-12', 'Beauty & Kosmetik'),
+(4, 'paul.hentgen@fh-erfurt.de', 'All Woman''s Sea - The Game', 100000, 250000, '2016-11-01', '2017-04-01', 'Spiele'),
+(5, 'ron.wagner@fh-erfurt.de', 'Fatbool - The football reinvented', 15000, 1255, '2016-07-25', '2017-07-25', 'Sport'),
+(6, 'wurstjay@web.de', 'Real Roschter - The Wurst for everyone', 35000, 23450, '2016-11-29', '2017-03-24', 'Beauty & Kosmetik'),
+(7, 'Not.Doe@gmail.com', 'The Face Enhancer - Be beautiful for once', 8000, 5, '2017-01-01', '2017-04-28', 'Beauty & Kosmetik'),
+(8, 'kelixf@gmx.de', 'Strawberry Cookie', 17500, 555, '2016-12-24', '2017-03-16', 'Technologie');
 
 -- --------------------------------------------------------
 
@@ -96,20 +121,26 @@ INSERT INTO `transaction` (`ID`, `user_ID`, `project_ID`, `amount`) VALUES
 
 CREATE TABLE `user` (
   `user_ID` int(11) NOT NULL,
-  `e-mail` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `user_name` varchar(30) NOT NULL,
   `first_name` varchar(200) NOT NULL,
   `last_name` varchar(200) NOT NULL,
-  `avatar` varchar(200) NOT NULL,
-  `location` varchar(200) NOT NULL
+  `avatar` varchar(200) DEFAULT NULL,
+  `location` varchar(200) NOT NULL,
+  `crypt_pw` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `user`
 --
 
-INSERT INTO `user` (`user_ID`, `e-mail`, `first_name`, `last_name`, `avatar`, `location`) VALUES
-(2, 'John.D@gmail.com', 'John', 'Doe', '/img/johnD.png', 'Erfurt, Germany'),
-(3, 'Not.Doe@gmail.com', 'Not', 'Doe', '/img/not.jpg', 'Weimar, Germany');
+INSERT INTO `user` (`user_ID`, `email`, `user_name`, `first_name`, `last_name`, `avatar`, `location`, `crypt_pw`) VALUES
+(2, 'John.D@gmail.com', 'JD', 'John', 'Doe', '/img/johnD.png', 'Erfurt, Germany', ''),
+(3, 'Not.Doe@gmail.com', 'NotD', 'Not', 'Doe', '/img/not.jpg', 'Weimar, Germany', ''),
+(4, 'kelixf@gmx.de', 'TheFiesling', 'Kelix', 'Fießling', NULL, 'Waynetrain, No Mans Sky', ''),
+(5, 'ron.wagner@fh-erfurt.de', 'ro6520wa', 'Ron', 'Wagner', NULL, 'Weimar, Germany', ''),
+(6, 'wurstjay@web.de', 'WurstJay', 'Jonathan', 'Wurst', NULL, 'Oktoberfest, Germany', ''),
+(7, 'paul.hentgen@fh-erfurt.de', 'pa4873he', 'Paul', 'Hentgen', NULL, 'Erfurt, Germany', '');
 
 --
 -- Indizes der exportierten Tabellen
@@ -148,7 +179,7 @@ ALTER TABLE `transaction`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_ID`),
-  ADD KEY `e-mail` (`e-mail`);
+  ADD KEY `e-mail` (`email`);
 
 --
 -- AUTO_INCREMENT für exportierte Tabellen
@@ -163,7 +194,7 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT für Tabelle `project`
 --
 ALTER TABLE `project`
-  MODIFY `project_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `project_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT für Tabelle `project_image`
 --
@@ -178,7 +209,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Constraints der exportierten Tabellen
 --
@@ -187,7 +218,7 @@ ALTER TABLE `user`
 -- Constraints der Tabelle `project`
 --
 ALTER TABLE `project`
-  ADD CONSTRAINT `project_ibfk_1` FOREIGN KEY (`creator`) REFERENCES `user` (`e-mail`);
+  ADD CONSTRAINT `project_ibfk_1` FOREIGN KEY (`creator`) REFERENCES `user` (`email`);
 
 --
 -- Constraints der Tabelle `project_image`
@@ -199,9 +230,9 @@ ALTER TABLE `project_image`
 -- Constraints der Tabelle `transaction`
 --
 ALTER TABLE `transaction`
-  ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`e-mail`),
+  ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`user_ID`) REFERENCES `user` (`email`),
   ADD CONSTRAINT `transaction_ibfk_2` FOREIGN KEY (`project_ID`) REFERENCES `project` (`project_ID`),
-  ADD CONSTRAINT `transaction_ibfk_3` FOREIGN KEY (`user_ID`) REFERENCES `user` (`e-mail`);
+  ADD CONSTRAINT `transaction_ibfk_3` FOREIGN KEY (`user_ID`) REFERENCES `user` (`email`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

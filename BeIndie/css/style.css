@@ -225,7 +225,7 @@ div.filter_panel {
     background-color: #f1f1f1;
     font-size: 13px;
     display: none;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 div.filter_panel.show {
@@ -240,6 +240,10 @@ div.filter_panel.show {
 
 #table h2 {
     color: #4CAF50;
+}
+
+#display_all, #search_result {
+    margin-top: -18px;
 }
 
 footer {
