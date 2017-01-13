@@ -1,27 +1,14 @@
-//$("#search").on("input", function () {
-//    $search = $("#search").val();
-//    if ($search.length > 0) {
-//        $.get("includes/functions/search.php", {"search": $search}, function ($data) {
-//            $("#search_result").html($data);
-//        });
-//    }
-//    var value = $.trim($("#search").val());
-//    if (value.length === 0)
-//    {
-//        //do some stuffs. 
-//    }
-//});
 
-$(document).ready(function(e) {
+$(document).ready(function() {
     $("#search").keyup(function() {
         $("#display_all").hide();
         var x = $(this).val();
-        var name = $("input:radio[name ='searchfor']:checked").val();
+        var searchfor = $("input:radio[name ='searchfor']:checked").val();
         $.ajax(
                 {
                     type:"GET",
                     url:"includes/functions/search.php",
-                    data:"q="+x + "." + name,
+                    data:"q="+x + "." + searchfor,
                     success: function(data) {
                         $("#search_result").html(data);
                     }
