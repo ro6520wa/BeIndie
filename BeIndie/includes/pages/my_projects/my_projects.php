@@ -1,26 +1,48 @@
-   
 
 <div class="projects">
+    <?php
+        include ("includes/functions/swConnect.php");
+    ?>
+    <?php
+        $titel = "select * from project where project_ID = 2";
+        $result1 = mysqli_query($conn, $titel);
+        $row1 = mysqli_fetch_array($result1)
+    ?>
+    
     <div id="project">
-            <h1 align="center">Projekttitel</h1>
+            <h1 align="center"><?=  $row1["title"] ?></h1>
         <div id="slideshow">
-
-        <img class="slideshow" src="images/slideshow1.jpg" >
-        <img class="slideshow" src="images/slideshow2.jpg" >
-        <img class="slideshow" src="images/slideshow3.jpg" >    
+    <?php 
+                   
+        $slideshow = "select slideshow_picture from project_image pi join project p on pi.project_ID = p.project_ID where pi.project_ID = 2";
+        $result2 = mysqli_query($conn, $slideshow);
+        while ($row2 = mysqli_fetch_array($result2)) {
+           
+        ?>               
+        <img class="slideshow" src=<?= $row2 ["slideshow_picture"] ?> >
+        <?php }
+        ?>
 
         <a class="left" onclick="plusDivs(-1)">&#10094;</a>
         <a class="right" onclick="plusDivs(1)">&#10095;</a>
 
         </div>
 
-        
+        <?php
+        $current = "select current_status from project where project_ID = 2";
+        $result3 = mysqli_query($conn, $current);        
+        $goal = "select goal from project where project_ID = 2";
+        $result4 = mysqli_query($conn, $goal);
+        $row3 = mysqli_fetch_array($result3);
+        $row4 = mysqli_fetch_array($result4);
+        ?>
         <div id="progress">
           <div id="progressbar">
-            <div id="label">80%</div>
+            <div id="label"><?= $row3["current_status"] / $row4["goal"] * 100 . '%'  ?></div>
           </div>
         </div>
-         
+        <?php 
+        ?>
         <div id="info"> 
             <div id ="timetogo">
                     <h2>27</h2>
@@ -65,8 +87,11 @@
             </div>
         </div>
     </div>
-</div>
+    <?php  
+    
+    include ("includes/functions/swClose.php");  ?>
 
+</div>
 
 
 <!--Slideshow JS-->
@@ -83,7 +108,7 @@
         myIndex++;
         if (myIndex > x.length) {myIndex = 1}    
         x[myIndex-1].style.display = "block";  
-        setTimeout(carousel, 2000); 
+        setTimeout(carousel, 5000); 
     }   
     
     
