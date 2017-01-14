@@ -242,7 +242,79 @@ div.filter_panel.show {
     color: #4CAF50;
 }
 
-#display_all, #search_result {
+.projects_display {
+    width: 450px;
+    padding: 40px 20px 40px 20px;
+    float: left;
+}
+
+.project_img {
+    height: 300px;
+    width: 450px;
+    background-color: #333;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.project_img img {
+  max-width:100%;
+  max-height:100%;
+}
+
+.project_title {
+    margin-top: 5px;
+}
+
+.project_title a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+.project_title a:hover {
+    text-decoration: underline;
+}
+
+.project_user {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.goal_bar {
+    width: 450px;
+    background-color: #333;
+    float: left;
+    border-radius: 3px;
+    height: 6px;
+    overflow: hidden;
+}
+
+.current_bar {
+    background-color: #4CAF50;
+    float: left;
+    border-radius: 3px;
+    height: 6px;
+}
+
+.project_stats table {
+    border-collapse: separate;
+    border-spacing: 20px 2px;
+    margin-left: -22px;
+}
+
+.project_stats th {
+    text-align: left;
+}
+
+.project_stats td {
+    text-align: left;
+    font-style: italic;
+}
+
+#search_result {
     margin-top: -18px;
 }
 
@@ -361,6 +433,7 @@ label {
     to {transform: scale(1)}
 }
 
-.test {
-    color: red;
+#fixing_stuff {
+    clear: both;
+    visibility: hidden;  
 }
