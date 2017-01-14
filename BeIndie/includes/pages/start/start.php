@@ -20,14 +20,14 @@
                     </th>
                     <tr>
                         <td>
-                            <div class="inputs"><input type="radio" name="searchfor" value="project_name" checked><div class="input_text">Projektnamen</div></div>
-                            <div class="inputs"><input type="radio" name="searchfor" value="user_name"><div class="input_text">Nutzernamen</div></div>
+                            <div class="inputs"><input type="radio" name="searchfor" class="searchfor" value="project_name" checked><div class="input_text">Projektnamen</div></div>
+                            <div class="inputs"><input type="radio" name="searchfor" class="searchfor" value="user_name"><div class="input_text">Nutzernamen</div></div>
                         </td>
                         <td>
-                            <div class="first_input_cat"><input type="checkbox" name="category" value="technology"><div class="input_text">Technologie</div></div>
-                            <div class="inputs"><input type="checkbox" name="category" value="sports"><div class="input_text">Sport</div></div>
-                            <div class="inputs"><input type="checkbox" name="category" value="games"><div class="input_text">Spiele</div></div>
-                            <div class="inputs"><input type="checkbox" name="category" value="cosmetics"><div class="input_text">Beauty & Kosmetik</div></div>
+                            <div class="first_input_cat"><input type="checkbox" name="category" class="category" value="technology"><div class="input_text">Technologie</div></div>
+                            <div class="inputs"><input type="checkbox" name="category" class="category" value="sports"><div class="input_text">Sport</div></div>
+                            <div class="inputs"><input type="checkbox" name="category" class="category" value="games"><div class="input_text">Spiele</div></div>
+                            <div class="inputs"><input type="checkbox" name="category" class="category" value="beauty"><div class="input_text">Beauty & Kosmetik</div></div>
                         </td>
                     </tr>
                 </table>
