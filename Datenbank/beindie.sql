@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 12. Jan 2017 um 19:52
+-- Erstellungszeit: 14. Jan 2017 um 14:42
 -- Server-Version: 10.1.19-MariaDB
 -- PHP-Version: 5.6.28
 
@@ -64,13 +64,13 @@ CREATE TABLE `project` (
 --
 
 INSERT INTO `project` (`project_ID`, `creator`, `title`, `goal`, `current_status`, `start_date`, `end_date`, `category`) VALUES
-(2, 'John.D@gmail.com', 'Awesome Project', 500000, 125000, '2016-12-01', '2017-01-16', 'Technologie'),
-(3, 'kelixf@gmx.de', 'Barbie 2.0', 1000, 10, '2017-01-12', '2017-04-12', 'Beauty & Kosmetik'),
-(4, 'paul.hentgen@fh-erfurt.de', 'All Woman''s Sea - The Game', 100000, 250000, '2016-11-01', '2017-04-01', 'Spiele'),
-(5, 'ron.wagner@fh-erfurt.de', 'Fatbool - The football reinvented', 15000, 1255, '2016-07-25', '2017-07-25', 'Sport'),
-(6, 'wurstjay@web.de', 'Real Roschter - The Wurst for everyone', 35000, 23450, '2016-11-29', '2017-03-24', 'Beauty & Kosmetik'),
-(7, 'Not.Doe@gmail.com', 'The Face Enhancer - Be beautiful for once', 8000, 5, '2017-01-01', '2017-04-28', 'Beauty & Kosmetik'),
-(8, 'kelixf@gmx.de', 'Strawberry Cookie', 17500, 555, '2016-12-24', '2017-03-16', 'Technologie');
+(2, 'John.D@gmail.com', 'Awesome Project', 500000, 125000, '2016-12-01', '2017-01-16', 'technology'),
+(3, 'kelixf@gmx.de', 'Barbie 2.0', 1000, 10, '2017-01-12', '2017-04-12', 'beauty'),
+(4, 'paul.hentgen@fh-erfurt.de', 'All Woman''s Sea - The Game', 100000, 250000, '2016-11-01', '2017-04-01', 'games'),
+(5, 'ron.wagner@fh-erfurt.de', 'Fatbool - The football reinvented', 15000, 1255, '2016-07-25', '2017-07-25', 'sports'),
+(6, 'wurstjay@web.de', 'Real Roschter - The Wurst for everyone', 35000, 23450, '2016-11-29', '2017-03-24', 'beauty'),
+(7, 'Not.Doe@gmail.com', 'The Face Enhancer - Be beautiful for once', 8000, 5, '2017-01-01', '2017-04-28', 'beauty'),
+(8, 'kelixf@gmx.de', 'Strawberry Cookie', 17500, 555, '2016-12-24', '2017-03-16', 'technology');
 
 -- --------------------------------------------------------
 
@@ -81,17 +81,23 @@ INSERT INTO `project` (`project_ID`, `creator`, `title`, `goal`, `current_status
 CREATE TABLE `project_image` (
   `image_ID` int(11) NOT NULL,
   `project_ID` int(11) NOT NULL,
-  `slideshow_picture` varchar(200) NOT NULL
+  `image_path` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `project_image`
 --
 
-INSERT INTO `project_image` (`image_ID`, `project_ID`, `slideshow_picture`) VALUES
-(1, 2, 'images/slideshow_img/awesome1.jpg'),
-(2, 2, 'images/slideshow_img/awesome2.jpg'),
-(3, 2, 'images/slideshow_img/awesome3.jpg');
+INSERT INTO `project_image` (`image_ID`, `project_ID`, `image_path`) VALUES
+(1, 2, 'images/project_images/2_1.jpg'),
+(2, 2, 'images/project_images/2_2.jpg'),
+(3, 2, 'images/project_images/2_3.jpg'),
+(10, 3, 'images/project_images/3_4.jpg'),
+(11, 4, 'images/project_images/4_5.jpg'),
+(12, 5, 'images/project_images/5_6.jpg'),
+(13, 6, 'images/project_images/6_7.jpg'),
+(14, 7, 'images/project_images/7_8.jpg'),
+(15, 8, 'images/project_images/8_9.jpg');
 
 -- --------------------------------------------------------
 
@@ -199,7 +205,7 @@ ALTER TABLE `project`
 -- AUTO_INCREMENT für Tabelle `project_image`
 --
 ALTER TABLE `project_image`
-  MODIFY `image_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `image_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT für Tabelle `transaction`
 --

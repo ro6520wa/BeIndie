@@ -23,6 +23,7 @@ $(document).ready(function () {
                     }
                 })
     })
+    
     //database search via ajax when category value is changed
     $(".category").change(function () {
         $("#display_all").hide();
@@ -46,6 +47,7 @@ $(document).ready(function () {
                     }
                 })
     })
+    
     //database search via ajax when searchfor value is changed
     $(".searchfor").change(function () {
         $("#display_all").hide();
