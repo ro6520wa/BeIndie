@@ -40,13 +40,13 @@
                 while ($output = mysqli_fetch_assoc($result)) {
                     echo "<div class = 'projects_display'>";
                         echo "<div class = 'project_img'>";
-                            echo "<a href='includes/pages/projects/projects.php?q=" . $output["project_ID"] .
+                            echo "<a href='index.php?page=projects&q=" . $output["project_ID"] .
                             "'><img src='" . $output["image_path"] . "'></a>";
                             echo "<a class='support_button' href='includes/pages/projects/support_project.php?q=" .$output["project_ID"] . 
                                 "'><button type='button'>Unterstützen</button></a>";
                         echo "</div>";
                         echo "<h3 class='project_title'>";
-                            echo "<a href='includes/pages/projects/projects.php?q=" . $output["project_ID"] . "'>" .
+                            echo "<a href='index.php?page=projects_q=" . $output["project_ID"] . "'>" .
                                     $output["title"] . "</a>";
                         echo "</h3>";
                         echo "<p class='project_user'>";
