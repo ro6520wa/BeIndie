@@ -1,21 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Erstellungszeit: 14. Jan 2017 um 14:42
--- Server-Version: 10.1.19-MariaDB
--- PHP-Version: 5.6.28
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Datenbank: `beindie`
 --
@@ -56,21 +38,22 @@ CREATE TABLE `project` (
   `current_status` int(11) NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
-  `category` varchar(200) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL
+  `category` varchar(200) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `description` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `project`
 --
 
-INSERT INTO `project` (`project_ID`, `creator`, `title`, `goal`, `current_status`, `start_date`, `end_date`, `category`) VALUES
-(2, 'John.D@gmail.com', 'Awesome Project', 500000, 125000, '2016-12-01', '2017-01-16', 'technology'),
-(3, 'kelixf@gmx.de', 'Barbie 2.0', 1000, 10, '2017-01-12', '2017-04-12', 'beauty'),
-(4, 'paul.hentgen@fh-erfurt.de', 'All Woman''s Sea - The Game', 100000, 250000, '2016-11-01', '2017-04-01', 'games'),
-(5, 'ron.wagner@fh-erfurt.de', 'Fatbool - The football reinvented', 15000, 1255, '2016-07-25', '2017-07-25', 'sports'),
-(6, 'wurstjay@web.de', 'Real Roschter - The Wurst for everyone', 35000, 23450, '2016-11-29', '2017-03-24', 'beauty'),
-(7, 'Not.Doe@gmail.com', 'The Face Enhancer - Be beautiful for once', 8000, 5, '2017-01-01', '2017-04-28', 'beauty'),
-(8, 'kelixf@gmx.de', 'Strawberry Cookie', 17500, 555, '2016-12-24', '2017-03-16', 'technology');
+INSERT INTO `project` (`project_ID`, `creator`, `title`, `goal`, `current_status`, `start_date`, `end_date`, `category`, `description`) VALUES
+(2, 'John.D@gmail.com', 'Awesome Project', 50000, 125000, '2016-12-01', '2017-01-16', 'technology', 'texts/description_texts/2.txt'),
+(3, 'kelixf@gmx.de', 'Barbie 2.0', 1000, 10, '2017-01-12', '2017-04-12', 'beauty', 'texts/description_texts/3.txt'),
+(4, 'paul.hentgen@fh-erfurt.de', 'All Woman''s Sea - The Game', 100000, 250000, '2016-11-01', '2017-04-01', 'games', 'texts/description_texts/4.txt'),
+(5, 'ron.wagner@fh-erfurt.de', 'Fatbool - The football reinvented', 15000, 1255, '2016-07-25', '2017-07-25', 'sports', 'texts/description_texts/5.txt'),
+(6, 'wurstjay@web.de', 'Real Roschter - The Wurst for everyone', 35000, 23450, '2016-11-29', '2017-03-24', 'beauty', 'texts/description_texts/6.txt'),
+(7, 'Not.Doe@gmail.com', 'The Face Enhancer - Be beautiful for once', 8000, 500, '2017-01-01', '2017-04-28', 'beauty', 'texts/description_texts/7.txt'),
+(8, 'kelixf@gmx.de', 'Strawberry Cookie', 17500, 555, '2016-12-24', '2017-01-13', 'technology', 'texts/description_texts/8.txt');
 
 -- --------------------------------------------------------
 
@@ -117,7 +100,11 @@ CREATE TABLE `transaction` (
 --
 
 INSERT INTO `transaction` (`ID`, `user_ID`, `project_ID`, `amount`) VALUES
-(1, 'Not.Doe@gmail.com', 2, 1);
+(1, 'Not.Doe@gmail.com', 2, 10000),
+(2, 'kelixf@gmx.de', 5, 5000),
+(3, 'paul.hentgen@fh-erfurt.de', 2, 100),
+(4, 'wurstjay@web.de', 7, 200),
+(5, 'ron.wagner@fh-erfurt.de', 5, 5);
 
 -- --------------------------------------------------------
 
@@ -210,7 +197,7 @@ ALTER TABLE `project_image`
 -- AUTO_INCREMENT für Tabelle `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT für Tabelle `user`
 --
