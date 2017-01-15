@@ -42,6 +42,8 @@
                         echo "<div class = 'project_img'>";
                             echo "<a href='includes/pages/projects/projects.php?q=" . $output["project_ID"] .
                             "'><img src='" . $output["image_path"] . "'></a>";
+                            echo "<a class='support_button' href='includes/pages/projects/support_project.php?q=" .$output["project_ID"] . 
+                                "'><button type='button'>Unterstützen</button></a>";
                         echo "</div>";
                         echo "<h3 class='project_title'>";
                             echo "<a href='includes/pages/projects/projects.php?q=" . $output["project_ID"] . "'>" .
@@ -50,8 +52,12 @@
                         echo "<p class='project_user'>";
                             echo $output["user_name"];
                         echo "</p>";
+                        echo "<div class'percent_goal'>";
+                            $percent = number_format((($output["current_status"] / $output["goal"])*100));
+                            echo $percent . "%";
+                        echo "</div>";
                         echo "<div class='goal_bar'><div class='current_bar' style='width:" .
-                                number_format((($output["current_status"] / $output["goal"])*100)) . "%'></div></div>";
+                                $percent . "%'></div></div>";
                         echo "<div class='project_stats'>";
                             echo "<table>";
                                 echo "<tr>";
@@ -93,3 +99,4 @@
 </div>
 <script src="js/filter.js" type="text/javascript"></script>
 <script src="js/search.js" type="text/javascript"></script>
+<script src="js/hover_search.js" type="text/javascript"></script>
