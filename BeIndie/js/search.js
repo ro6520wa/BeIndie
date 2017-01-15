@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     //database search via ajax when search value is changed
     $("#search").keyup(function () {
@@ -20,10 +19,13 @@ $(document).ready(function () {
                     data: q,
                     success: function (data) {
                         $("#search_result").html(data);
+                    },
+                    complete: function () {
+                        searchResultHover ();
                     }
                 })
     })
-    
+
     //database search via ajax when category value is changed
     $(".category").change(function () {
         $("#display_all").hide();
@@ -44,10 +46,13 @@ $(document).ready(function () {
                     data: q,
                     success: function (data) {
                         $("#search_result").html(data);
+                    },
+                    complete: function () {
+                        searchResultHover ();
                     }
                 })
     })
-    
+
     //database search via ajax when searchfor value is changed
     $(".searchfor").change(function () {
         $("#display_all").hide();
@@ -68,9 +73,10 @@ $(document).ready(function () {
                     data: q,
                     success: function (data) {
                         $("#search_result").html(data);
+                    },
+                    complete: function () {
+                        searchResultHover ();
                     }
                 })
     })
 })
-
-
