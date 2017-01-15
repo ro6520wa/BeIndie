@@ -1,10 +1,13 @@
 
-<div class="projects">
+<div id="all_projects">
     <?php
         include ("includes/functions/swConnect.php");
     ?>
     <?php
-        $titel = "select * from project where project_ID = 2";
+        //echo $_GET["q"];    
+        $project_ID = 2;
+    
+        $titel = "select * from project where project_ID = $project_ID";
         $result1 = mysqli_query($conn, $titel);
         $row1 = mysqli_fetch_array($result1)
     ?>
@@ -14,12 +17,12 @@
         <div id="slideshow">
     <?php 
                    
-        $slideshow = "select slideshow_picture from project_image pi join project p on pi.project_ID = p.project_ID where pi.project_ID = 2";
+        $slideshow = "select image_path from project_image pi join project p on pi.project_ID = p.project_ID where pi.project_ID = $project_ID";
         $result2 = mysqli_query($conn, $slideshow);
         while ($row2 = mysqli_fetch_array($result2)) {
            
         ?>               
-        <img class="slideshow" src=<?= $row2 ["slideshow_picture"] ?> >
+        <img class="slideshow" src=<?= $row2 ["image_path"] ?> >
         <?php }
         ?>
 
@@ -29,61 +32,127 @@
         </div>
 
         <?php
-        $current = "select current_status from project where project_ID = 2";
+        $current = "select current_status from project where project_ID = $project_ID";
         $result3 = mysqli_query($conn, $current);        
-        $goal = "select goal from project where project_ID = 2";
+        $goal = "select goal from project where project_ID = $project_ID";
         $result4 = mysqli_query($conn, $goal);
         $row3 = mysqli_fetch_array($result3);
         $row4 = mysqli_fetch_array($result4);
         ?>
         <div id="progress">
           <div id="progressbar">
-            <div id="label"><?= $row3["current_status"] / $row4["goal"] * 100 . '%'  ?></div>
+            <div id="label"><?= round($row3["current_status"] / $row4["goal"] * 100) . '%'  ?></div>
+            
+            <style>#progressbar { 
+                    width: <?= round($row3["current_status"] / $row4["goal"] * 100) . '%'  ?> ;
+                    }
+            </style>
+            
           </div>
         </div>
-        <?php 
+        <?php
+        $hours= "select UNIX_TIMESTAMP(end_date) from project where project_ID = $project_ID";
+        $result5 = mysqli_query($conn, $hours);
+        $row5 = mysqli_fetch_array($result5);
+        $time = round(($row5["UNIX_TIMESTAMP(end_date)"] - strtotime(date('Y-m-d')))/ 3600);
+        $days = round(($row5["UNIX_TIMESTAMP(end_date)"] - strtotime(date('Y-m-d')))/ 86400);
         ?>
         <div id="info"> 
             <div id ="timetogo">
-                    <h2>27</h2>
-                    <p>Stunden bis zum Ziel</p>
+                <?php
+                if ($time <= 0) { ?> 
+                <h2> <?php echo 'Fertig' ?> </h2>                
+                <?php }
+                elseif ($time > 72) { ?> 
+                    <h2> <?php echo $days ?> </h2>
+                    <p><b>Tage</b> bis zum Ziel</p>
+                <?php }
+                else { ?>
+                   <h2><?php echo $time ?></h2>
+                   <p><b>Stunden</b> bis zum Ziel</p>
+                <?php } ?>
+                    
             </div>
-
+        <?php
+        $backers = "select count(t.project_ID) from transaction t join project p on t.project_ID = p.project_ID where t.project_ID = $project_ID";
+        $result6 = mysqli_query($conn, $backers);
+        $row6 = mysqli_fetch_array($result6);   
+        
+        ?>
             <div id ="backers">
-                    <h2>10</h2>
+                    <h2><?= $row6["count(t.project_ID)"]?></h2>
                     <p>Unterstützer</p>
             </div>
-            
-            <div id="goal">   
-            <h2>8.000€ / 10.000€</h2>
+        
+        
+        
+            <div id="goal">                   
+            <h2> <?= $row3["current_status"]?> € / <?=$row4["goal"]?> €</h2>
             <p>Fortschritt</p>
             </div>
         </div> 
-        <div id ="Text">
+        <?php    
+        $text = "select description from project where project_ID = $project_ID";
+        $result7 = mysqli_query($conn, $text);
+        $row7 = mysqli_fetch_array($result7);
+        $content = file_get_contents($row7["description"]);
+        ?>
             
+        <div id ="Text">            
             <div id ="desciption">
-                <h2>Projektbeschreibung</h2>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.  
-                    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
-                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
-                    Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.   
-                    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.   
-                    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+                <h2>Was ist '<?php echo $row1["title"] ?>' ?</h2>
+                <p><?php echo $content ?></p>
             </div>
-
-            <div id ="backing">
-                
+        
+        <?php 
+        $reward1 = "select 1plus_Reward from project where project_ID = $project_ID";
+        $result8 = mysqli_query($conn, $reward1);
+        $row8 = mysqli_fetch_array($result8);  
+        $reward2 = "select 10plus_Reward from project where project_ID = $project_ID";
+        $result9 = mysqli_query($conn, $reward2);
+        $row9 = mysqli_fetch_array($result9);   
+        $reward3 = "select 50plus_Reward from project where project_ID = $project_ID";
+        $result10 = mysqli_query($conn, $reward3);
+        $row10 = mysqli_fetch_array($result10);   
+        $reward4 = "select 100plus_Reward from project where project_ID = $project_ID";
+        $result11 = mysqli_query($conn, $reward4);
+        $row11 = mysqli_fetch_array($result11);   
+        $reward5 = "select 250plus_Reward from project where project_ID = $project_ID";
+        $result12 = mysqli_query($conn, $reward5);
+        $row12 = mysqli_fetch_array($result12); 
+        ?>
+        
+            <div id ="backing">                
                 <h2>Dieses Projekt unterstützen</h2>
                 <button type="button" >Unterstützen</button>
+                
+                <?php if(isset($row8["1plus_Reward"])) {?>
                 <h3>1€ aufwärts</h3>
                 <h4>Belohnung</h4>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy </p>   
-                <h3>5€ aufwärts</h3>
-                <h4>Belohnung</h4>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy </p>
+                <p><?= $row8["1plus_Reward"]?></p> <?php ;}
+                
+                if(isset($row9["10plus_Reward"])) {?>
                 <h3>10€ aufwärts</h3>
                 <h4>Belohnung</h4>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy </p>
+                <p><?= $row9["10plus_Reward"]?></p> <?php ;}
+                
+                if(isset($row10["50plus_Reward"])) {?>
+                <h3>50€ aufwärts</h3>
+                <h4>Belohnung</h4>
+                <p><?= $row10["50plus_Reward"]?></p> <?php ;} 
+                
+                if(isset($row11["100plus_Reward"])) {?>
+                <h3>100€ aufwärts</h3>
+                <h4>Belohnung</h4>
+                <p><?= $row11["100plus_Reward"]?></p> <?php ;}
+                
+                if(isset($row12["250plus_Reward"])) {?>
+                <h3>250€ aufwärts</h3>
+                <h4>Belohnung</h4>
+                <p><?= $row12["250plus_Reward"]?></p> <?php ;}
+                
+                ?>
+                
             </div>
         </div>
     </div>
@@ -106,7 +175,7 @@
            x[i].style.display = "none";  
         }
         myIndex++;
-        if (myIndex > x.length) {myIndex = 1}    
+        if (myIndex > x.length) {myIndex = 1 ;}    
         x[myIndex-1].style.display = "block";  
         setTimeout(carousel, 5000); 
     }   
@@ -122,12 +191,11 @@
     function showDivs(n) {
       var i;
       var x = document.getElementsByClassName("slideshow");
-      if (n > x.length) {slideIndex = 1}    
-      if (n < 1) {slideIndex = x.length}
+      if (n > x.length) {slideIndex = 1 ;}    
+      if (n < 1) {slideIndex = x.length ;}
       for (i = 0; i < x.length; i++) {
          x[i].style.display = "none";  
       }
       x[slideIndex-1].style.display = "block";  
     }
 </script>
-
