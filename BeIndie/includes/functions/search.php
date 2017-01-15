@@ -86,7 +86,7 @@ if ($no_cats == true) {
 function search_output($output) {
     echo "<div class = 'projects_display'>";
         echo "<div class = 'project_img'>";
-            echo "<a href='includes/pages/projects/projects.php?q=" . $output["project_ID"] .
+            echo "<a href='index.php?page=projects&q=" . $output["project_ID"] .
                 "'><img src='" . $output["image_path"] . "'></a>";
             echo "<a class='support_button' href='index.php?page=projects&q=" .$output["project_ID"] . 
                  "'><button type='button'>Unterstützen</button></a>";

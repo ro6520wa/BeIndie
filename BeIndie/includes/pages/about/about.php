@@ -26,7 +26,7 @@
                         echo ($current_year - $date_parts[2]);
                     }
                     echo "<br/>";
-                    include ("e_texts/" . $row["e_ID"] . ".txt");
+                    include ("texts/e_texts/" . $row["e_ID"] . ".txt");
                     ?>
                 </span>
             </article>
@@ -38,7 +38,7 @@
             <img src="images/logo.png" alt="logo" height="35"/>
             <br/>
             <span id="beindie">
-                <?php include ("e_texts/beindie.txt"); ?>
+                <?php include ("texts/e_texts/beindie.txt"); ?>
             </span>
         </article>
         <!--Otherwise the div wrapper won't lengthen to the bottom of the page somehow-->

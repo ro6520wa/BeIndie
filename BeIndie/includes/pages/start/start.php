@@ -46,7 +46,7 @@
                                 "'><button type='button'>Unterstützen</button></a>";
                         echo "</div>";
                         echo "<h3 class='project_title'>";
-                            echo "<a href='index.php?page=projects_q=" . $output["project_ID"] . "'>" .
+                            echo "<a href='index.php?page=projects&q=" . $output["project_ID"] . "'>" .
                                     $output["title"] . "</a>";
                         echo "</h3>";
                         echo "<p class='project_user'>";
