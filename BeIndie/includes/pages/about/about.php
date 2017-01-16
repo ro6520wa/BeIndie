@@ -25,9 +25,10 @@
                     } else if ($current_month > $date_parts[1]) {
                         echo ($current_year - $date_parts[2]);
                     }
-                    echo "<br/>";
-                    include ("texts/e_texts/" . $row["e_ID"] . ".txt");
-                    ?>
+                    echo "<br/>";?>
+                    <div class="e_text"> 
+                        <?php include ("texts/e_texts/" . $row["e_ID"] . ".txt"); ?>
+                    </div>
                 </span>
             </article>
             <?php
