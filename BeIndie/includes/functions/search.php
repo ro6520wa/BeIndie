@@ -1,5 +1,4 @@
 <?php
-
 include ("swConnect.php");
 
 $filters = explode(".", $_GET["q"]);
@@ -10,7 +9,7 @@ $cat_title_string = "";
 $cat_user_string = "";
 $title_string = " title like '%$filters[0]%'";
 $user_string = " user_name like '%$filters[0]%'";
-$select_string = "SELECT p.project_ID, title, goal, current_status, start_date, end_date, user_name, image_path";
+$select_string = "SELECT p.project_ID, title, goal, current_status, UNIX_TIMESTAMP(end_date), user_name, image_path";
 $from_join_string = " FROM project p JOIN user u ON p.creator=u.email JOIN project_image pi ON p.project_ID=pi.project_ID";
 $group_string = " GROUP BY p.project_ID";
 
@@ -84,54 +83,67 @@ if ($no_cats == true) {
 }
 
 function search_output($output) {
-    echo "<div class = 'projects_display'>";
-        echo "<div class = 'project_img'>";
-            echo "<a href='index.php?page=projects&q=" . $output["project_ID"] .
-                "'><img src='" . $output["image_path"] . "'></a>";
-            echo "<a class='support_button' href='index.php?page=projects&q=" .$output["project_ID"] . 
-                 "'><button type='button'>Unterstützen</button></a>";
-        echo "</div>";
-        echo "<h3 class='project_title'>";
-            echo "<a href='index.php?page=projects&q=" . $output["project_ID"] . "'>" .
-                $output["title"] . "</a>";
-        echo "</h3>";
-        echo "<p class='project_user'>";
-            echo $output["user_name"];
-        echo "</p>";
-        echo "<div class'percent_goal'>";
-            $percent = number_format((($output["current_status"] / $output["goal"])*100));
+    ?>
+    <div class = 'projects_display'>
+        <div class = 'project_img'>
+            <a href='index.php?page=projects&q=<?= $output["project_ID"] ?>'><img src='<?= $output["image_path"] ?>'></a>
+            <ul><li class="support_button"><a href='index.php?page=projects&q=<?= $output["project_ID"] ?>'>Unterstützen</a></li></ul>
+        </div>
+        <h3 class='project_title'>
+            <a href='index.php?page=projects&q=<?= $output["project_ID"] ?>'>
+                <?= $output["title"] ?></a>
+        </h3>
+        <p class='project_user'>
+            <?= $output["user_name"] ?>
+        </p>
+        <div class='percent_goal'>
+            <?php
+            $percent = number_format((($output["current_status"] / $output["goal"]) * 100));
             echo $percent . "%";
-        echo "</div>";
-        echo "<div class='goal_bar'><div class='current_bar' style='width:" .
-            $percent . "%'></div></div>";
-        echo "<div class='project_stats'>";
-            echo "<table>";
-                echo "<tr>";
-                    echo "<th>";
-                        echo $output["current_status"] . "€";
-                    echo "</th>";
-                    echo "<th>";
-                        echo $output["goal"] . "€";
-                    echo "</th>";
-                    echo "<th>";
-                        $datetime1 = new DateTime($output["start_date"]);
-                        $datetime2 = new DateTime($output["end_date"]);
-                        $interval = $datetime1->diff($datetime2);
-                        echo $interval->format('%a Tage');
-                    echo "</th>";
-                echo "</tr>";
-                echo "<tr>";
-                    echo "<td>";
-                        echo "Stand";
-                    echo "</td>";
-                    echo "<td>";
-                        echo "Ziel";
-                    echo "</td>";
-                    echo "<td>";
-                        echo "bis zum Ziel";
-                    echo "</td>";
-                echo "</tr>";
-            echo "</table>";
-        echo "</div>";
-    echo "</div>";
-}
+            ?>
+        </div>
+        <div class='goal_bar'><div class='current_bar' style='width:<?= $percent ?>%'></div></div>
+        <div class='project_stats'>
+            <table>
+                <tr>
+                    <th>
+                        <?= $output["current_status"] ?> €
+                    </th>
+                    <th>
+                        <?= $output["goal"] ?> €
+                    </th>
+                    <th>
+                        <?php
+                        $time = round(($output["UNIX_TIMESTAMP(end_date)"] - strtotime(date('Y-m-d'))) / 3600);
+                        $days = round(($output["UNIX_TIMESTAMP(end_date)"] - strtotime(date('Y-m-d'))) / 86400);
+                        $is_finished = false;
+                        if ($time <= 0) {
+                            echo 'Fertig';
+                            $is_finished = true;
+                        } elseif ($time > 72) {
+                            echo $days . " Tage";
+                        } else {
+                            echo $time . " Stunden";
+                        }
+                        ?>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Stand
+                    </td>
+                    <td>
+                        Ziel
+                    </td>
+                    <td>
+                        <?php
+                        if (!$is_finished) {
+                            echo "bis zum Ziel";
+                        }
+                        ?>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+<?php } ?>

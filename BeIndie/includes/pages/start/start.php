@@ -32,70 +32,10 @@
                     </tr>
                 </table>
             </div>
-            <div id="display_all">
-                <?php
-                include ("includes/functions/swConnect.php");
-                $query = "SELECT p.project_ID, title, goal, current_status, start_date, end_date, user_name, image_path FROM project p JOIN user u ON p.creator=u.email JOIN project_image pi ON p.project_ID=pi.project_ID GROUP BY p.project_ID";
-                $result = mysqli_query($conn, $query);
-                while ($output = mysqli_fetch_assoc($result)) {
-                    echo "<div class = 'projects_display'>";
-                        echo "<div class = 'project_img'>";
-                            echo "<a href='index.php?page=projects&q=" . $output["project_ID"] .
-                            "'><img src='" . $output["image_path"] . "'></a>";
-                            echo "<a class='support_button' href='includes/pages/projects/support_project.php?q=" .$output["project_ID"] . 
-                                "'><button type='button'>Unterstützen</button></a>";
-                        echo "</div>";
-                        echo "<h3 class='project_title'>";
-                            echo "<a href='index.php?page=projects&q=" . $output["project_ID"] . "'>" .
-                                    $output["title"] . "</a>";
-                        echo "</h3>";
-                        echo "<p class='project_user'>";
-                            echo $output["user_name"];
-                        echo "</p>";
-                        echo "<div class'percent_goal'>";
-                            $percent = number_format((($output["current_status"] / $output["goal"])*100));
-                            echo $percent . "%";
-                        echo "</div>";
-                        echo "<div class='goal_bar'><div class='current_bar' style='width:" .
-                                $percent . "%'></div></div>";
-                        echo "<div class='project_stats'>";
-                            echo "<table>";
-                                echo "<tr>";
-                                    echo "<th>";
-                                        echo $output["current_status"] . "€";
-                                    echo "</th>";
-                                    echo "<th>";
-                                        echo $output["goal"] . "€";
-                                    echo "</th>";
-                                    echo "<th>";
-                                        $datetime1 = new DateTime($output["start_date"]);
-                                        $datetime2 = new DateTime($output["end_date"]);
-                                        $interval = $datetime1->diff($datetime2);
-                                        echo $interval->format('%a Tage');
-                                    echo "</th>";
-                                echo "</tr>";
-                                echo "<tr>";
-                                    echo "<td>";
-                                        echo "Stand";
-                                    echo "</td>";
-                                    echo "<td>";
-                                        echo "Ziel";
-                                    echo "</td>";
-                                    echo "<td>";
-                                        echo "bis zum Ziel";
-                                    echo "</td>";
-                                echo "</tr>";
-                            echo "</table>";
-                        echo "</div>";
-                    echo "</div>";
-                }
-        include ("includes/functions/swClose.php");
-        ?>
+            <div id="search_result"></div>
+            <div id="fixing_stuff">This text is not visible.</div>
+        </div>
     </div>
-    <div id="search_result"></div>
-    <div id="fixing_stuff">This text is not visible.</div>
-</div>
-</div>
 </div>
 <script src="js/filter.js" type="text/javascript"></script>
 <script src="js/search.js" type="text/javascript"></script>
