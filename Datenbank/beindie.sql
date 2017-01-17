@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 17. Jan 2017 um 20:24
--- Server-Version: 10.1.16-MariaDB
--- PHP-Version: 5.6.24
+-- Erstellungszeit: 17. Jan 2017 um 23:51
+-- Server-Version: 10.1.19-MariaDB
+-- PHP-Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -170,12 +170,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_ID`, `email`, `user_name`, `first_name`, `last_name`, `avatar`, `location`, `crypt_pw`) VALUES
-(2, 'John.D@gmail.com', 'JD', 'John', 'Doe', '/img/johnD.png', 'Erfurt, Germany', ''),
-(3, 'Not.Doe@gmail.com', 'NotD', 'Not', 'Doe', '/img/not.jpg', 'Weimar, Germany', ''),
-(4, 'kelixf@gmx.de', 'TheFiesling', 'Kelix', 'Fießling', NULL, 'Waynetrain, No Mans Sky', ''),
-(5, 'ron.wagner@fh-erfurt.de', 'ro6520wa', 'Ron', 'Wagner', NULL, 'Weimar, Germany', ''),
-(6, 'wurstjay@web.de', 'WurstJay', 'Jonathan', 'Wurst', NULL, 'Oktoberfest, Germany', ''),
-(7, 'paul.hentgen@fh-erfurt.de', 'pa4873he', 'Paul', 'Hentgen', NULL, 'Erfurt, Germany', '');
+(2, 'John.D@gmail.com', 'JD', 'John', 'Doe', '/img/johnD.png', 'Erfurt, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.'),
+(3, 'Not.Doe@gmail.com', 'NotD', 'Not', 'Doe', '/img/not.jpg', 'Weimar, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.'),
+(4, 'kelixf@gmx.de', 'TheFiesling', 'Kelix', 'Fießling', NULL, 'Waynetrain, No Mans Sky', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.'),
+(5, 'ron.wagner@fh-erfurt.de', 'ro6520wa', 'Ron', 'Wagner', NULL, 'Weimar, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.'),
+(6, 'wurstjay@web.de', 'WurstJay', 'Jonathan', 'Wurst', NULL, 'Oktoberfest, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.'),
+(7, 'paul.hentgen@fh-erfurt.de', 'pa4873he', 'Paul', 'Hentgen', NULL, 'Erfurt, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.');
 
 --
 -- Indizes der exportierten Tabellen

@@ -13,7 +13,7 @@
     <fieldset class="field_login">
         <legend>Einloggen</legend>
         <div class="login">
-            <form method="POST" action="check_user.php">
+            <form method="POST" action="includes/functions/check_user.php">
                 <label><b>E-Mail</b></label>
                 <input type="text" placeholder="E-Mail eingeben..." name="email" class="login_input" required>
 

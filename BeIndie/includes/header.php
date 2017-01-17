@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <header>
     <div id="nav">
         <div id="navhead">
@@ -21,10 +22,10 @@
                     class="close" title="Close Modal">&times;</span>
 
                     <!-- Modal Content -->
-                    <form class="modal-content animate" action="action_page.php">
+                    <form class="modal-content animate" action="includes/functions/check_user.php" method="POST">
                         <div class="container">
                             <label><b>E-Mail</b></label>
-                            <input type="text" placeholder="E-Mail eingeben..." name="uname" class="modal_input" required>
+                            <input type="text" placeholder="E-Mail eingeben..." name="email" class="modal_input" required>
 
                             <label><b>Passwort</b></label>
                             <input type="password" placeholder="Passwort eingeben..." name="psw" class="modal_input" required>
