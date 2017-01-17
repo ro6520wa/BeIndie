@@ -12,6 +12,10 @@
     margin: 0;
 }
 
+body {
+    background-color: #f1f1f1;
+}
+
 body,h2,h3,h4,h5,h6,h7 {
     font-family: 'Raleway', sans-serif;
 }
@@ -23,7 +27,6 @@ h1 {
 .fixed {
     position: fixed;
     top: 0;
-    box-shadow: 0px 5px 5px #333;
 }
 
 /*nav*/
@@ -137,14 +140,13 @@ ul.login li a:hover {
     background-size: cover;
     background-position: center center;
     position: relative;
-    z-index: -1;
+    z-index: 0;
 }
 
 #head p.adtext1 {
     color: white;
     font-size: 60px;
     text-align: center;
-    /*    font-weight: bold;*/
     text-transform: uppercase;
     padding-top: 250px;
     line-height: 1.5;
@@ -154,8 +156,12 @@ ul.login li a:hover {
     color: white;
     font-size: 25px;
     text-align: center;
-    /*font-weight: 900;*/
 } 
+
+#head a {
+   color: #4CAF50;
+   z-index: 5;
+}
 
 #top-content {
     background-color: #f1f1f1;
@@ -302,6 +308,7 @@ p.desc_text{
     position: relative;
     padding: 50px;
     margin-top: -300px;
+    font-weight: bold;
 }
 
 /*.support_button {
@@ -412,17 +419,17 @@ footer article {
 /*the following css is only relevant for the modal login form*/
 
 /* Bordered form */
-form {
+form.modal-content animate {
     border: 3px solid #f1f1f1;
 }
 
-label {
+.container label {
     padding-left: 20px;
 }
 
 /* Full-width inputs */
 .modal_input {
-    width: 960px;
+    width: 380px;
     padding: 12px 20px;
     margin: 8px 20px;
     display: inline-block;
@@ -441,11 +448,16 @@ label {
     width: 81px;
 }
 
+.stay_logged_in {
+    padding-left: 0;
+    font-size: 14px;
+}
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 15; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -461,28 +473,19 @@ label {
     background-color: #fefefe;
     margin: 5px auto; /* 15% from the top and centered */
     border: 1px solid #888;
-    width: 980px; /* Could be more or less, depending on screen size */
-    padding-top: 15px;
+    width: 400px; /* Could be more or less, depending on screen size */
+    padding-top: 30px;
     padding-right: 20px;
     padding-bottom: 15px;
 }
 
-/* The Close Button */
-.close {
-    /* Position it in the top right corner outside of the modal */
-    position: absolute;
-    right: 25px;
-    top: 0; 
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
+.new_register {
+    margin: 8px 20px;
+    font-size: 14px;
 }
 
-/* Close button on hover */
-.close:hover,
-.close:focus {
-    color: red;
-    cursor: pointer;
+.new_register a{
+    color: #4CAF50;
 }
 
 /* Add Zoom Animation */

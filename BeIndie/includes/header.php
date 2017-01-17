@@ -28,9 +28,8 @@
 
                             <label><b>Passwort</b></label>
                             <input type="password" placeholder="Passwort eingeben..." name="psw" class="modal_input" required>
-
                             <button type="submit" class="modal_button">Login</button>
-                            <input type="checkbox" checked="checked"> Eingeloggt bleiben
+                            <p class="new_register">Noch keinen Account? <a href="index.php?page=login">Hier registrieren!</a></p>
                         </div>
                     </form>
                 </div>

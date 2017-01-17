@@ -1,0 +1,58 @@
+.login_wrap {
+    width: 980px;
+    padding: 20px 0;
+    margin: 0 auto;
+    margin-bottom: 450px;
+}
+
+#be_part_text {
+    margin-bottom: 30px;
+    font-size: 20px;
+    text-align: justify;
+    line-height: 30px;
+}
+
+#be_part_text img {
+    margin-bottom: 5px;
+}
+
+#be_part_text a {
+    color: #4CAF50;
+}
+
+.field_login, .field_register {
+    float: left;
+    width: 450px;
+    padding: 20px 10px;
+    margin: 0px 8px;
+}
+
+.field_login legend, .field_register legend {
+    font-weight: bold;
+    color: #4CAF50;
+    font-size: 28px;
+}
+
+.login_input, .register_input {
+    width: 370px;
+    padding: 12px 20px;
+    margin: 8px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.login_button, .register_button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0px;
+    margin: 8px 20px;
+    border: none;
+    cursor: pointer;
+    width: 150px;
+}
+
+.register_button {
+    padding: 10px 0px;
+    
+}
