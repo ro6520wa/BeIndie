@@ -23,6 +23,7 @@ h1 {
 .fixed {
     position: fixed;
     top: 0;
+    box-shadow: 0px 5px 5px #333;
 }
 
 /*nav*/
@@ -79,6 +80,11 @@ ul.topnav li a {
     letter-spacing: 2px;
     position: relative;
 }
+
+/*optional active class*/
+/*.topnav li.active a {
+    color: #4CAF50;
+}*/
 
 ul.topnav li.login {
     float: right;
@@ -250,6 +256,7 @@ div.filter_panel.show {
     width: 450px;
     margin: 40px 20px 40px 20px;
     float: left;
+    text-align: justify;
 }
 
 .project_img {
@@ -279,7 +286,25 @@ div.filter_panel.show {
     margin-bottom: 120px;
 }
 
-.support_button {
+.projects_display a {
+    text-decoration: none;
+}
+
+p.desc_text{
+    z-index:3;
+    opacity:1;
+    color: black;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    display: none;
+    position: relative;
+    padding: 50px;
+    margin-top: -300px;
+}
+
+/*.support_button {
     list-style-type: none;
     padding: 10px;
     background-color: #4CAF50;
@@ -305,12 +330,7 @@ div.filter_panel.show {
 
 .support_button:active {
     box-shadow:0 0px 0px 0 rgba(0,0,0,0),0 0px 0px 0 rgba(0,0,0,0);
-}
-
-.support_button_show {
-    z-index: 3;
-    opacity: 1;
-}
+}*/
 
 .project_title {
     margin-top: 5px;

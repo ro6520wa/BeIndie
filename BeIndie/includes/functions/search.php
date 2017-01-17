@@ -9,7 +9,7 @@ $cat_title_string = "";
 $cat_user_string = "";
 $title_string = " title like '%$filters[0]%'";
 $user_string = " user_name like '%$filters[0]%'";
-$select_string = "SELECT p.project_ID, title, goal, current_status, UNIX_TIMESTAMP(end_date), user_name, image_path";
+$select_string = "SELECT p.project_ID, title, goal, current_status, UNIX_TIMESTAMP(end_date), user_name, image_path, description";
 $from_join_string = " FROM project p JOIN user u ON p.creator=u.email JOIN project_image pi ON p.project_ID=pi.project_ID";
 $group_string = " GROUP BY p.project_ID";
 
@@ -83,11 +83,16 @@ if ($no_cats == true) {
 }
 
 function search_output($output) {
+    $desc = file_get_contents("../../" . $output["description"]);
+    if (strlen($desc) > 450) {
+        $desc = substr($desc, 0, 450) . "...";
+    }
     ?>
     <div class = 'projects_display'>
         <div class = 'project_img'>
             <a href='index.php?page=projects&q=<?= $output["project_ID"] ?>'><img src='<?= $output["image_path"] ?>'></a>
-            <ul><li class="support_button"><a href='index.php?page=projects&q=<?= $output["project_ID"] ?>'>Unterstützen</a></li></ul>
+            <a href='index.php?page=projects&q=<?= $output["project_ID"] ?>'> <p class="desc_text"><?php echo $desc;?></p></a>
+            <!--<ul><li class="support_button"><a href='index.php?page=projects&q=<? $output["project_ID"] ?>'>Unterstützen</a></li></ul>-->
         </div>
         <h3 class='project_title'>
             <a href='index.php?page=projects&q=<?= $output["project_ID"] ?>'>
