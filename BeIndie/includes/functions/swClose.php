@@ -1,4 +1,3 @@
-<br/>
 <?php
 
 if(mysqli_close($conn))
