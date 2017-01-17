@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 15. Jan 2017 um 14:51
+-- Erstellungszeit: 17. Jan 2017 um 20:24
 -- Server-Version: 10.1.16-MariaDB
 -- PHP-Version: 5.6.24
 
@@ -57,26 +57,21 @@ CREATE TABLE `project` (
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `category` varchar(200) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
-  `description` varchar(200) NOT NULL,
-  `1plus_Reward` varchar(200) DEFAULT NULL,
-  `10plus_Reward` varchar(200) DEFAULT NULL,
-  `50plus_Reward` varchar(200) DEFAULT NULL,
-  `100plus_Reward` varchar(200) DEFAULT NULL,
-  `250plus_Reward` varchar(200) DEFAULT NULL
+  `description` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `project`
 --
 
-INSERT INTO `project` (`project_ID`, `creator`, `title`, `goal`, `current_status`, `start_date`, `end_date`, `category`, `description`, `1plus_Reward`, `10plus_Reward`, `50plus_Reward`, `100plus_Reward`, `250plus_Reward`) VALUES
-(2, 'John.D@gmail.com', 'Awesome Project', 50000, 125000, '2016-12-01', '2017-01-16', 'technology', 'texts/description_texts/2.txt', NULL, 'You are more awesome!', 'You are more more awesome!', 'You are more more more awesome!', 'You are more more more more awesome!'),
-(3, 'kelixf@gmx.de', 'Barbie 2.0', 1000, 10, '2017-01-12', '2017-04-12', 'beauty', 'texts/description_texts/3.txt', 'DANKE!', '1 Barbie für dich.', NULL, '10 Barbies für dich.', 'Du wirst zur Barbie!'),
-(4, 'paul.hentgen@fh-erfurt.de', 'All Woman''s Sea - The Game', 100000, 250000, '2016-11-01', '2017-04-01', 'games', 'texts/description_texts/4.txt', 'DANKE!', NULL, 'Spiele Kopie\r\nBeta Zugang', 'Spiele Kopie\r\nBeta Zugang\r\nAlpha Zugang', '2xSpiele Kopie\r\nBeta Zugang\r\nAlpha Zugang\r\nName in Abspann'),
-(5, 'ron.wagner@fh-erfurt.de', 'Fatbool - The football reinvented', 15000, 1255, '2016-07-25', '2017-07-25', 'sports', 'texts/description_texts/5.txt', 'Danke!', 'Fatbool Poster und Kalender', 'Fatbool Regelbuch', 'Fatbool Poster, Kalender und 2xRegelbuch', 'Fatbool Ball Prototyp'),
-(6, 'wurstjay@web.de', 'Real Roschter - The Wurst for everyone', 35000, 23450, '2016-11-29', '2017-03-24', 'beauty', 'texts/description_texts/6.txt', 'DANKE!', NULL, 'Wurstset aus 5 Würsten', '2x Wurstset aus 5 Würsten', 'Besuch in der Produktionshalle'),
-(7, 'Not.Doe@gmail.com', 'The Face Enhancer - Be beautiful for once', 8000, 500, '2017-01-01', '2017-04-28', 'beauty', 'texts/description_texts/7.txt', 'Danke', NULL, NULL, NULL, NULL),
-(8, 'kelixf@gmx.de', 'Strawberry Cookie', 17500, 555, '2016-12-24', '2017-01-13', 'technology', 'texts/description_texts/8.txt', 'Danke!', NULL, NULL, NULL, NULL);
+INSERT INTO `project` (`project_ID`, `creator`, `title`, `goal`, `current_status`, `start_date`, `end_date`, `category`, `description`) VALUES
+(2, 'John.D@gmail.com', 'Awesome Project', 50000, 125000, '2016-12-01', '2017-01-16', 'technology', 'texts/description_texts/2.txt'),
+(3, 'kelixf@gmx.de', 'Barbie 2.0', 1000, 10, '2017-01-12', '2017-04-12', 'beauty', 'texts/description_texts/3.txt'),
+(4, 'paul.hentgen@fh-erfurt.de', 'All Woman''s Sea - The Game', 100000, 250000, '2016-11-01', '2017-04-01', 'games', 'texts/description_texts/4.txt'),
+(5, 'ron.wagner@fh-erfurt.de', 'Fatbool - The football reinvented', 15000, 1255, '2016-07-25', '2017-07-25', 'sports', 'texts/description_texts/5.txt'),
+(6, 'wurstjay@web.de', 'Real Roschter - The Wurst for everyone', 35000, 23450, '2016-11-29', '2017-03-24', 'beauty', 'texts/description_texts/6.txt'),
+(7, 'Not.Doe@gmail.com', 'The Face Enhancer - Be beautiful for once', 8000, 500, '2017-01-01', '2017-04-28', 'beauty', 'texts/description_texts/7.txt'),
+(8, 'kelixf@gmx.de', 'Strawberry Cookie', 17500, 555, '2016-12-24', '2017-01-13', 'technology', 'texts/description_texts/8.txt');
 
 -- --------------------------------------------------------
 
@@ -108,11 +103,35 @@ INSERT INTO `project_image` (`image_ID`, `project_ID`, `image_path`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tabellenstruktur für Tabelle `reward`
+--
+
+CREATE TABLE `reward` (
+  `reward_ID` int(11) NOT NULL,
+  `project_ID` int(11) NOT NULL,
+  `min_amount` int(11) NOT NULL,
+  `r_title` varchar(50) NOT NULL,
+  `r_text` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `reward`
+--
+
+INSERT INTO `reward` (`reward_ID`, `project_ID`, `min_amount`, `r_title`, `r_text`) VALUES
+(1, 2, 1, 'Thank you!', 'texts/reward_texts/2_1.txt'),
+(2, 2, 5, 'You are awesome!', 'texts/reward_texts/2_5.txt'),
+(3, 2, 50, 'You are more more awesome!', 'texts/reward_texts/2_50.txt'),
+(4, 2, 25, 'You are more awesome!', 'texts/reward_texts/2_25.txt');
+
+-- --------------------------------------------------------
+
+--
 -- Tabellenstruktur für Tabelle `transaction`
 --
 
 CREATE TABLE `transaction` (
-  `ID` int(11) NOT NULL,
+  `transaction_ID` int(11) NOT NULL,
   `user_ID` varchar(200) NOT NULL,
   `project_ID` int(11) NOT NULL,
   `amount` int(11) NOT NULL
@@ -122,7 +141,7 @@ CREATE TABLE `transaction` (
 -- Daten für Tabelle `transaction`
 --
 
-INSERT INTO `transaction` (`ID`, `user_ID`, `project_ID`, `amount`) VALUES
+INSERT INTO `transaction` (`transaction_ID`, `user_ID`, `project_ID`, `amount`) VALUES
 (1, 'Not.Doe@gmail.com', 2, 10000),
 (2, 'kelixf@gmx.de', 5, 5000),
 (3, 'paul.hentgen@fh-erfurt.de', 2, 100),
@@ -183,10 +202,17 @@ ALTER TABLE `project_image`
   ADD KEY `project_ID` (`project_ID`);
 
 --
+-- Indizes für die Tabelle `reward`
+--
+ALTER TABLE `reward`
+  ADD PRIMARY KEY (`reward_ID`),
+  ADD KEY `project_ID` (`project_ID`);
+
+--
 -- Indizes für die Tabelle `transaction`
 --
 ALTER TABLE `transaction`
-  ADD PRIMARY KEY (`ID`),
+  ADD PRIMARY KEY (`transaction_ID`),
   ADD KEY `creator` (`user_ID`),
   ADD KEY `project_ID` (`project_ID`);
 
@@ -217,10 +243,15 @@ ALTER TABLE `project`
 ALTER TABLE `project_image`
   MODIFY `image_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
+-- AUTO_INCREMENT für Tabelle `reward`
+--
+ALTER TABLE `reward`
+  MODIFY `reward_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT für Tabelle `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `transaction_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT für Tabelle `user`
 --
@@ -241,6 +272,12 @@ ALTER TABLE `project`
 --
 ALTER TABLE `project_image`
   ADD CONSTRAINT `project_image_ibfk_1` FOREIGN KEY (`project_ID`) REFERENCES `project` (`project_ID`);
+
+--
+-- Constraints der Tabelle `reward`
+--
+ALTER TABLE `reward`
+  ADD CONSTRAINT `reward_ibfk_1` FOREIGN KEY (`project_ID`) REFERENCES `project` (`project_ID`);
 
 --
 -- Constraints der Tabelle `transaction`
