@@ -248,7 +248,7 @@ div.filter_panel.show {
 
 .projects_display {
     width: 450px;
-    padding: 40px 20px 40px 20px;
+    margin: 40px 20px 40px 20px;
     float: left;
 }
 
