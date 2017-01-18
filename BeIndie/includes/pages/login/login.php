@@ -1,15 +1,22 @@
-<?php 
+<?php
 $email_err = false;
 $uname_err = false;
 $psw_rp_err = false;
-if ($_POST["email_err"] == true){
-    $email_err = true;
-}
-if ($_POST["uname_err"] == true){
-    $uname_err = true;
-}
-if ($_POST["psw_rp_err"] == true){
-    $psw_rp_err = true;
+$login_err = false;
+if (isset($_GET["err"])) {
+    $err = $_GET["err"];
+    if ($err == "email") {
+        $email_err = true;
+    }
+    else if ($err == "uname") {
+        $uname_err = true;
+    }
+    else if ($err == "psw") {
+        $psw_rp_err = true;
+    }
+    else if ($err == "login") {
+        $login_err = true;
+    }
 }
 ?>
 
@@ -27,7 +34,13 @@ if ($_POST["psw_rp_err"] == true){
     <fieldset class="field_login">
         <legend>Einloggen</legend>
         <div class="login">
-            <div id="err_login"></div>
+            <div id="err_login" class='<?php
+                if ($login_err == true) {
+                    echo "show";
+                } ?>
+                '>
+                <i class="fa fa-times" aria-hidden="true"></i> E-Mail und Passwort stimmen nicht überein!
+            </div>
             <form method="POST" action="includes/functions/check_user.php">
                 <label><b>E-Mail</b></label>
                 <input type="text" placeholder="E-Mail eingeben..." name="email" class="login_input" required>
@@ -44,15 +57,33 @@ if ($_POST["psw_rp_err"] == true){
             <form method="POST" action="includes/functions/register_user.php">
                 <label><b>E-Mail</b></label>
                 <input type="text" placeholder="E-Mail eingeben..." name="email" class="register_input" required>
-                <div id="err_mail"></div>
+                <div id="err_email" class='<?php
+                     if ($email_err) {
+                         echo "show";
+                     }
+                     ?>'>
+                    <i class="fa fa-times" aria-hidden="true"></i> Die E-Mail Adresse ist schon in Benutzung!
+                </div>
                 <label><b>Nutzername</b></label>
                 <input type="text" placeholder="Nutzernamen eingeben..." name="uname" class="register_input" required>
-                <div id="err_uname"></div>
+                <div id="err_uname" class='<?php
+                     if ($uname_err) {
+                         echo "show";
+                     }
+                     ?>'>
+                    <i class="fa fa-times" aria-hidden="true"></i> Der Nutzername ist bereits vergeben!
+                </div>
                 <label><b>Passwort</b></label>
                 <input type="password" placeholder="Passwort eingeben..." name="psw" class="register_input" required>
                 <label><b>Passwort wiederholen</b></label>
                 <input type="password" placeholder="Passwort erneut eingeben..." name="psw_repeat" class="register_input" required>
-                <div id="err_psw_rp"></div>
+                <div id="err_psw_rp" class='<?php
+                     if ($psw_rp_err) {
+                         echo "show";
+                     }
+                     ?>'>
+                    <i class="fa fa-times" aria-hidden="true"></i> Die Passwörter müssen übereinstimmen!
+                </div>
                 <button type="submit" class="register_button">Registrieren</button>
             </form>
         </div>

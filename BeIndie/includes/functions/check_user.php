@@ -13,11 +13,10 @@ while ($row = mysqli_fetch_assoc($result)) {
     if(password_verify($psw, $row["crypt_pw"]))
     {
         $_SESSION["username"] = $row["user_name"];
-        header('Location: ../../index.php?page=user_profile');
+        header('Location: ../../index.php?page=start&login=succ');
         exit;
     }
 }
 
-$_POST["login_success"] = false;
-header('Location: ../../index.php?page=login');
+header('Location: ../../index.php?page=login&err=login');
 exit(1);
