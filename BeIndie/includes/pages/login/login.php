@@ -26,15 +26,15 @@
     <fieldset class="field_register">
         <legend>Registrieren</legend>
         <div class="register">
-            <form method="POST" action="register_user.php">
+            <form method="POST" action="includes/functions/register_user.php">
                 <label><b>E-Mail</b></label>
                 <input type="text" placeholder="E-Mail eingeben..." name="email" class="register_input" required>
                 <label><b>Nutzername</b></label>
-                <input type="text" placeholder="E-Mail eingeben..." name="uname" class="register_input" required>
+                <input type="text" placeholder="Nutzernamen eingeben..." name="uname" class="register_input" required>
                 <label><b>Passwort</b></label>
                 <input type="password" placeholder="Passwort eingeben..." name="psw" class="register_input" required>
                 <label><b>Passwort wiederholen</b></label>
-                <input type="password" placeholder="Passwort eingeben..." name="psw_repeat" class="register_input" required>
+                <input type="password" placeholder="Passwort erneut eingeben..." name="psw_repeat" class="register_input" required>
                 <button type="submit" class="register_button">Registrieren</button>
             </form>
         </div>
