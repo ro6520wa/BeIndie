@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 17. Jan 2017 um 23:51
+-- Erstellungszeit: 18. Jan 2017 um 09:56
 -- Server-Version: 10.1.19-MariaDB
 -- PHP-Version: 5.6.28
 
@@ -158,10 +158,10 @@ CREATE TABLE `user` (
   `user_ID` int(11) NOT NULL,
   `email` varchar(200) NOT NULL,
   `user_name` varchar(30) NOT NULL,
-  `first_name` varchar(200) NOT NULL,
-  `last_name` varchar(200) NOT NULL,
+  `first_name` varchar(200) DEFAULT NULL,
+  `last_name` varchar(200) DEFAULT NULL,
   `avatar` varchar(200) DEFAULT NULL,
-  `location` varchar(200) NOT NULL,
+  `location` varchar(200) DEFAULT NULL,
   `crypt_pw` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -175,7 +175,8 @@ INSERT INTO `user` (`user_ID`, `email`, `user_name`, `first_name`, `last_name`, 
 (4, 'kelixf@gmx.de', 'TheFiesling', 'Kelix', 'Fießling', NULL, 'Waynetrain, No Mans Sky', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.'),
 (5, 'ron.wagner@fh-erfurt.de', 'ro6520wa', 'Ron', 'Wagner', NULL, 'Weimar, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.'),
 (6, 'wurstjay@web.de', 'WurstJay', 'Jonathan', 'Wurst', NULL, 'Oktoberfest, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.'),
-(7, 'paul.hentgen@fh-erfurt.de', 'pa4873he', 'Paul', 'Hentgen', NULL, 'Erfurt, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.');
+(7, 'paul.hentgen@fh-erfurt.de', 'pa4873he', 'Paul', 'Hentgen', NULL, 'Erfurt, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.'),
+(12, 'jochen@schweizer.com', 'Schwizzi', NULL, NULL, NULL, NULL, '$2y$10$g4Om1KaNaIzi1GJue2/.kecfwVWQQtSUoNIiw/puAocwv3Op8lAgq');
 
 --
 -- Indizes der exportierten Tabellen
@@ -256,7 +257,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- Constraints der exportierten Tabellen
 --
