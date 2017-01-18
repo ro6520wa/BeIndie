@@ -1,3 +1,18 @@
+<?php 
+$email_err = false;
+$uname_err = false;
+$psw_rp_err = false;
+if ($_POST["email_err"] == true){
+    $email_err = true;
+}
+if ($_POST["uname_err"] == true){
+    $uname_err = true;
+}
+if ($_POST["psw_rp_err"] == true){
+    $psw_rp_err = true;
+}
+?>
+
 <div class="login_wrap">
     <div id="be_part_text">
         <img src="images/logo.png" width="150px">
@@ -9,10 +24,10 @@
             deine Frage antworten.
         </p>
     </div>
-    <div id="errormsg"></div>
     <fieldset class="field_login">
         <legend>Einloggen</legend>
         <div class="login">
+            <div id="err_login"></div>
             <form method="POST" action="includes/functions/check_user.php">
                 <label><b>E-Mail</b></label>
                 <input type="text" placeholder="E-Mail eingeben..." name="email" class="login_input" required>
@@ -29,12 +44,15 @@
             <form method="POST" action="includes/functions/register_user.php">
                 <label><b>E-Mail</b></label>
                 <input type="text" placeholder="E-Mail eingeben..." name="email" class="register_input" required>
+                <div id="err_mail"></div>
                 <label><b>Nutzername</b></label>
                 <input type="text" placeholder="Nutzernamen eingeben..." name="uname" class="register_input" required>
+                <div id="err_uname"></div>
                 <label><b>Passwort</b></label>
                 <input type="password" placeholder="Passwort eingeben..." name="psw" class="register_input" required>
                 <label><b>Passwort wiederholen</b></label>
                 <input type="password" placeholder="Passwort erneut eingeben..." name="psw_repeat" class="register_input" required>
+                <div id="err_psw_rp"></div>
                 <button type="submit" class="register_button">Registrieren</button>
             </form>
         </div>

@@ -1,9 +1,9 @@
 <?php
 
 session_start();
-$_SESSION["email_rp"] = false;
-$_SESSION["uname_rp"] = false;
-$_SESSION["psw_repeat"] = false;
+$_POST["email_err"] = false;
+$_POST["uname_err"] = false;
+$_POST["psw_repeat_err"] = false;
 include ("swConnect.php");
 
 $email = strtolower($_POST["email"]);
@@ -14,7 +14,7 @@ $psw_repeat = $_POST["psw_repeat"];
 if(!($psw == $psw_repeat))
 {
     header('Location: ../../index.php?page=login');
-    $_SESSION["psw_repeat"] = true;
+    $_POST["psw_repeat_err"] = true;
     exit(1);
 }
 
@@ -23,7 +23,7 @@ $result1 = mysqli_query($conn, $query1);
 
 while ($row = mysqli_fetch_assoc($result1)) {
     header('Location: ../../index.php?page=login');
-    $_SESSION["email_rp"] = true;
+    $_POST["email_err"] = true;
     exit(1);
 }
 
@@ -32,7 +32,7 @@ $result2 = mysqli_query($conn, $query2);
 
 while ($row = mysqli_fetch_assoc($result2)) {
     header('Location: ../../index.php?page=login');
-    $_SESSION["uname_rp"] = true;
+    $_POST["uname_err"] = true;
     exit(1);
 }
 
