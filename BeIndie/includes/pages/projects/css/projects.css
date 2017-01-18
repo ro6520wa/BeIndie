@@ -15,6 +15,7 @@
 h1 {
     padding-top: 10px;
     padding-bottom: 30px;
+    text-align: center;
 }
 
 /*slideshow*/
@@ -32,34 +33,48 @@ h1 {
 
 /*Slideshow-Buttons*/
 #slideshow a{
+    position:absolute;
     border:none;
     display:inline-block;
     outline:0;
-    padding:6px 16px;
     vertical-align:middle;
     overflow:hidden;
-    text-decoration:none!important;
-    color:#fff;background-color:#000;
-    text-align:center;
     cursor:pointer;
-    white-space:nowrap;    
+    background: none;    
+    transition-duration: 1s;    
+    padding:15px 25px;
+}
+
+#slideshow a:hover.left{   
+    
+    color:#fff;
+    background-color:#000;    
+    transition-duration: 1s;
+}
+
+#slideshow a:hover.right{   
+    
+    color:#fff;
+    background-color:#000;
+    transition-duration: 1s;
+}
+
+#slideshow a.left{    
+    position:absolute;    
+    margin-top: -250px;
+    transform:translate(0%,-50%);
+    -ms-transform:translate(-0%,-50%);  
+    border-radius: 0 10px 10px 0;
     
 }
 
-#slideshow a.left{
+#slideshow a.right{ 
     position:absolute;
-    top:606px;    
+    margin-left: 942px;    
+    margin-top: -250px;
     transform:translate(0%,-50%);
-    -ms-transform:translate(-0%,-50%);
-    
-}
-
-#slideshow a.right{
-    position:absolute;
-    top:606px; 
-    left:1423px;
-    transform:translate(0%,-50%);
-    -ms-transform:translate(0%,-50%)
+    -ms-transform:translate(0%,-50%);      
+    border-radius: 10px 0 0 10px;
 }
 
 
@@ -183,7 +198,8 @@ h2{
     display: inline-block;
     margin-bottom: 20px;
     font-size: 25px;
-    box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);    
+    cursor:pointer; 
     z-index: -10;
 }
 

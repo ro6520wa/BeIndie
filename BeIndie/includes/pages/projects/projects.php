@@ -1,6 +1,9 @@
 
 <div id="all_projects">
     <?php
+
+    
+    
         include ("includes/functions/swConnect.php");
     ?>
     <a href="../../functions/swConnect.php"></a>
@@ -14,7 +17,7 @@
     ?>
     
     <div id="project">
-            <h1 align="center"><?=  $row1["title"] ?></h1>
+            <h1><?=  $row1["title"] ?></h1>
         <div id="slideshow">
     <?php 
                    
@@ -92,72 +95,47 @@
             <p>Fortschritt</p>
             </div>
         </div> 
-        <?php    
+        <?php   
+        $search = array("ä", "ö", "ü", "ß", "Ä", "Ö", 
+        "Ü");
+        $replace = array("ae", "oe", "ue", "ss", "Ae", "Oe", 
+        "Ue");
+    
+        
         $text = "select description from project where project_ID = $project_ID";
         $result7 = mysqli_query($conn, $text);
         $row7 = mysqli_fetch_array($result7);
         $content = file_get_contents($row7["description"]);
         ?>
             
-        <div id ="Text">            
-            <div id ="desciption">
-                <h2>Was ist '<?php echo $row1["title"] ?>' ?</h2>
-                <p><?php echo $content ?></p>
-            </div>
-        
-        <?php 
-        $reward1 = "select 1plus_Reward from project where project_ID = $project_ID";
-        $result8 = mysqli_query($conn, $reward1);
-        $row8 = mysqli_fetch_array($result8);  
-        $reward2 = "select 10plus_Reward from project where project_ID = $project_ID";
-        $result9 = mysqli_query($conn, $reward2);
-        $row9 = mysqli_fetch_array($result9);   
-        $reward3 = "select 50plus_Reward from project where project_ID = $project_ID";
-        $result10 = mysqli_query($conn, $reward3);
-        $row10 = mysqli_fetch_array($result10);   
-        $reward4 = "select 100plus_Reward from project where project_ID = $project_ID";
-        $result11 = mysqli_query($conn, $reward4);
-        $row11 = mysqli_fetch_array($result11);   
-        $reward5 = "select 250plus_Reward from project where project_ID = $project_ID";
-        $result12 = mysqli_query($conn, $reward5);
-        $row12 = mysqli_fetch_array($result12); 
-        ?>
-        
-            <div id ="backing">                
-                <h2>Dieses Projekt unterstützen</h2>
-                <button type="button" >Unterstützen</button>
-                
-                <?php if(isset($row8["1plus_Reward"])) {?>
-                <h3>1€ aufwärts</h3>
-                <h4>Belohnung</h4>
-                <p><?= $row8["1plus_Reward"]?></p> <?php ;}
-                
-                if(isset($row9["10plus_Reward"])) {?>
-                <h3>10€ aufwärts</h3>
-                <h4>Belohnung</h4>
-                <p><?= $row9["10plus_Reward"]?></p> <?php ;}
-                
-                if(isset($row10["50plus_Reward"])) {?>
-                <h3>50€ aufwärts</h3>
-                <h4>Belohnung</h4>
-                <p><?= $row10["50plus_Reward"]?></p> <?php ;} 
-                
-                if(isset($row11["100plus_Reward"])) {?>
-                <h3>100€ aufwärts</h3>
-                <h4>Belohnung</h4>
-                <p><?= $row11["100plus_Reward"]?></p> <?php ;}
-                
-                if(isset($row12["250plus_Reward"])) {?>
-                <h3>250€ aufwärts</h3>
-                <h4>Belohnung</h4>
-                <p><?= $row12["250plus_Reward"]?></p> <?php ;}
-                
-                ?>
-                
+            <div id ="Text">            
+                <div id ="desciption">
+                    <h2>Was ist '<?php echo $row1["title"] ?>' ?</h2>
+                    <p><?php echo $content ?></p>
+                </div>
+
+           <div id ="backing">                
+                    <h2>Dieses Projekt unterstützen</h2>
+                    <button type="button" >Unterstützen</button>
+            <?php 
+            $rewards = "SELECT * from reward where project_ID = $project_ID order by min_amount asc";
+            $result8 = mysqli_query($conn, $rewards);             
+            while ($row8 = mysqli_fetch_array($result8)){ 
+            $text = file_get_contents($row8["r_text"]); 
+            echo str_replace($search,$replace,$text);
+            
+            
+            ?>  
+                    <h3>Ab <?= $row8["min_amount"]?> € oder mehr</h3>
+                    <h4><?= $row8["r_title"]?></h4>
+                    <p><?= file_get_contents($row8["r_text"]) ?></p>
+
+
+               <?php  } ?>
             </div>
         </div>
     </div>
-    <?php  
+        <?php  
     
     include ("includes/functions/swClose.php");  ?>
 
