@@ -69,19 +69,3 @@ function search_ajax(q) {
                 }
             })
 }
-
-
-//$(document).ready(function () {
-//    $.ajax(
-//            {
-//                type: "GET",
-//                url: "includes/functions/search.php",
-//                data: q,
-//                success: function (data) {
-//                    $("#search_result").html(data);
-//                },
-//                complete: function () {
-//                    searchResultHover();
-//                }
-//            })
-//})

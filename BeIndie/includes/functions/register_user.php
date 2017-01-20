@@ -14,7 +14,6 @@ $psw_repeat = $_POST["psw_repeat"];
 if(!($psw == $psw_repeat))
 {
     header('Location: ../../index.php?page=login&err=psw');
-    $_POST["psw_repeat_err"] = true;
     exit(1);
 }
 
@@ -23,7 +22,6 @@ $result1 = mysqli_query($conn, $query1);
 
 while ($row = mysqli_fetch_assoc($result1)) {
     header('Location: ../../index.php?page=login&err=email');
-    $_POST["email_err"] = true;
     exit(1);
 }
 
@@ -32,7 +30,6 @@ $result2 = mysqli_query($conn, $query2);
 
 while ($row = mysqli_fetch_assoc($result2)) {
     header('Location: ../../index.php?page=login&err=uname');
-    $_POST["uname_err"] = true;
     exit(1);
 }
 

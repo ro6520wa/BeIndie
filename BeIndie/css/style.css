@@ -109,7 +109,7 @@ ul.subnav {
     list-style-type: none;
     padding-left: 0px;
     display: none;
-    z-index:3;
+    z-index:25;
 }
 
 ul.subnav li {
@@ -464,7 +464,7 @@ form.modal-content animate {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 15; /* Sit on top */
+    z-index: 50; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -520,7 +520,7 @@ form.modal-content animate {
     height: 100%;
     text-align: center;
     position: fixed;
-    z-index: 15;
+    z-index: 50;
     display: none;
 }
 

@@ -8,15 +8,14 @@ jQuery(document).ready(function ()
 
         if (scrollPos >= navOffset)
         {
-            jQuery(".topnav").addClass("fixed");
-            $('header').css('margin-top', '48px');
-//            jQuery(".subnav").addClass("fixed");
-//            $('.subnav').css('z-index', '5');
-//            $('.subnav').css('margin-top', '60px');
+            $(".topnav").addClass("fixed");
+            $("header").css("margin-top", "48px");
+            $(".subnav").css("position", "fixed");
         } else
         {
-            jQuery(".topnav").removeClass("fixed");
-            $('header').css('margin-top', '0');
+            $(".topnav").removeClass("fixed");
+            $("header").css("margin-top", "0");
+            $(".subnav").css("position", "absolute");
         }
     });
 });
