@@ -1,10 +1,91 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 17.01.2017, 22:50:58
-    Author     : ronwa
-*/
+#user_wrap {
+    padding: 50px 0;
+    width: 980px;
+    margin: 0 auto;
+    height: 500px;
+}
 
+#user_wrap a {
+    color: #4CAF50;
+}
+
+#projects {
+    float: left;
+    width: 280px;
+    height: 100%;
+}
+
+#projects table{
+    padding: 3px 0 0 0;
+    margin-left: -7px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+#projects table a {
+    text-decoration: none;
+    text-decoration: underline;
+    color: black;
+}
+
+#projects th {
+    text-align: left;
+}
+
+#projects td {
+    text-align: left;
+    max-height: 10px;
+}
+
+#amount_th {
+    width: 84px;
+}
+
+#projects th, td {
+    padding: 7px;
+    border-bottom: 1px solid #ddd;
+}
+
+#projects h3 {
+    color: #4CAF50;
+}
+
+#projects h3.second {
+    margin-top: 25px;
+}
+
+#user {
+    width: 700px;
+    float: left;
+}
+
+#user_img{
+    width: 200px;
+    margin-left: 350px;
+}
+
+#user_info {
+    width: 200px;
+    text-align: center;
+}
+
+#user_info p {
+    padding: 5px 0;
+}
+
+#user_img img {
+    height: 200px;
+    width: 200px;
+}
+
+#user_bio {
+    width: 500px;
+    margin: 0 auto;
+    padding: 50px 0 50px 200px;
+    text-align: justify;
+}
+
+#user_bio h2 {
+    color: #4CAF50;
+    padding: 8px 0;
+}

@@ -25,7 +25,7 @@ if (isset($_GET["login"])) {
                 </li>
                 <?php if(isset($_SESSION["username"])) {?>
                     <li id="logout" class='login'><a href="includes/functions/logout.php">Logout</a></li>
-                    <li class="login"><a href="index.php?page=user_profile"><i class="fa fa-user-o" style="font-size:17px"></i><?=$_SESSION["username"]?></a></li>
+                    <li class="login"><a href="index.php?page=user_profile&id=<?=$_SESSION["user_id"]?>"><i class="fa fa-user-o" style="font-size:17px"></i><?=$_SESSION["username"]?></a></li>
                 <?php }else {?>
                     <li class="login" onclick="document.getElementById('id01').style.display='block'"><a href="#login">Login</a></li>
                 <?php } ?>

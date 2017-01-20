@@ -9,7 +9,7 @@ $cat_title_string = "";
 $cat_user_string = "";
 $title_string = " title like '%$filters[0]%'";
 $user_string = " user_name like '%$filters[0]%'";
-$select_string = "SELECT p.project_ID, title, goal, current_status, UNIX_TIMESTAMP(end_date), user_name, image_path, description";
+$select_string = "SELECT p.project_ID, title, goal, current_status, UNIX_TIMESTAMP(end_date), user_name, image_path, description, user_id";
 $from_join_string = " FROM project p JOIN user u ON p.creator=u.email JOIN project_image pi ON p.project_ID=pi.project_ID";
 $group_string = " GROUP BY p.project_ID";
 
@@ -99,7 +99,7 @@ function search_output($output) {
                 <?= $output["title"] ?></a>
         </h3>
         <p class='project_user'>
-            <?= $output["user_name"] ?>
+            <a href="index.php?page=user_profile&id=<?=$output["user_id"]?>"><?= $output["user_name"] ?></a>
         </p>
         <div class='percent_goal'>
             <?php

@@ -363,6 +363,15 @@ p.desc_text{
     margin-bottom: 10px;
 }
 
+.project_user a {
+    text-decoration: none;
+    color: black;
+}
+
+.project_user a:hover {
+    text-decoration: underline;
+}
+
 .goal_bar {
     width: 450px;
     background-color: #333;
@@ -404,7 +413,7 @@ footer {
     clear: both;
     background-color: #333;
     color: white;
-    height: 150px;
+    height: 250px;
     text-align: center;
 }
 
