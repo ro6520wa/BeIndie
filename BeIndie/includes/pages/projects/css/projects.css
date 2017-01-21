@@ -13,7 +13,7 @@
 }
 
 h1 {
-    padding-top: 10px;
+    padding-top: 30px;
     padding-bottom: 30px;
     text-align: center;
 }
@@ -24,9 +24,8 @@ h1 {
 #slideshow img {
     margin: auto;
     width: 100%;
-    max-height: 500px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    
-    padding: 10px;    
+    border-radius: 10px;
+    height: 500px;
     margin-bottom: 30px;
     
 }
@@ -42,39 +41,26 @@ h1 {
     cursor:pointer;
     background: none;    
     transition-duration: 1s;    
-    padding:15px 25px;
-}
-
-#slideshow a:hover.left{   
-    
-    color:#fff;
-    background-color:#000;    
-    transition-duration: 1s;
-}
-
-#slideshow a:hover.right{   
-    
-    color:#fff;
-    background-color:#000;
-    transition-duration: 1s;
+    padding:50px 25px;        
+    margin-top: -335px;       
+    background: rgba(0, 0, 0, 0.3);
+    position:absolute;
 }
 
 #slideshow a.left{    
-    position:absolute;    
-    margin-top: -250px;
-    transform:translate(0%,-50%);
-    -ms-transform:translate(-0%,-50%);  
+
     border-radius: 0 10px 10px 0;
-    
 }
 
-#slideshow a.right{ 
-    position:absolute;
-    margin-left: 942px;    
-    margin-top: -250px;
-    transform:translate(0%,-50%);
-    -ms-transform:translate(0%,-50%);      
+#slideshow a.right{     
+    margin-left: 922px;        
     border-radius: 10px 0 0 10px;
+}
+
+#slideshow a:hover{       
+    background: rgba(0, 0, 0, 0.7);
+    color:#fff;  
+    transition-duration: 1s;
 }
 
 
@@ -82,7 +68,7 @@ h1 {
 
 h2{
     text-align: center;
-    margin-top: 10px;
+    margin-top: 50px;
     padding-bottom: 20px;
     padding-top: 20px;
     
@@ -92,16 +78,17 @@ h2{
 
 #progress {
     
+  border-radius: 5px;
   position: relative;
   width: 100%;
   height: 30px;
   background-color: #ddd;  
-  margin-left: 12px;
   z-index: -10;
 }
 
 #progressbar {
-    
+  
+  border-radius: 5px;  
   position: absolute;
   max-width: 980px;
   height: 100%;
@@ -132,35 +119,39 @@ h2{
     padding-left: 50px;
     width: 170px;
     padding-bottom: 10px;
-}
-
-#timetogo{
     text-align: center;
 }
+
 
 
 #backers{
     float:left;
-    padding-left: 100px;
+    padding-left: 80px;
     width: 100px;
-    padding-bottom: 10px;
-}
-
-#backers p{
+    padding-bottom: 10px;    
     text-align: center;
 }
 
+
+
+#amount{
+    float:left;
+    padding-left: 100px;
+    width: 200px;
+    padding-bottom: 10px;        
+    text-align: center;
+    
+}
 
 #goal{
     float:left;
-    padding-left: 110px;
-    width: 450px;
+    padding-left: 100px;
+    width: 150px;
     padding-bottom: 10px;
+    text-align: center;
     
 }
-#goal p{
-    text-align: center;
-}
+
 
 #desciption {
     float:left;
@@ -169,6 +160,12 @@ h2{
 }
 
 /*backeroptions*/
+#backing { 
+    float:right;
+    max-width:350px;
+    word-wrap:break-word;
+}
+
 
 #backing h2{
     text-align: left;
@@ -182,12 +179,7 @@ h2{
     padding-bottom: 30px;
 }
 
-#backing { 
-    
-    float:right;
-    max-width:350px;
-    word-wrap:break-word;
-}
+
 
 #backing button{
     font-family: 'Raleway', sans-serif;
@@ -196,7 +188,7 @@ h2{
     color: white;
     padding: 10px 60px;
     display: inline-block;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     font-size: 25px;
     box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);    
     cursor:pointer; 
