@@ -10,9 +10,10 @@ $output1 = mysqli_fetch_assoc($result1);
 $name = "";
 $i = 0;
 $allow_edit = false;
-if ($_SESSION["username"] == $output1["user_name"]){
+if(isset($_SESSION["username"])){
+    if ($_SESSION["username"] == $output1["user_name"]){
     $allow_edit = true;
-}
+}}
 
 if ($output1["first_name"] == "NULL") {
     $name = $output1["user_name"];
@@ -79,12 +80,12 @@ if ($output1["first_name"] == "NULL") {
             <?php } ?>
             <div id="user_info">
             <p>
-                <b><?php if ($output1["first_name"] == NULL || $output1["last_name"] == NULL) {
-                echo $output1["user_name"];
+                <?php if ($output1["first_name"] == NULL || $output1["last_name"] == NULL) {
+                echo "<b>" . $output1["user_name"] . "</b>";
             } else {
-                echo $output1["first_name"] . " " . $output1["last_name"];
+                echo "<b>" . $output1["first_name"] . " " . $output1["last_name"] . "</b> <br/>";
+                echo $output1["user_name"];
             }?>
-                </b>
             </p>
             <p>
                 <b>
