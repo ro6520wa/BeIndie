@@ -1,9 +1,6 @@
 <?php
 
 session_start();
-$_POST["email_err"] = false;
-$_POST["uname_err"] = false;
-$_POST["psw_repeat_err"] = false;
 include ("swConnect.php");
 
 $email = strtolower($_POST["email"]);

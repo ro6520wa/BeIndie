@@ -2,7 +2,7 @@
 $uid = $_GET["id"];
 include ("includes/functions/swConnect.php");
 
-$query1 = "SELECT user_name, first_name, last_name, location, avatar, title, avatar, user_bio FROM user u JOIN project p ON u.email=p.creator WHERE user_ID='" . $uid . "'";
+$query1 = "SELECT user_name, first_name, last_name, location, avatar, title, user_bio FROM user u JOIN project p ON u.email=p.creator WHERE user_ID='" . $uid . "'";
 $query_projects = "SELECT title, current_status, goal, project_ID FROM user u JOIN project p ON u.email=p.creator WHERE user_ID='" . $uid . "'";
 $result1 = mysqli_query($conn, $query1);
 $result_projects = mysqli_query($conn, $query_projects);
@@ -95,7 +95,7 @@ if ($output1["first_name"] == "NULL") {
                 </b>
             </p>
             <?php if ($allow_edit == true){?>
-            <a href="index.php?page=edit_profile" style="color:blue">Profil bearbeiten</a>
+            <a href="index.php?page=edit_profile&id=<?=$uid?>" style="color:blue">Profil bearbeiten</a>
             <?php } ?>
         </div>
         </div>

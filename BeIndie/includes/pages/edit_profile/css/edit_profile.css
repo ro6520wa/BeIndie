@@ -1,0 +1,138 @@
+#edit_wrapper {
+    width: 980px;
+    margin: 0 auto;
+}
+
+#edit_wrapper fieldset {
+    width: 980px;
+    margin: 50px auto;
+}
+
+fieldset legend {
+    font-weight: bold;
+    color: #4CAF50;
+    font-size: 28px;
+}
+
+fieldset label p {
+    font-size: 20px;
+    color: #4CAF50;
+}
+
+fieldset input {
+    width: 370px;
+    padding: 12px 20px;
+    margin: 8px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+fieldset input[type="text"] {
+    font-size: 15px;
+}
+
+#img {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 5px;
+}
+
+fieldset img {
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin: 0 20px;
+}
+
+#deleteimg {
+    float: left;
+    color: #f44336;
+    text-decoration: underline;
+    margin-top: 163px;
+}
+
+fieldset textarea {
+    margin: 8px 20px 0 20px;
+    font-size: 15px;
+}
+
+.save_button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0px;
+    margin: 8px 20px;
+    border: none;
+    cursor: pointer;
+    width: 150px;
+    font-size: 15px;
+}
+
+ul#abort {
+    list-style-type: none;
+    background-color: #f44336;
+    display: inline-block;
+    padding: 9px 0px;
+    margin: 7px 0px;
+    width: 150px;
+    text-align: center;
+}
+
+ul#abort li a{
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+#reminder {
+    font-size: 12px;
+    padding: 0;
+    margin: 0 20px;
+}
+
+/*error msg styling*/
+
+#err_uname, #err_img{
+    background-color: #FFBABA;
+    color: #D8000C;
+    margin: 8px 20px;
+    width: 350px;
+    padding: 10px 0px;
+    padding-left: 20px;
+    display: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #D8000C;
+}
+
+#edit_success {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: fixed;
+    z-index: 50;
+    display: none;
+}
+
+#edit_success_msg {
+    display: none;
+    background-color: #DFF2BF;
+    color: #4F8A10;
+    border: 1px solid #4F8A10;
+    margin: 10px auto;
+    width: 350px;
+    padding: 10px 0px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    opacity: 1;
+}
+
+#err_uname.show, #err_img.show, #edit_success_msg.show, #edit_success.show {
+    display: block;
+}
