@@ -10,7 +10,7 @@ include ("includes/functions/swConnect.php");
 $query = "SELECT user_name, first_name FROM user WHERE user_name ='" . $uname . "'";
 $result = mysqli_query($conn, $query);
 $query_myprojects = "SELECT title, current_status, goal, project_ID, UNIX_TIMESTAMP(end_date), category FROM user u JOIN project p ON u.email=p.creator WHERE u.user_name='" . $uname . "'";
-$query_supportprojects = "SELECT user_name, amount, title, category, date, t.project_ID FROM user u JOIN transaction t ON u.email=t.user_email"
+$query_supportprojects = "SELECT creator, amount, title, category, date, t.project_ID FROM user u JOIN transaction t ON u.email=t.user_email"
                         . " JOIN project p ON t.project_ID=p.project_ID WHERE u.user_name='" . $uname . "'";
 $result_myprojects = mysqli_query($conn, $query_myprojects);
 $result_supportprojects = mysqli_query($conn, $query_supportprojects);
@@ -47,7 +47,7 @@ if ($output["first_name"] == "NULL") {
                while($output1 = mysqli_fetch_assoc($result_myprojects)){ ?>
             <tr>
                 <td>
-                    <a class="project_links" href="index.php?page=projects&id=<?=$output1["project_ID"]?>"><?=$output1["title"]?><a/>
+                    <a class="project_links" href="index.php?page=projects&q=<?=$output1["project_ID"]?>"><?=$output1["title"]?></a>
                 </td>
                 <td>
                     <?=$output1["category"]?>
@@ -103,7 +103,7 @@ if ($output["first_name"] == "NULL") {
             <?php while($output2 = mysqli_fetch_assoc($result_supportprojects)) { ?>
             <tr>
                 <td>
-                    <a class="project_links" href="index.php?page=projects&id=<?=$output2["project_ID"]?>"><?=$output2["title"]?><a/>
+                    <a class="project_links" href="index.php?page=projects&q=<?=$output2["project_ID"]?>"><?=$output2["title"]?></a>
                 </td>
                 <td>
                     <?=$output2["category"]?>
@@ -112,7 +112,11 @@ if ($output["first_name"] == "NULL") {
                     <?=$output2["amount"]?>€
                 </td>
                 <td>
-                    <?=$output2["user_name"]?>
+                    <?php $query_temp = "SELECT user_name FROM user WHERE email='" . $output2["creator"] . "'";
+                          $result_temp = mysqli_query($conn, $query_temp);
+                          $output_temp = mysqli_fetch_assoc($result_temp);
+                          echo $output_temp["user_name"]
+                    ?>
                 </td>
                 <td>
                     <?=date("d.m.Y",strtotime($output2["date"]))?>
