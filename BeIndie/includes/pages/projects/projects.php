@@ -3,7 +3,6 @@
     <?php  
     include ("includes/functions/swConnect.php");
     ?>
-    <a href="../../functions/swConnect.php"></a>
     <?php 
         $project_ID = $_GET["q"];
     
