@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 
 <div id="newproject">
-    <h1>Starten Sie jetzt neues Projekt</h1>
+    <h1>Ihr Projekt</h1>
     <div id = form>
-        <form action="index.php?page=hallo" id="projectinfo">
-            <h2>Name des Projekts</h2>
-            <input type="$text" name="title" id="title" placeholder="Projectname...">
-            <h2>Kategorie</h2>
-                <input type="radio" name="category" id="cat"> Gaming
-                <input type="radio" name="category" id="cat"> Sport
-                <input type="radio" name="category" id="cat"> Technology
-                <input type="radio" name="category" id="cat"> Fashion & Beauty    
-                </br>            
-            <button type="submit">Eingaben absenden</button> 
-        </form> 
+        
+            <h2>Slideshow Bilder</h2> 
+           
+            <form action="includes/functions/project_form.php?id=<?=$uid?>" method="post" enctype="multipart/form-data">
+
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="submit" value="Upload Image" name="submit">            
+            </form>    
+                
+        <button type="submit" class="next" onClick="DBupload()"> weiter... </button> 
 
     </div>
 </div>

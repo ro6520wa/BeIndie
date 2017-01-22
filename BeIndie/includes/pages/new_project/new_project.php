@@ -3,14 +3,13 @@
     <?php  
     include ("includes/functions/swConnect.php");   
 
-    if($_SESSION["username"] != NULL){
+    if((isset($_SESSION["username"])) === TRUE){
     ?>
 
     <div id="newproject">
         <h1>Starten Sie jetzt neues Projekt</h1>
         <div id = form>
-<!--action="index.php?page=new_project2"-->
-            <form  method="POST" enctype="multipart/form-data">
+            <form  method="POST" action="index.php?page=new_project2" enctype="multipart/form-data">
                 <h2>Name des Projekts</h2>                  
                 
                 <input type="$text" name="form_title" id="title" placeholder="Projectname...">
@@ -21,22 +20,17 @@
                     <input type="radio" name="form_category" value="Technology" id="cat">Technology
                     <input type="radio" name="form_category" value="Fashion & Beauty" id="cat">Fashion & Beauty
                     </br> 
-     
-                <button type="submit" class="next" >weiter... </button>
- 
+                
+                    <button type="submit" class="next" onClick="DBupload()"> weiter... </button>
+                       
             </form>
         </div>
     </div>  
     
 
+    <?php        
     
-    <?php  
-    if (isset($_POST["form_title"]) === true && isset($_POST["form_category"]) === true){
-        $_SESSION["form_title"] = $_POST["form_title"]  ;
-        $_SESSION["form_category"] = $_POST["form_category"];
-     
-    }   
-        
+    
 //    if (isset($_POST["form_title"]) === true && isset($_POST["form_category"]) === true)
 //    {                    
 //    $title = $_POST["form_title"];
@@ -61,11 +55,7 @@
     include ("includes/functions/swClose.php"); 
     
     }
-    else{ echo 'logg dich ein DIGGA!'
-    ?>    
-    <?php } 
-    
-    
-    ?>
-
-
+    else{ 
+        echo 'logg dich ein DIGGA!';
+        
+    } ?>
