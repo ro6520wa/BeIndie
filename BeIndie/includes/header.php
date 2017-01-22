@@ -6,6 +6,10 @@ if (isset($_GET["login"])) {
         $succ_msg = true;
     }
 }
+$logged_in = false;
+if(isset($_SESSION["username"])){
+    $logged_in = true;
+}
 ?>
 <header>
     <div id="nav">
@@ -15,14 +19,16 @@ if (isset($_GET["login"])) {
         <div id="navbar">
             <ul class="topnav" id="myTopnav">
                 <li class="<?php if ($page == 'start') {echo "active";} ?>"><a href="index.php">Home</a></li>
-                <li class="<?php if ($page == 'about') {echo "active";} ?>"><a href="index.php?page=about">Über uns</a></li>
-                <li class="<?php if ($page == 'contact') {echo "active";} ?>"><a href="index.php?page=contact">Kontakt</a></li>
                 <li><a href="#">Projekte</a>
                     <ul class="subnav">
-                        <li class="<?php if ($page == 'my_projects') {echo "active";} ?>"><a href="index.php?page=my_projects">Meine Projekte</a></li>
+                        <li class="<?php if ($page == 'my_projects') {echo "active";} ?>">
+                            <a href="index.php<?php if($logged_in){ echo "?page=my_projects&uname=" . $_SESSION["username"]; } else { echo "?page=login";}?>">
+                                Meine Projekte</a></li>
                         <li class="<?php if ($page == 'new_projects') {echo "active";} ?>"><a href="index.php?page=new_project">Neues Projekt</a></li>
                     </ul>
                 </li>
+                <li class="<?php if ($page == 'about') {echo "active";} ?>"><a href="index.php?page=about">Über uns</a></li>
+                <li class="<?php if ($page == 'contact') {echo "active";} ?>"><a href="index.php?page=contact">Kontakt</a></li>
                 <?php if(isset($_SESSION["username"])) {?>
                     <li id="logout" class='login'><a href="includes/functions/logout.php">Logout</a></li>
                     <li class="login"><a href="index.php?page=user_profile&id=<?=$_SESSION["user_id"]?>"><i class="fa fa-user-o" style="font-size:17px"></i><?=$_SESSION["username"]?></a></li>

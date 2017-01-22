@@ -87,7 +87,7 @@ $location_explode = explode(", ", $output1["location"]);
             <label><p>Profilbild</p></label>
             <div id='img'>
                 <img src="<?php if($output1["avatar"] != NULL){ echo $output1["avatar"]; }else{ echo "images/u_images/standard_avatar.png"; }?>"><br/>
-                <a href='includes/functions/delete_uimg.php?id=<?=$uid?>' id='deleteimg'>Profilbild löschen</a>
+                <?php if($output1["avatar"] != NULL){?><a href='includes/functions/delete_uimg.php?id=<?=$uid?>' id='deleteimg'>Profilbild löschen</a> <?php } ?>
             </div>
             <input id="uimg" type="file" name="uimg">
             <div id="err_img" class='<?php
@@ -98,7 +98,7 @@ $location_explode = explode(", ", $output1["location"]);
                     <i class="fa fa-times" aria-hidden="true"></i> <?=$img_string//Das Bild wird nicht akzeptiert. Max. Dateigröße 5MB. Akzeptierte Dateiformate: JPG, JPEG, PNG, and GIF.?>
             </div>
             <label><p>Biografie</p></label>
-            <textarea name="bio" form="user_info" rows="10" cols="50"><?php if($output1["user_bio"]!=NULL){echo $output1["user_bio"];}else{echo "Deine Biografie. Schreibe hier unter anderem auch Kontaktdaten für andere Nutzer rein.";} ?></textarea><br/>
+            <textarea name="bio" form="user_info" rows="10" cols="50" maxlength="500"><?php if($output1["user_bio"]!=NULL){echo $output1["user_bio"];}else{echo "Deine Biografie. Schreibe hier unter anderem auch Kontaktdaten für andere Nutzer hinein.";} ?></textarea><br/>
             <p id="reminder">Maximal 500 Zeichen</p>
             <button type="submit" class="save_button" name="submit">Speichern</button>
             <ul id='abort'><li><a href="index.php?page=user_profile&id=<?=$uid?>">Abbrechen</a></li></ul>

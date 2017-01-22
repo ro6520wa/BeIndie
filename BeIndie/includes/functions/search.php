@@ -11,7 +11,7 @@ $title_string = " title like '%$filters[0]%'";
 $user_string = " user_name like '%$filters[0]%'";
 $select_string = "SELECT p.project_ID, title, goal, current_status, UNIX_TIMESTAMP(end_date), user_name, image_path, description, user_id";
 $from_join_string = " FROM project p JOIN user u ON p.creator=u.email JOIN project_image pi ON p.project_ID=pi.project_ID";
-$group_string = " GROUP BY p.project_ID";
+$group_string = " GROUP BY p.project_ID LIMIT 20";
 
 //building the string when category filters are set
 if (sizeof($filters) > $i) {

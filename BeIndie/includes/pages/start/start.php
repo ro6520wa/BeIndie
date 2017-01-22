@@ -1,6 +1,13 @@
+<?php 
+$logged_in = false;
+if(isset($_SESSION["username"])){
+    $logged_in = true;
+}
+?>
+
 <div id="head">
     <p class="adtext1">Start something that matters</p>
-    <p class="adtext2"><a href="index.php?page=login">Get started</a> with your own project today.</p>
+    <p class="adtext2"><a href="index.php<?php if($logged_in){echo "?page=new_project";}else{echo "?page=login";} ?>">Get started</a> with your own project today.</p>
 </div>
 <div id="content">
     <div id="searchbar"></div>

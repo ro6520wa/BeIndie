@@ -3,7 +3,7 @@ $uid = $_GET["id"];
 include ("includes/functions/swConnect.php");
 
 $query1 = "SELECT user_name, first_name, last_name, location, avatar, title, user_bio FROM user u JOIN project p ON u.email=p.creator WHERE user_ID='" . $uid . "'";
-$query_projects = "SELECT title, current_status, goal, project_ID FROM user u JOIN project p ON u.email=p.creator WHERE user_ID='" . $uid . "'";
+$query_projects = "SELECT title, current_status, goal, project_ID FROM user u JOIN project p ON u.email=p.creator WHERE user_ID='" . $uid . "' LIMIT 5";
 $result1 = mysqli_query($conn, $query1);
 $result_projects = mysqli_query($conn, $query_projects);
 $output1 = mysqli_fetch_assoc($result1);
@@ -43,7 +43,7 @@ if ($output1["first_name"] == "NULL") {
                     </tr>
                 <?php $i++;} } ?>
         </table>
-        <a href='index.php?page=my_project'>Mehr anzeigen</a>
+        <a href='index.php?page=my_projects&uname=<?=$output1["user_name"]?>'>Mehr anzeigen</a>
         <h3 class="second">Projekte die <?=$name?> unterstützt</h3>
         <table>
             <tr>
@@ -52,7 +52,7 @@ if ($output1["first_name"] == "NULL") {
             </tr>
             <?php
             $query2 = "SELECT amount, title, date, t.project_ID FROM user u JOIN transaction t ON u.email=t.user_email"
-             . " JOIN project p ON t.project_ID=p.project_ID WHERE user_ID='" . $uid . "'";
+             . " JOIN project p ON t.project_ID=p.project_ID WHERE user_ID='" . $uid . "' ORDER BY t.date LIMIT 5";
             $result3 = mysqli_query($conn, $query2);
             $i = 0;
             while ($output3 = mysqli_fetch_assoc($result3)) { 
@@ -69,7 +69,7 @@ if ($output1["first_name"] == "NULL") {
                 
                 <?php $i++;} } ?>
         </table>
-        <a href='index.php?page=my_project'>Mehr anzeigen</a>
+        <a href='index.php?page=my_projects&uname=<?=$output1["user_name"]?>'>Mehr anzeigen</a>
     </div>
     <div id="user">
         <div id="user_img">
@@ -81,16 +81,16 @@ if ($output1["first_name"] == "NULL") {
             <div id="user_info">
             <p>
                 <?php if ($output1["first_name"] == NULL || $output1["last_name"] == NULL) {
-                echo "<b>" . $output1["user_name"] . "</b>";
+                echo "<b>" . utf8_encode($output1["user_name"]) . "</b>";
             } else {
-                echo "<b>" . $output1["first_name"] . " " . $output1["last_name"] . "</b> <br/>";
-                echo $output1["user_name"];
+                echo "<b>" . utf8_encode($output1["first_name"]) . " " . utf8_encode($output1["last_name"]) . "</b> <br/>";
+                echo utf8_encode($output1["user_name"]);
             }?>
             </p>
             <p>
                 <b>
                    <?php if ($output1["location"] != "NULL") {?>
-                    <i class="fa fa-map-marker" aria-hidden="true" style='color:#4CAF50'></i><a href='http://maps.google.com/?q=<?=$output1["location"]?>'> <?=$output1["location"]?></a> 
+                    <i class="fa fa-map-marker" aria-hidden="true" style='color:#4CAF50'></i><a href='http://maps.google.com/?q=<?=utf8_encode($output1["location"])?>'> <?=utf8_encode($output1["location"])?></a> 
                    <?php } ?>
                 </b>
             </p>
@@ -102,9 +102,9 @@ if ($output1["first_name"] == "NULL") {
         <div id="user_bio">
             <h2><?=$name?>'s Biografie</h2>
             <?php if($output1["user_bio"] == NULL) {?>
-                Dieser Nutzer hat noch keine Biografie festgelegt.
+            Dieser Nutzer hat leider noch keine Biografie festgelegt.
             <?php } else {
-                $output1["user_bio"];
+                echo utf8_encode($output1["user_bio"]);
             } ?>
         </div>
     </div>
