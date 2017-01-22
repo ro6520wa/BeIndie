@@ -8,7 +8,7 @@
         <h1>Starten Sie jetzt neues Projekt</h1>
         <div id = form>
 
-            <form>
+            <form action="index.php?page=new_project2" method="POST" enctype="multipart/form-data">
                 <h2>Name des Projekts</h2>  
                 <li>
                 
@@ -22,7 +22,7 @@
                     <input type="radio" name="category" id="cat"> Technology
                     <input type="radio" name="category" id="cat"> Fashion & Beauty    
                     </br> 
-                 <button type="submit" onClick="location.href='index.php?page=new_project2'" class="next" >weiter... </button>
+                 <button type="submit" class="next" >weiter... </button>
 
 <!--                <a href="index.php?page=new">weiter... </a> -->
                

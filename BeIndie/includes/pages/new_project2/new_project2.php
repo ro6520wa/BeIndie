@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-<link href="css/new_project2.css" rel="stylesheet" type="text/css"/>
 <div id="newproject">
     <h1>Starten Sie jetzt neues Projekt</h1>
     <div id = form>
