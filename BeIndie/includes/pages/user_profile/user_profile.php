@@ -2,6 +2,9 @@
 $uid = $_GET["id"];
 include ("includes/functions/swConnect.php");
 
+$query_name = "SELECT user_name, first_name, last_name, user_bio, location, avatar FROM user WHERE user_ID='" . $uid . "'";
+$result_name = mysqli_query($conn, $query_name);
+$output_name = mysqli_fetch_assoc($result_name);
 $query1 = "SELECT user_name, first_name, last_name, location, avatar, title, user_bio FROM user u JOIN project p ON u.email=p.creator WHERE user_ID='" . $uid . "'";
 $query_projects = "SELECT title, current_status, goal, project_ID FROM user u JOIN project p ON u.email=p.creator WHERE user_ID='" . $uid . "' LIMIT 5";
 $result1 = mysqli_query($conn, $query1);
@@ -11,14 +14,14 @@ $name = "";
 $i = 0;
 $allow_edit = false;
 if(isset($_SESSION["username"])){
-    if ($_SESSION["username"] == $output1["user_name"]){
+    if ($_SESSION["username"] == $output_name["user_name"]){
     $allow_edit = true;
 }}
 
-if ($output1["first_name"] == "NULL") {
-    $name = $output1["user_name"];
+if ($output_name["first_name"] == NULL) {
+    $name = $output_name["user_name"];
 } else {
-    $name = $output1["first_name"];
+    $name = $output_name["first_name"];
 }
 ?>
 
@@ -43,7 +46,7 @@ if ($output1["first_name"] == "NULL") {
                     </tr>
                 <?php $i++;} } ?>
         </table>
-        <a href='index.php?page=my_projects&uname=<?=$output1["user_name"]?>'>Mehr anzeigen</a>
+        <a href='index.php?page=my_projects&uname=<?=$output_name["user_name"]?>'>Mehr anzeigen</a>
         <h3 class="second">Projekte die <?=$name?> unterstützt</h3>
         <table>
             <tr>
@@ -69,27 +72,27 @@ if ($output1["first_name"] == "NULL") {
                 
                 <?php $i++;} } ?>
         </table>
-        <a href='index.php?page=my_projects&uname=<?=$output1["user_name"]?>'>Mehr anzeigen</a>
+        <a href='index.php?page=my_projects&uname=<?=$output_name["user_name"]?>'>Mehr anzeigen</a>
     </div>
     <div id="user">
         <div id="user_img">
-            <?php if ($output1["avatar"] == NULL) {?>
+            <?php if ($output_name["avatar"] == NULL) {?>
             <img src="images/u_images/standard_avatar.png" alt="user_img"/>
             <?php } else { ?>
-            <img src="<?=$output1["avatar"]?>" alt="user_img"/>
+            <img src="<?=$output_name["avatar"]?>" alt="user_img"/>
             <?php } ?>
             <div id="user_info">
             <p>
-                <?php if ($output1["first_name"] == NULL || $output1["last_name"] == NULL) {
-                echo "<b>" . utf8_encode($output1["user_name"]) . "</b>";
+                <?php if ($output_name["first_name"] == NULL || $output_name["last_name"] == NULL) {
+                echo "<b>" . utf8_encode($output_name["user_name"]) . "</b>";
             } else {
-                echo "<b>" . utf8_encode($output1["first_name"]) . " " . utf8_encode($output1["last_name"]) . "</b> <br/>";
-                echo utf8_encode($output1["user_name"]);
+                echo "<b>" . utf8_encode($output_name["first_name"]) . " " . utf8_encode($output_name["last_name"]) . "</b> <br/>";
+                echo utf8_encode($output_name["user_name"]);
             }?>
             </p>
             <p>
                 <b>
-                   <?php if ($output1["location"] != "NULL") {?>
+                   <?php if ($output_name["location"] != NULL) {?>
                     <i class="fa fa-map-marker" aria-hidden="true" style='color:#4CAF50'></i><a href='http://maps.google.com/?q=<?=utf8_encode($output1["location"])?>'> <?=utf8_encode($output1["location"])?></a> 
                    <?php } ?>
                 </b>
@@ -101,10 +104,10 @@ if ($output1["first_name"] == "NULL") {
         </div>
         <div id="user_bio">
             <h2><?=$name?>'s Biografie</h2>
-            <?php if($output1["user_bio"] == NULL) {?>
+            <?php if($output_name["user_bio"] == NULL) {?>
             Dieser Nutzer hat leider noch keine Biografie festgelegt.
             <?php } else {
-                echo utf8_encode($output1["user_bio"]);
+                echo utf8_encode($output_name["user_bio"]);
             } ?>
         </div>
     </div>

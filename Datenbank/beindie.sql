@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Erstellungszeit: 22. Jan 2017 um 20:17
--- Server-Version: 10.1.19-MariaDB
--- PHP-Version: 5.6.28
+-- Host: localhost
+-- Erstellungszeit: 23. Jan 2017 um 14:35
+-- Server-Version: 10.1.16-MariaDB
+-- PHP-Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -177,8 +177,10 @@ INSERT INTO `user` (`user_ID`, `email`, `user_name`, `first_name`, `last_name`, 
 (4, 'kelixf@gmx.de', 'TheFiesling', 'Kelix', 'Fießling', NULL, 'Waynetrain, No Mans Sky', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', NULL),
 (5, 'ron.wagner@fh-erfurt.de', 'ro6520wa', 'Ron', 'Wagner', '', 'Weimar, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', ''),
 (6, 'wurstjay@web.de', 'WurstJay', 'Jonathan', 'Wurst', NULL, 'Oktoberfest, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', NULL),
-(7, 'paul.hentgen@fh-erfurt.de', 'pa8627he', 'Paul', 'Hentgen', NULL, 'Erfurt, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', NULL),
-(12, 'jochen@schweizer.com', 'Schwizzi', NULL, NULL, NULL, NULL, '$2y$10$g4Om1KaNaIzi1GJue2/.kecfwVWQQtSUoNIiw/puAocwv3Op8lAgq', NULL);
+(7, 'paul.hentgen@fh-erfurt.de', 'pa8627he', 'Pole', 'Hengst', '', 'Erfurt, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', ''),
+(12, 'jochen@schweizer.com', 'Schwizzi', NULL, NULL, NULL, NULL, '$2y$10$g4Om1KaNaIzi1GJue2/.kecfwVWQQtSUoNIiw/puAocwv3Op8lAgq', NULL),
+(13, 'soeren.brodt@ibykus.de', 'SBrodt', NULL, NULL, NULL, NULL, '$2y$10$j6cLl04Rtlic.X80nYggoOkgdj3C8YF34obi/jpnRKcjjMXXWb/da', NULL),
+(14, 'kevin.kosinski@fh-erfurt.de', 'HiIAmKevin', '', '', '', '', '$2y$10$IiNCKqTrLjifuYGP0.WGBeVgZull.QXdPSgmlstKWNK8j2ONsRavy', '');
 
 --
 -- Indizes der exportierten Tabellen
@@ -259,7 +261,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- Constraints der exportierten Tabellen
 --

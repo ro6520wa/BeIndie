@@ -35,9 +35,13 @@ $crypt_psw = password_hash($psw,  PASSWORD_DEFAULT);
 $query3 = "INSERT INTO user (email, user_name, crypt_pw) VALUES ('" . $email . "','" . $uname . "','" . $crypt_psw ."')";
 
 $result3 = mysqli_query($conn, $query3);
+$query_temp = "SELECT user_ID FROM user WHERE user_name ='" . $uname . "'";
+$result_temp = mysqli_query($conn, $query_temp);
+$output_temp = mysqli_fetch_assoc($result_temp);
 
 if($result3 == true) {
-    header('Location: ../../index.php?page=user_profile');
+    header('Location: ../../index.php?page=user_profile&id=' . $output_temp["user_ID"]);
+    $_SESSION["user_id"] = $output_temp["user_ID"];
     $_SESSION["username"] = $uname;
     exit();
 }

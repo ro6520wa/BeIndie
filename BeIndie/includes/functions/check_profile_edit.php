@@ -35,7 +35,7 @@ if ($loc_city != NULL && $loc_country != NULL) {
 }
 
 $user_bio = NULL;
-if ($_POST["bio"] != "Deine Biografie. Schreibe hier unter anderem auch Kontaktdaten für andere Nutzer rein.") {
+if ($_POST["bio"] != "Deine Biografie. Schreibe hier unter anderem auch Kontaktdaten für andere Nutzer hinein.") {
     $user_bio = $_POST["bio"];
 }
 
