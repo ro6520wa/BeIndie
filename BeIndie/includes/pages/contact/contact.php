@@ -28,12 +28,12 @@
             <legend>Kontakt</legend>
             <form id="contact" action="includes/functions/send_contact_mail.php" method="POST" enctype="multipart/form-data">
                 <p><label><b>Deine E-Mail*</b></label></p>
-                <input type="text" id="email" placeholder="deine@email.de" required>
-                <p><label><b>Dein Vorname</b></label><label class="lname"><b>Dein Nachname</b></label></p>
-                <input type="text" id="fname" placeholder="Vorname">
-                <input type="text" id="lname" placeholder="Nachname">
+                <input type="text" id="email" placeholder="deine@email.de" name="email" required>
+                <p><label><b>Dein Vorname</b></label><label class="lname" for="lname"><b>Dein Nachname</b></label></p>
+                <input type="text" id="fname" name="fname" placeholder="Vorname">
+                <input type="text" id="lname" name="lname" placeholder="Nachname">
                 <p><label><b>Betreff*</b></label></p>
-                <input type="text" id="subject" placeholder="Betreff" required>
+                <input type="text" id="subject" placeholder="Betreff" name="subject" required>
                 <p><label><b>Deine Nachricht*</b></label></p>
                 <textarea  rows="10" cols="50" id="msg" form="contact" placeholder="Deine Nachricht..." maxlength="500" name="msg" required></textarea>
                 <p id="reminder">Maximal 500 Zeichen</p>
