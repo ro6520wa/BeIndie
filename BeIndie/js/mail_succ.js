@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    if ($("#success").css("display") === "block")
+    if ($("#mail_success").css("display") === "block")
     {
-        $("#success").delay(500).fadeOut(2500);
+        $("#mail_success").delay(500).fadeOut(2500);
     }
 })

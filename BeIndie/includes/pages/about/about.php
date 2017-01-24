@@ -19,8 +19,7 @@
             <div class="about_e">
                 <div class="e_img" style="background-image: url(<?=$row["e_image"]?>)"></div>
                 <div class="e_info">
-                        <p><b><?= $row["e_firstname"] . " " . $row["e_lastname"]; ?></b></p>
-                        <p><b>Alter:
+                        <p><b><?= $row["e_firstname"] . " " . $row["e_lastname"]; ?>, 
                         <?php
                         $date_parts = explode(".", $row["e_birthdate"]);
                         if ($current_month <= $date_parts[1]) {
@@ -31,6 +30,7 @@
                             echo ($current_year - $date_parts[2]);
                         } ?>
                         </b></p>
+                        <p><a class="mail" href="mailto:<?=$row["e_email"]?>"><?=$row["e_email"]?></a></p>
                 </div>
             </div>
             <div class="e_text"> 

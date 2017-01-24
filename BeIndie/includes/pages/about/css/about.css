@@ -20,6 +20,14 @@
     text-align: center;
 }
 
+.e_info p {
+    line-height: 20px;
+}
+
+.mail {
+    text-decoration: underline;
+}
+
 .e_img {
     margin-top: 50px;
     background-size: 100%;

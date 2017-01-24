@@ -5,11 +5,8 @@ include ("includes/functions/swConnect.php");
 $query_name = "SELECT user_name, first_name, last_name, user_bio, location, avatar FROM user WHERE user_ID='" . $uid . "'";
 $result_name = mysqli_query($conn, $query_name);
 $output_name = mysqli_fetch_assoc($result_name);
-$query1 = "SELECT user_name, first_name, last_name, location, avatar, title, user_bio FROM user u JOIN project p ON u.email=p.creator WHERE user_ID='" . $uid . "'";
 $query_projects = "SELECT title, current_status, goal, project_ID FROM user u JOIN project p ON u.email=p.creator WHERE user_ID='" . $uid . "' LIMIT 5";
-$result1 = mysqli_query($conn, $query1);
 $result_projects = mysqli_query($conn, $query_projects);
-$output1 = mysqli_fetch_assoc($result1);
 $name = "";
 $i = 0;
 $allow_edit = false;
@@ -93,7 +90,7 @@ if ($output_name["first_name"] == NULL) {
             <p>
                 <b>
                    <?php if ($output_name["location"] != NULL) {?>
-                    <i class="fa fa-map-marker" aria-hidden="true" style='color:#4CAF50'></i><a href='http://maps.google.com/?q=<?=utf8_encode($output1["location"])?>'> <?=utf8_encode($output1["location"])?></a> 
+                    <i class="fa fa-map-marker" aria-hidden="true" style='color:#4CAF50'></i><a href='http://maps.google.com/?q=<?=utf8_encode($output_name["location"])?>'> <?=utf8_encode($output_name["location"])?></a> 
                    <?php } ?>
                 </b>
             </p>

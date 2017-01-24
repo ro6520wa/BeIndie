@@ -78,7 +78,6 @@ fieldset textarea {
 }
 
 #mail_success_msg {
-    display: none;
     background-color: #DFF2BF;
     color: #4F8A10;
     border: 1px solid #4F8A10;
@@ -93,6 +92,6 @@ fieldset textarea {
     opacity: 1;
 }
 
-#mail_success.show {
+#mail_success.show, mail_success_msg.show {
     display: block;
 }
