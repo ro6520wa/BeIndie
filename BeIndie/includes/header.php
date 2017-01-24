@@ -24,7 +24,8 @@ if(isset($_SESSION["username"])){
                         <li class="<?php if ($page == 'my_projects') {echo "active";} ?>">
                             <a href="index.php<?php if($logged_in){ echo "?page=my_projects&uname=" . $_SESSION["username"]; } else { echo "?page=login";}?>">
                                 Meine Projekte</a></li>
-                        <li class="<?php if ($page == 'new_projects') {echo "active";} ?>"><a href="index.php?page=new_project">Neues Projekt</a></li>
+                        <li class="<?php if ($page == 'new_projects') {echo "active";} ?>">
+                            <a href="index.php<?php if($logged_in){echo "?page=new_project";}else{echo "?page=login";} ?>">Neues Projekt</a></li>
                     </ul>
                 </li>
                 <li class="<?php if ($page == 'about') {echo "active";} ?>"><a href="index.php?page=about">Über uns</a></li>

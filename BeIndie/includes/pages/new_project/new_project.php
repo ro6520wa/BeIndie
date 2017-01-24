@@ -3,7 +3,7 @@
     <?php  
     include ("includes/functions/swConnect.php");   
 
-    if((isset($_SESSION["username"])) === TRUE){
+ 
     ?>
 
     <div id="newproject">
@@ -52,10 +52,4 @@
 //    $result1 = mysqli_query($conn, $query1);
 //    }
 //    
-    include ("includes/functions/swClose.php"); 
-    
-    }
-    else{ 
-        echo 'logg dich ein DIGGA!';
-        
-    } ?>
+    include ("includes/functions/swClose.php");
