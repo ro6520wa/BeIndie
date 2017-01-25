@@ -1,0 +1,133 @@
+#project{    
+    width: 980px;
+    margin: 20px auto;
+}
+
+#title h1 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+#img {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#img img{
+    margin: 0 auto 20px auto;
+    width: 100%;
+    border-radius: 10px;
+    height: 300px;
+}
+
+#support_wrap{
+    width: 980px;
+    margin: 0 auto;
+}
+
+#input_amount {
+    padding: 10px 0;
+}
+
+#enter_amount {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 12px 20px 12px 40px;
+    color: black;
+}
+
+#support_wrap h2 {
+    color: black;
+}
+
+#support_wrap h2 b{
+    color: #4CAF50;
+}
+
+.reward_title {
+    color: #4CAF50;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cur_reward, .fut_reward{
+    padding: 0 5px;
+}
+
+.current_reward, .get_reward {
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.current_reward b, .get_reward b, .pay_more b {
+    color: #4CAF50;
+}
+
+.pay_more {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.higher_reward {
+     width: 310px;
+     padding: 10px 5px 0 5px;
+     float: left;
+}
+
+.reward_text {
+    text-align: justify;
+}
+
+#support_button {
+    clear: both;
+    float: left;
+    text-decoration: none;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 60px;
+    display: inline-block;
+    font-size: 20px;
+    box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    margin: 20px 0 40px 5px;
+    cursor: pointer;
+}
+
+#support_button:active{
+    box-shadow:0 0px 0px 0 rgba(0,0,0,0),0 0px 0px 0 rgba(0,0,0,0);
+}
+
+#error {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    position: fixed;
+    z-index: 24;
+    display: none;
+}
+
+#trans_error {
+    background-color: #FFBABA;
+    color: #D8000C;
+    border: 1px solid #D8000C;
+    margin: 10px auto;
+    width: 350px;
+    padding: 10px 0px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    opacity: 1;
+}
+
+#error.show_err, #trans_err.show_err {
+    display: block;
+}

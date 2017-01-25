@@ -1,9 +1,24 @@
+<?php        
+$trans_succ = false;
+        
+if(isset ($_GET["succ"])){
+    if($_GET["succ"] == "1"){
+        $trans_succ = true;
+    }
+}
+?>
 
+<div id='trans_success' class='<?php if ($trans_succ == true) {echo "show_succ";} ?>'>
+    <div id="trans_success_msg" class='<?php if ($trans_succ == true) {echo "show_succ";} ?>'><i class="fa fa-check" aria-hidden="true"></i>
+        Deine Bezahlung war erfolgreich!
+    </div>
+</div>
 <div id="all_projects">
     <?php  
     include ("includes/functions/swConnect.php");
     ?>
-    <?php 
+    <?php
+    
         $project_ID = $_GET["q"];
     
         $titel = "select * from project where project_ID = $project_ID";
@@ -45,7 +60,6 @@
         $rewards = "SELECT * from reward where project_ID = $project_ID order by min_amount asc";
         $result8 = mysqli_query($conn, $rewards);    
     ?>
-    
     <div id="project">
             <h1><?=  $row1["title"] ?></h1>
         <div id="slideshow">
@@ -119,7 +133,8 @@
 
            <div id ="backing">                
                     <h2>Dieses Projekt unterstützen</h2>
-                    <button type="button" >Unterstützen</button>
+                    <a href="index.php?page=support_project&id=<?=$project_ID?>">Unterstützen</a>
+                    <!--<button type="button" >Unterstützen</button>-->
             <?php         
             while ($row8 = mysqli_fetch_array($result8)){    
             ?>  
@@ -136,7 +151,7 @@
     ?>
 
 </div>
-
+<script src="js/trans_succ.js" type="text/javascript"></script>
 
 
 
