@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Erstellungszeit: 23. Jan 2017 um 14:35
--- Server-Version: 10.1.16-MariaDB
--- PHP-Version: 5.6.24
+-- Host: 127.0.0.1
+-- Erstellungszeit: 25. Jan 2017 um 20:09
+-- Server-Version: 10.1.19-MariaDB
+-- PHP-Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -65,8 +65,8 @@ CREATE TABLE `project` (
 --
 
 INSERT INTO `project` (`project_ID`, `creator`, `title`, `goal`, `current_status`, `start_date`, `end_date`, `category`, `description`) VALUES
-(2, 'John.D@gmail.com', 'Awesome Project', 50000, 125000, '2016-12-01', '2017-01-16', 'Technologie', '''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. '),
-(3, 'kelixf@gmx.de', 'Barbie 2.0', 1000, 10, '2017-01-12', '2017-04-12', 'Beauty', 'Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! '),
+(2, 'John.D@gmail.com', 'Awesome Project', 50000, 125005, '2016-12-01', '2017-01-16', 'Technologie', '''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. ''Awesome Project'' ist sehr gut. '),
+(3, 'kelixf@gmx.de', 'Barbie 2.0', 1000, 60, '2017-01-12', '2017-04-12', 'Beauty', 'Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! Jeder mag Barbie!!! '),
 (4, 'paul.hentgen@fh-erfurt.de', 'All Woman''s Sea - The Game', 100000, 250000, '2016-11-01', '2017-04-01', 'Spiele', 'Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? Besser als "No Man''s Sky" ? '),
 (5, 'ron.wagner@fh-erfurt.de', 'Fatbool - The football reinvented', 15000, 1255, '2016-07-25', '2017-07-25', 'Sport', 'Nicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für FetteNicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für FetteNicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für FetteNicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für FetteNicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für FetteNicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette'),
 (6, 'wurstjay@web.de', 'Real Roschter - The Wurst for everyone', 35000, 23450, '2016-11-29', '2017-03-24', 'Beauty', 'Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!'),
@@ -145,9 +145,11 @@ CREATE TABLE `transaction` (
 INSERT INTO `transaction` (`transaction_ID`, `user_email`, `project_ID`, `amount`, `date`) VALUES
 (1, 'Not.Doe@gmail.com', 2, 10000, '2016-12-15'),
 (2, 'kelixf@gmx.de', 5, 5000, '2017-01-01'),
-(3, 'paul.hentgen@fh-erfurt.de', 2, 100, '2016-12-22'),
+(3, 'paul.hentgen@fh-erfurt.de', 2, 20, '2016-12-22'),
 (4, 'wurstjay@web.de', 7, 200, '2016-12-16'),
-(5, 'ron.wagner@fh-erfurt.de', 5, 5, '2017-01-17');
+(5, 'ron.wagner@fh-erfurt.de', 5, 5, '2017-01-17'),
+(30, 'ron.wagner@fh-erfurt.de', 2, 5, '2017-01-25'),
+(31, 'paul.hentgen@fh-erfurt.de', 3, 50, '2017-01-25');
 
 -- --------------------------------------------------------
 
@@ -177,10 +179,8 @@ INSERT INTO `user` (`user_ID`, `email`, `user_name`, `first_name`, `last_name`, 
 (4, 'kelixf@gmx.de', 'TheFiesling', 'Kelix', 'Fießling', NULL, 'Waynetrain, No Mans Sky', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', NULL),
 (5, 'ron.wagner@fh-erfurt.de', 'ro6520wa', 'Ron', 'Wagner', '', 'Weimar, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', ''),
 (6, 'wurstjay@web.de', 'WurstJay', 'Jonathan', 'Wurst', NULL, 'Oktoberfest, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', NULL),
-(7, 'paul.hentgen@fh-erfurt.de', 'pa8627he', 'Pole', 'Hengst', '', 'Erfurt, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', ''),
-(12, 'jochen@schweizer.com', 'Schwizzi', NULL, NULL, NULL, NULL, '$2y$10$g4Om1KaNaIzi1GJue2/.kecfwVWQQtSUoNIiw/puAocwv3Op8lAgq', NULL),
-(13, 'soeren.brodt@ibykus.de', 'SBrodt', NULL, NULL, NULL, NULL, '$2y$10$j6cLl04Rtlic.X80nYggoOkgdj3C8YF34obi/jpnRKcjjMXXWb/da', NULL),
-(14, 'kevin.kosinski@fh-erfurt.de', 'HiIAmKevin', '', '', '', '', '$2y$10$IiNCKqTrLjifuYGP0.WGBeVgZull.QXdPSgmlstKWNK8j2ONsRavy', '');
+(7, 'paul.hentgen@fh-erfurt.de', 'pa8627he', 'Paul', 'Hentgen', NULL, 'Erfurt, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', NULL),
+(12, 'jochen@schweizer.com', 'Schwizzi', NULL, NULL, NULL, NULL, '$2y$10$g4Om1KaNaIzi1GJue2/.kecfwVWQQtSUoNIiw/puAocwv3Op8lAgq', NULL);
 
 --
 -- Indizes der exportierten Tabellen
@@ -256,12 +256,12 @@ ALTER TABLE `reward`
 -- AUTO_INCREMENT für Tabelle `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `transaction_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `transaction_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- Constraints der exportierten Tabellen
 --
