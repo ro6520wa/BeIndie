@@ -335,7 +335,12 @@ p.desc_text{
     margin-bottom: 10px;
 }
 
+.project_user i {
+    font-weight: normal;
+}
+
 .project_user a {
+    font-weight: bold;
     text-decoration: none;
     color: black;
 }

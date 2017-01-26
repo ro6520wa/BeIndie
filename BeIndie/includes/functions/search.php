@@ -99,7 +99,7 @@ function search_output($output) {
                 <?= $output["title"] ?></a>
         </h3>
         <p class='project_user'>
-            <a href="index.php?page=user_profile&id=<?=$output["user_id"]?>"><?= $output["user_name"] ?></a>
+            <i>von </i><a href="index.php?page=user_profile&id=<?=$output["user_id"]?>"><?= $output["user_name"] ?></a>
         </p>
         <div class='percent_goal'>
             <?php
