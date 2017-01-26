@@ -14,7 +14,7 @@
                 
                 <h2>Name des Projekts</h2>                  
                 
-                <input type="$text" name="form_title"  id="title" placeholder="Projectname...">
+                <input type="text" name="form_title"  id="title" placeholder="Projectname...">
 
                 <h2>Kategorie</h2>
                     <input type="radio" name="form_category" value="games" id="cat">Spiele
@@ -25,6 +25,7 @@
 
                     
                     <input type="submit" class="next" onclick="DBupload()" value="speichern" </button>
+                    <!--den a tag weg-->
                 <ul id='abort'><li><a href="index.php?page=new_project2">weiter...</a></li></ul> 
             </form>                
         </div>            
@@ -32,6 +33,10 @@
 
     
     <script>  function DBupload(){
+        //hier die daten erst prüfen wenn sie stimmen in die session eintragen und weiter, wenn nicht dann zurück und sagen was nicht stimmt
+        //kann eigentlich ja nur der projektname sein und wenn du die zeichlich und mit required begrenzt sollte die überprüfung nicht nötig sein
+        //dann kannst du es eigentlich auch ohne die überprüfung weitergeben sondern einfach in die session eintragen
+        //weiß nicht inwiefern hier evtl. probleme entstehen können weil das im js steht und nicht als php
          <?php   if (isset($_POST["form_title"]) === true && isset($_POST["form_category"]) === true)       
 
             {                    

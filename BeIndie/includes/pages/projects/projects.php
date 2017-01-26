@@ -10,7 +10,7 @@ if(isset ($_GET["succ"])){
 
 <div id='trans_success' class='<?php if ($trans_succ == true) {echo "show_succ";} ?>'>
     <div id="trans_success_msg" class='<?php if ($trans_succ == true) {echo "show_succ";} ?>'><i class="fa fa-check" aria-hidden="true"></i>
-        Deine Bezahlung war erfolgreich!
+        Die Bezahlung war erfolgreich! Der Verkäufer wird in Kürze mit dir in Kontakt treten!
     </div>
 </div>
 <div id="all_projects">
@@ -151,7 +151,7 @@ if(isset ($_GET["succ"])){
     ?>
 
 </div>
-<script src="js/trans_succ.js" type="text/javascript"></script>
+<!--<script src="js/trans_succ.js" type="text/javascript"></script>-->
 
 
 

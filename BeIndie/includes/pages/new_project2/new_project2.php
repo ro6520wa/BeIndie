@@ -3,6 +3,7 @@
     
     include ("includes/functions/swConnect.php");
     
+   //hier dann die session daten abspeichern
     
             $title = $_POST["form_title"];
             $cat = $_POST["form_category"];
@@ -58,6 +59,10 @@
             </form>    
             
             <?php
+            //ich würde alles zusammen submitten, nochmal überprüfen ob das so passt und dann in die datenbank eintragen, wenn das alles geklappt
+            //hat dann kannst du ihn auf seine projektseite schicken. wenn was schief läuft wieder zurück und sagen was der fehler war.
+            //das kannst du auch alles außerhalb in einer komplett anderen php datei machen, muss nicht hier sein
+            //viel spaß :^)
             //$desc = $_POST['descbox'];
             
             ?>
