@@ -22,6 +22,7 @@ h1 {
 h2 { 
     font-size: 40px;
     margin-bottom: 15px; 
+    margin-top: 15px;
 }
 
 .next{
@@ -42,3 +43,7 @@ h2 {
     box-shadow:0 0px 0px 0 rgba(0,0,0,0),0 0px 0px 0 rgba(0,0,0,0);
 }
 
+#descbox { 
+    margin-top: 0px; 
+    resize: none;
+}

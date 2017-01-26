@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 25. Jan 2017 um 20:09
--- Server-Version: 10.1.19-MariaDB
--- PHP-Version: 5.6.28
+-- Erstellungszeit: 26. Jan 2017 um 17:49
+-- Server-Version: 10.1.16-MariaDB
+-- PHP-Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -90,15 +90,15 @@ CREATE TABLE `project_image` (
 --
 
 INSERT INTO `project_image` (`image_ID`, `project_ID`, `image_path`) VALUES
-(1, 2, 'images/project_images/2_1.jpg'),
-(2, 2, 'images/project_images/2_2.jpg'),
-(3, 2, 'images/project_images/2_3.jpg'),
-(10, 3, 'images/project_images/3_4.jpg'),
-(11, 4, 'images/project_images/4_5.jpg'),
-(12, 5, 'images/project_images/5_6.jpg'),
-(13, 6, 'images/project_images/6_7.jpg'),
-(14, 7, 'images/project_images/7_8.jpg'),
-(15, 8, 'images/project_images/8_9.jpg');
+(1, 2, 'images/project_images/2/slideshow1.jpg'),
+(2, 2, 'images/project_images/2/2_2.jpg'),
+(3, 2, 'images/project_images/2/2_3.jpg'),
+(10, 3, 'images/project_images/3/3_4.jpg'),
+(11, 4, 'images/project_images/4/4_5.jpg'),
+(12, 5, 'images/project_images/5/5_6.jpg'),
+(13, 6, 'images/project_images/6/6_7.jpg'),
+(14, 7, 'images/project_images/7/7_8.jpg'),
+(15, 8, 'images/project_images/8/8_9.jpg');
 
 -- --------------------------------------------------------
 

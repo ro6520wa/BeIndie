@@ -21,7 +21,7 @@ if(isset ($_GET["succ"])){
     
         $project_ID = $_GET["q"];
     
-        $titel = "select * from project where project_ID = $project_ID";
+        $titel = "select title from project where project_ID = $project_ID";
         $result1 = mysqli_query($conn, $titel);
         $row1 = mysqli_fetch_array($result1);
         

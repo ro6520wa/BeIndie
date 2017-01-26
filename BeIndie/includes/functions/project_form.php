@@ -2,21 +2,8 @@
 
 <?php
 
-    function DBupload() {
-
-        if (isset($_POST["form_title"]) === true && isset($_POST["form_category"]) === true)
-        {                    
-        $title = $_POST["form_title"];
-        $cat = $_POST["form_category"];
-        $user = $_SESSION["username"];
-        $query1 = "insert into project(creator, title, category) VALUES ((SELECT email from user where user_name = '$user'), '$title', '$cat')";
-        $result1 = mysqli_query($conn, $query1);
-        }
-
-    }
 
 
-    
     $target_dir = "../../images/project_images/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
@@ -55,4 +42,7 @@
         } else {
             echo "Sorry, there was an error uploading your file.";
     }}
+    header("Location: http://localhost/website/BeIndie/index.php?page=new_project2");
+    exit;
+    
 ?>
