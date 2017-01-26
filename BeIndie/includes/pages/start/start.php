@@ -21,8 +21,8 @@ if(isset($_SESSION["username"])){
                 <select id="order_select">
                     <option value="Neueste">Neueste</option>
                     <option value="Älteste">Älteste</option>
-                    <option value="Projektname aufsteigend">Projektname aufsteigend</option>
-                    <option value="Projektname absteigend">Projektname absteigend</option>
+                    <option value="Projektname A-Z">Projektname A-Z</option>
+                    <option value="Projektname Z-A">Projektname Z-A</option>
                 </select>
                 <p id="order_by_tag">Sortieren nach: </p>
             </div>

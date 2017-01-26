@@ -23,10 +23,10 @@ switch($filters[3]){
     case "Älteste":
         $order_by_string = " ORDER BY start_date LIMIT 20";
         break;
-    case "Projektname aufsteigend":
+    case "Projektname A-Z":
         $order_by_string = " ORDER BY title LIMIT 20";
         break;
-    case "Projektname absteigend":
+    case "Projektname Z-A":
         $order_by_string = " ORDER BY title DESC LIMIT 20";
         break;
     default:

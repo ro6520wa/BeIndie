@@ -39,7 +39,7 @@ if (isset($_GET["err"])) {
                     echo "show";
                 } ?>
                 '>
-                <i class="fa fa-times" aria-hidden="true"></i> E-Mail und Passwort stimmen nicht überein!
+                <i class="fa fa-times" aria-hidden="true"></i> E-Mail oder Passwort sind falsch!
             </div>
             <form method="POST" action="includes/functions/check_user.php">
                 <label><b>E-Mail</b></label>
