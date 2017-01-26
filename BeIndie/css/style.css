@@ -192,10 +192,12 @@ input.search {
 }
 
 button.filter {
+    display: inline-block;
+    float: left;
     color: #4CAF50;
     background-color: transparent;
     cursor: pointer;
-    width: 100%;
+    width: 50%;
     text-align: left;
     border: none;
     outline: none;
@@ -220,6 +222,7 @@ button.filter.active:after {
 
 .filter_panel table {
     letter-spacing: 1px;
+    margin-left: -5px;
 }
 
 .cat_filter {
@@ -252,6 +255,27 @@ div.filter_panel {
 
 div.filter_panel.show {
     display: block;
+}
+
+#order_by {
+    margin-top: 5px;
+    display: inline-block;
+    width: 50%;
+}
+
+#order_select {
+    float: right;
+    padding: 1px 5px;
+    font-size: 12px;
+}
+
+#order_by_tag {
+    float: right;
+    display: inline;
+    font-size: 14px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-right: 3px;
 }
 
 /*projects*/
@@ -382,6 +406,8 @@ p.desc_text{
 }
 
 #search_result {
+    clear: both;
+    height: 434px;
     margin-top: -18px;
 }
 

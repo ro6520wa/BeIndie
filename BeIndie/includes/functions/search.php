@@ -2,31 +2,66 @@
 include ("swConnect.php");
 
 $filters = explode(".", $_GET["q"]);
-$i = 2;
+$i = 4;
 $no_cats = false;
 $cat_string = " WHERE";
 $cat_title_string = "";
 $cat_user_string = "";
+$order_by_string = "";
+$or = $filters[2];
 $title_string = " title like '%$filters[0]%'";
 $user_string = " user_name like '%$filters[0]%'";
 $select_string = "SELECT p.project_ID, title, goal, current_status, UNIX_TIMESTAMP(end_date), user_name, image_path, description, user_id";
 $from_join_string = " FROM project p JOIN user u ON p.creator=u.email JOIN project_image pi ON p.project_ID=pi.project_ID";
-$group_string = " GROUP BY p.project_ID LIMIT 20";
+$group_string = " GROUP BY p.project_ID";
+
+//building the order_by string
+switch($filters[3]){
+    case "Neuste":
+        $order_by_string = " ORDER BY start_date DESC LIMIT 20";
+        break;
+    case "Älteste":
+        $order_by_string = " ORDER BY start_date LIMIT 20";
+        break;
+    case "Projektname aufsteigend":
+        $order_by_string = " ORDER BY title LIMIT 20";
+        break;
+    case "Projektname absteigend":
+        $order_by_string = " ORDER BY title DESC LIMIT 20";
+        break;
+    default:
+        $order_by_string = " ORDER BY start_date DESC LIMIT 20";
+}
 
 //building the string when category filters are set
 if (sizeof($filters) > $i) {
-    do {
-        if ($i == 2) {
-            $cat_title_string = $cat_title_string . " WHERE" . $title_string . " && category='$filters[$i]'";
-            $cat_user_string = $cat_user_string . " WHERE" . $user_string . " && category='$filters[$i]'";
-            $cat_string = $cat_string . " category='$filters[$i]'";
-        } else {
-            $cat_title_string = $cat_title_string . " ||" . $title_string . " && category='$filters[$i]'";
-            $cat_user_string = $cat_user_string . " ||" . $user_string . " && category='$filters[$i]'";
-            $cat_string = $cat_string . " || category='$filters[$i]'";
-        }
-        $i++;
-    } while ($i < sizeof($filters));
+    if ($or == "true"){       //checking if OR or AND, building the string accordingly
+        do {
+            if ($i == 4) {
+                $cat_title_string = $cat_title_string . " WHERE" . $title_string . " || category='$filters[$i]'";
+                $cat_user_string = $cat_user_string . " WHERE" . $user_string . " || category='$filters[$i]'";
+                $cat_string = $cat_string . " category='$filters[$i]'";
+            } else {
+                $cat_title_string = $cat_title_string . " ||" . " category='$filters[$i]'";
+                $cat_user_string = $cat_user_string . " ||" . $user_string . " category='$filters[$i]'";
+                $cat_string = $cat_string . " || category='$filters[$i]'";
+            }
+            $i++;
+        } while ($i < sizeof($filters));
+    } else {
+        do {
+            if ($i == 4) {
+                $cat_title_string = $cat_title_string . " WHERE" . $title_string . " && category='$filters[$i]'";
+                $cat_user_string = $cat_user_string . " WHERE" . $user_string . " && category='$filters[$i]'";
+                $cat_string = $cat_string . " category='$filters[$i]'";
+            } else {
+                $cat_title_string = $cat_title_string . " ||" . $title_string . " && category='$filters[$i]'";
+                $cat_user_string = $cat_user_string . " ||" . $user_string . " && category='$filters[$i]'";
+                $cat_string = $cat_string . " || category='$filters[$i]'";
+            }
+            $i++;
+        } while ($i < sizeof($filters));
+    }
 } else {
     $no_cats = true;
 }
@@ -35,9 +70,9 @@ if (sizeof($filters) > $i) {
 if ($no_cats == true) {
     if ($filters[1] == "project_name") {
         if (!empty($filters[0])) {
-            $query = $select_string . $from_join_string . " WHERE" . $title_string . $group_string;
+            $query = $select_string . $from_join_string . " WHERE" . $title_string . $group_string . $order_by_string;
         } else {
-            $query = $select_string . $from_join_string . $group_string;
+            $query = $select_string . $from_join_string . $group_string . $order_by_string;
         }
 
         $result = mysqli_query($conn, $query);
@@ -46,9 +81,9 @@ if ($no_cats == true) {
         }
     } else if ($filters[1] == "user_name") {
         if (!empty($filters[0])) {
-            $query = $select_string . $from_join_string . " WHERE" . $user_string . $group_string;
+            $query = $select_string . $from_join_string . " WHERE" . $user_string . $group_string . $order_by_string;
         } else {
-            $query = $select_string . $from_join_string . $group_string;
+            $query = $select_string . $from_join_string . $group_string . $order_by_string;
         }
 
         $result = mysqli_query($conn, $query);
@@ -59,9 +94,9 @@ if ($no_cats == true) {
 } else {        //do this when categories are selected
     if ($filters[1] == "project_name") {
         if (!empty($filters[0])) {
-            $query = $select_string . $from_join_string . $cat_title_string . $group_string;
+            $query = $select_string . $from_join_string . $cat_title_string . $group_string . $order_by_string;
         } else {
-            $query = $select_string . $from_join_string . $cat_string . $group_string;
+            $query = $select_string . $from_join_string . $cat_string . $group_string . $order_by_string;
         }
 
         $result = mysqli_query($conn, $query);
@@ -70,9 +105,9 @@ if ($no_cats == true) {
         }
     } else if ($filters[1] == "user_name") {
         if (!empty($filters[0])) {
-            $query = $select_string . $from_join_string . $cat_user_string . $group_string;
+            $query = $select_string . $from_join_string . $cat_user_string . $group_string . $order_by_string;
         } else {
-            $query = $select_string . $from_join_string . $cat_string . $group_string;
+            $query = $select_string . $from_join_string . $cat_string . $group_string . $order_by_string;
         }
 
         $result = mysqli_query($conn, $query);
@@ -84,8 +119,8 @@ if ($no_cats == true) {
 
 function search_output($output) {
     $desc = utf8_encode($output["description"]);
-    if (strlen($desc) > 450) {
-        $desc = substr($desc, 0, 450) . "...";
+    if (strlen($desc) > 250) {
+        $desc = substr($desc, 0, strpos($desc, ' ', 250)) . " [...]";
     }
     ?>
     <div class = 'projects_display'>
