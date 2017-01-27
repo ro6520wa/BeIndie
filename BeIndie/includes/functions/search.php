@@ -43,7 +43,7 @@ if (sizeof($filters) > $i) {
                 $cat_string = $cat_string . " category='$filters[$i]'";
             } else {
                 $cat_title_string = $cat_title_string . " ||" . " category='$filters[$i]'";
-                $cat_user_string = $cat_user_string . " ||" . $user_string . " category='$filters[$i]'";
+                $cat_user_string = $cat_user_string . " ||" . $user_string . " || category='$filters[$i]'";
                 $cat_string = $cat_string . " || category='$filters[$i]'";
             }
             $i++;
@@ -109,7 +109,6 @@ if ($no_cats == true) {
         } else {
             $query = $select_string . $from_join_string . $cat_string . $group_string . $order_by_string;
         }
-
         $result = mysqli_query($conn, $query);
         while ($output = mysqli_fetch_assoc($result)) {
             search_output($output);

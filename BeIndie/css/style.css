@@ -251,6 +251,7 @@ div.filter_panel {
     font-size: 13px;
     display: none;
     margin-bottom: 0px;
+    float: left;
 }
 
 div.filter_panel.show {
