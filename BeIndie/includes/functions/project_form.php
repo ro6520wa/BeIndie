@@ -2,47 +2,29 @@
 
 <?php
 
-
-
-    $target_dir = "../../images/project_images/";
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-    // Check if image file is a actual image or fake image
-    if(isset($_POST["submit"])) {
-        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-        if($check !== false) {            
-            $uploadOk = 1;
-        } else {
-            echo "File is not an image.";
-            $uploadOk = 0;
-        }
-    }
-    // Check if file already exists
-    if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
-        $uploadOk = 0;
-    }
-    // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 500000) {
-        echo "Sorry, your file is too large.";
-        $uploadOk = 0;
-    }
-    // Allow certain file formats
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-        echo "Sorry, only JPG, JPEG, PNG files are allowed.";
-        $uploadOk = 0;
-    }
-    // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
-    // if everything is ok, try to upload file
-    } else {
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {            
-        } else {
-            echo "Sorry, there was an error uploading your file.";
-    }}
-    header("Location: http://localhost/website/BeIndie/index.php?page=new_project2");
-    exit;
+session_start();
+include ("swConnect.php");
     
+
+        //hier die daten erst prüfen wenn sie stimmen in die session eintragen und weiter, wenn nicht dann zurück und sagen was nicht stimmt
+        //kann eigentlich ja nur der projektname sein und wenn du die zeichlich und mit required begrenzt sollte die überprüfung nicht nötig sein
+        //dann kannst du es eigentlich auch ohne die überprüfung weitergeben sondern einfach in die session eintragen
+        //weiß nicht inwiefern hier evtl. probleme entstehen können weil das im js steht und nicht als php
+         if (isset($_POST["form_title"]) === true && isset($_POST["form_category"]) === true)       
+
+            {   
+            
+            $title = $_SESSION["form_title"] = $_POST["form_title"];
+            $cat = $_SESSION["form_category"]= $_POST["form_category"];
+            $user = $_SESSION["username"];
+
+            $query1 = "insert into project(creator, title, category) VALUES ((SELECT email from user where user_name = '$user'), '$title', '$cat')";
+            $result1 = mysqli_query($conn, $query1);    
+            header('Location: ../../index.php?page=new_project2');
+            }
+        ?>
+
+
+<?php
+    include ("swClose.php");
 ?>

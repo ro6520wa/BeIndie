@@ -1,16 +1,16 @@
 
 <!DOCTYPE html>
     <?php  
-    include ("includes/functions/swConnect.php");   
+    
  
     ?>
-
+<fieldset>
     <div id="newproject">
         <h1>Starten Sie jetzt neues Projekt</h1>
         <div id = form>
             <!--action="index.php?page=new_project2"-->
             
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST" action="includes/functions/project_form.php" enctype="multipart/form-data">
                 
                 <h2>Name des Projekts</h2>                  
                 
@@ -21,23 +21,20 @@
                     <input type="radio" name="form_category" value="sport" id="cat">Sport
                     <input type="radio" name="form_category" value="technology" id="cat">Technologie
                     <input type="radio" name="form_category" value="beauty" id="cat">Fashion & Beauty
-                    
 
                     
-                    <input type="submit" class="next" onclick="DBupload()" value="speichern" </button>
-                    <!--den a tag weg-->
-                <ul id='abort'><li><a href="index.php?page=new_project2">weiter...</a></li></ul> 
+                    <input type="submit" class="next" value="speichern" </button>
             </form>                
         </div>            
     </div>  
-
+</fieldset>
     
-    <script>  function DBupload(){
+<!--    <script>  function DBupload(){
         //hier die daten erst prüfen wenn sie stimmen in die session eintragen und weiter, wenn nicht dann zurück und sagen was nicht stimmt
         //kann eigentlich ja nur der projektname sein und wenn du die zeichlich und mit required begrenzt sollte die überprüfung nicht nötig sein
         //dann kannst du es eigentlich auch ohne die überprüfung weitergeben sondern einfach in die session eintragen
         //weiß nicht inwiefern hier evtl. probleme entstehen können weil das im js steht und nicht als php
-         <?php   if (isset($_POST["form_title"]) === true && isset($_POST["form_category"]) === true)       
+            if (isset($_POST["form_title"]) === true && isset($_POST["form_category"]) === true)       
 
             {                    
             $title = $_POST["form_title"];
@@ -50,12 +47,12 @@
             }?>
         }
     
-    </script>
+    </script>-->
     <?php
       
 
             
-    include ("includes/functions/swClose.php");
+    
     
     
 //    if (isset($_POST["form_title"]) === true && isset($_POST["form_category"]) === true)

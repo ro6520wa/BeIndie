@@ -1,8 +1,7 @@
 <?php  
-    include ("includes/functions/swConnect.php");   
- 
+    include ("includes/functions/swConnect.php"); 
     ?>
-
+<form  method="post" action="index.php?page=new_project2">
     <div id="newproject">
         <h1>Wie sollen deine Ünterstützer belohnt werden?</h1>
         <div id = Rewards>
@@ -15,5 +14,8 @@
         </div>
         
     </div>
+    <input type="submit" class="next" value="speichern" </button>
+    
+</form>
 
 

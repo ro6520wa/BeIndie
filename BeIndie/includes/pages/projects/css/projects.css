@@ -181,7 +181,8 @@ h2{
 
 
 
-#backing button{
+#backing a{
+    text-decoration: none;
     font-family: 'Raleway', sans-serif;
     background-color: #4CAF50;
     border: none;
@@ -195,7 +196,7 @@ h2{
     z-index: -10;
 }
 
-#backing button:active {
+#backing a:active {
     box-shadow:0 0px 0px 0 rgba(0,0,0,0),0 0px 0px 0 rgba(0,0,0,0);
 }
 

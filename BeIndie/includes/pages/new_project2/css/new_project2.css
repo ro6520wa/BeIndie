@@ -19,11 +19,30 @@ h1 {
     text-align: center;
 }
 
-h2 { 
+h2  { 
+    
     font-size: 40px;
     margin-bottom: 15px; 
     margin-top: 15px;
 }
+
+
+#goal, #time{
+    border: none;
+    border-bottom: 1px solid #4CAF50;
+    width: 500px;
+    background-color: #f1f1f1;
+    font-size: 20px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    padding: 10px;
+}
+
+#descbox { 
+    margin-top: 0px; 
+    resize: none;
+}
+
 
 .next{
     font-family: 'Raleway', sans-serif;
@@ -43,7 +62,4 @@ h2 {
     box-shadow:0 0px 0px 0 rgba(0,0,0,0),0 0px 0px 0 rgba(0,0,0,0);
 }
 
-#descbox { 
-    margin-top: 0px; 
-    resize: none;
-}
+
