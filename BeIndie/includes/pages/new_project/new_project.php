@@ -1,16 +1,17 @@
 
 <!DOCTYPE html>
-    <?php  
-    
- 
-    ?>
+
 <fieldset>
+    
     <div id="newproject">
-        <h1>Starten Sie jetzt neues Projekt</h1>
+        <div id="headline">
+        <h1>Starte jetzt Dein Projekt</h1>
+        <p>Diese Daten kannst du später <b>nicht</b> mehr ändern</p>
+        </div>
         <div id = form>
             <!--action="index.php?page=new_project2"-->
             
-            <form method="POST" action="includes/functions/project_form.php" enctype="multipart/form-data">
+            <form method="POST" action="includes/functions/project_title.php" enctype="multipart/form-data">
                 
                 <h2>Name des Projekts</h2>                  
                 
@@ -22,6 +23,11 @@
                     <input type="radio" name="form_category" value="technology" id="cat">Technologie
                     <input type="radio" name="form_category" value="beauty" id="cat">Fashion & Beauty
 
+                    <h2>Dein Ziel</h2>
+                    <input type="text" name="form_goal"  id="goal" placeholder="Ohne € angeben..." >  
+
+                    <h2>Dauer</h2>
+                    <input type="text" name="form_time"  id="time" placeholder="In Tagen angeben...">
                     
                     <input type="submit" class="next" value="speichern" </button>
             </form>                
