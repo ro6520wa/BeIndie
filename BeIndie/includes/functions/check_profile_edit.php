@@ -78,6 +78,7 @@ if ($_FILES['uimg']['size'] > 0) {
     if (move_uploaded_file($tmp, $target_file)) {
         
     } else {
+        
         header('Location: ../../index.php?page=edit_profile&id=' . $uid . "&err=img3");
         exit(1);
     }
