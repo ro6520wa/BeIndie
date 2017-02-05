@@ -93,6 +93,11 @@ ul#abort li a{
     margin: 0 20px;
 }
 
+#img_info {
+    margin-left: 20px;
+    font-size: 12px;
+}
+
 /*error msg styling*/
 
 #err_uname, #err_img{

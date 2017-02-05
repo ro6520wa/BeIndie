@@ -44,7 +44,7 @@ $avatar = "";
 if ($_FILES['uimg']['size'] > 0) {
     $target_dir = "../../images/u_images/";
     $target_file = $target_dir . basename($_FILES["uimg"]["name"]);
-    $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
     if ($output1["avatar"] == NULL) {
         $target_file = $target_dir . $uid . "." . $imageFileType;
         $avatar = "images/u_images/" . $uid . "." . $imageFileType;

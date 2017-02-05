@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 26. Jan 2017 um 17:49
--- Server-Version: 10.1.16-MariaDB
--- PHP-Version: 5.6.24
+-- Erstellungszeit: 05. Feb 2017 um 18:52
+-- Server-Version: 10.1.19-MariaDB
+-- PHP-Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -31,16 +31,17 @@ CREATE TABLE `employee` (
   `e_firstname` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
   `e_lastname` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
   `e_birthdate` varchar(20) NOT NULL,
-  `e_image` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_cs DEFAULT NULL
+  `e_image` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_cs DEFAULT NULL,
+  `e_email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Daten für Tabelle `employee`
 --
 
-INSERT INTO `employee` (`e_ID`, `e_firstname`, `e_lastname`, `e_birthdate`, `e_image`) VALUES
-(1, 'Ron', 'Wagner', '25.07.1996', 'images/e_images/ronw.jpg'),
-(2, 'Paul', 'Hentgen', '25.08.1992', 'images/e_images/paulh.jpg');
+INSERT INTO `employee` (`e_ID`, `e_firstname`, `e_lastname`, `e_birthdate`, `e_image`, `e_email`) VALUES
+(1, 'Ron', 'Wagner', '25.07.1996', 'images/e_images/ronw.jpg', 'ron.wagner@fh-erfurt.de'),
+(2, 'Paul', 'Hentgen', '25.08.1992', 'images/e_images/paulh.jpg', 'paul.hentgen@fh-erfurt.de');
 
 -- --------------------------------------------------------
 
@@ -176,11 +177,11 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`user_ID`, `email`, `user_name`, `first_name`, `last_name`, `avatar`, `location`, `crypt_pw`, `user_bio`) VALUES
 (2, 'John.D@gmail.com', 'JD', 'John', 'Doe', 'images/u_images/2.jpg', 'Erfurt, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', NULL),
 (3, 'Not.Doe@gmail.com', 'NotD', 'Not', 'Doe', 'images/u_images/3.jpg', 'Weimar, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', NULL),
-(4, 'kelixf@gmx.de', 'TheFiesling', 'Kelix', 'Fießling', NULL, 'Waynetrain, No Mans Sky', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', NULL),
+(4, 'kelixf@gmx.de', 'TheFiesling', 'Kelix', 'Fiessling', 'images/u_images/4.jpg', 'Waynetrain, No Mans Sky', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', ''),
 (5, 'ron.wagner@fh-erfurt.de', 'ro6520wa', 'Ron', 'Wagner', '', 'Weimar, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', ''),
 (6, 'wurstjay@web.de', 'WurstJay', 'Jonathan', 'Wurst', NULL, 'Oktoberfest, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', NULL),
 (7, 'paul.hentgen@fh-erfurt.de', 'pa8627he', 'Paul', 'Hentgen', NULL, 'Erfurt, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', NULL),
-(12, 'jochen@schweizer.com', 'Schwizzi', NULL, NULL, NULL, NULL, '$2y$10$g4Om1KaNaIzi1GJue2/.kecfwVWQQtSUoNIiw/puAocwv3Op8lAgq', NULL);
+(12, 'jochen@schweizer.com', 'Schwizzi', '', '', '', '', '$2y$10$g4Om1KaNaIzi1GJue2/.kecfwVWQQtSUoNIiw/puAocwv3Op8lAgq', '');
 
 --
 -- Indizes der exportierten Tabellen

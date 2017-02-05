@@ -44,7 +44,7 @@ if ($output_name["first_name"] == NULL) {
                 <?php $i++;} } ?>
         </table>
         <a href='index.php?page=my_projects&uname=<?=$output_name["user_name"]?>'>Mehr anzeigen</a>
-        <h3 class="second">Projekte die <?=$name?> unterstützt</h3>
+        <h3 class="second">Projekte, die <?=$name?> unterstützt</h3>
         <table>
             <tr>
                 <th>Projektname</th>
@@ -95,7 +95,7 @@ if ($output_name["first_name"] == NULL) {
                 </b>
             </p>
             <?php if ($allow_edit == true){?>
-            <a href="index.php?page=edit_profile&id=<?=$uid?>" style="color:blue">Profil bearbeiten</a>
+            <a href="index.php?page=edit_profile&id=<?=$uid?>" style="color:blue"><i class="fa fa-pencil" aria-hidden="true"></i>Profil bearbeiten</a>
             <?php } ?>
         </div>
         </div>

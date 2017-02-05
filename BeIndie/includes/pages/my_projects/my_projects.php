@@ -1,13 +1,13 @@
 <?php
 
 $uname = $_GET["uname"];
-
+$sess_user = "";
 if(isset($_SESSION["username"])){
     $sess_user = $_SESSION["username"];
 }
 
 include ("includes/functions/swConnect.php");
-$query = "SELECT user_name, first_name FROM user WHERE user_name ='" . $uname . "'";
+$query = "SELECT user_name, first_name, user_ID FROM user WHERE user_name ='" . $uname . "'";
 $result = mysqli_query($conn, $query);
 $query_myprojects = "SELECT title, current_status, goal, project_ID, UNIX_TIMESTAMP(end_date), category FROM user u JOIN project p ON u.email=p.creator WHERE u.user_name='" . $uname . "'";
 $query_supportprojects = "SELECT creator, amount, title, category, date, t.project_ID FROM user u JOIN transaction t ON u.email=t.user_email"
@@ -17,10 +17,15 @@ $result_supportprojects = mysqli_query($conn, $query_supportprojects);
 $output = mysqli_fetch_assoc($result);
 $name = "";
 
-if ($output["first_name"] == "NULL") {
+if ($output["first_name"] == NULL) {
     $name = $output["user_name"];
 } else {
     $name = $output["first_name"];
+}
+
+$allow_edit = false;
+if($output["user_name"] == $sess_user){
+    $allow_edit = true;
 }
 
 ?>
@@ -48,6 +53,7 @@ if ($output["first_name"] == "NULL") {
             <tr>
                 <td>
                     <a class="project_links" href="index.php?page=projects&q=<?=$output1["project_ID"]?>"><?=$output1["title"]?></a>
+                    <?php if($allow_edit == true) { ?> <a class="edit_links" href="index.php?page=new_project"><i class="fa fa-pencil" aria-hidden="true"></i></a> <?php } ?>
                 </td>
                 <td>
                     <?=$output1["category"]?>
@@ -81,7 +87,7 @@ if ($output["first_name"] == "NULL") {
         </table>
     </div>
     <div id="supportprojects_table">
-        <h2>Projekte die <?=$name?> unterstützt</h2>
+        <h2>Projekte, die <?=$name?> unterstützt</h2>
         <table>
             <tr>
                 <th class="first">
@@ -112,10 +118,10 @@ if ($output["first_name"] == "NULL") {
                     <?=$output2["amount"]?>€
                 </td>
                 <td>
-                    <?php $query_temp = "SELECT user_name FROM user WHERE email='" . $output2["creator"] . "'";
+                    <?php $query_temp = "SELECT user_name, user_ID FROM user WHERE email='" . $output2["creator"] . "'";
                           $result_temp = mysqli_query($conn, $query_temp);
                           $output_temp = mysqli_fetch_assoc($result_temp);
-                          echo $output_temp["user_name"]
+                          echo "<a class='user_links' href='index.php?page=user_profile&id=" . $output_temp["user_ID"] ."'>" . $output_temp["user_name"] . "</a>";
                     ?>
                 </td>
                 <td>
@@ -125,7 +131,7 @@ if ($output["first_name"] == "NULL") {
             <?php } ?>
         </table>
     </div>
-    <a id="profile_link" href="index.php?page=user_profile&id=<?=$output1["project_ID"]?>">Zu <?=$name?>'s Profil</a>
+    <a id="profile_link" href="index.php?page=user_profile&id=<?=$output["user_ID"]?>">Zu <?=$name?>'s Profil</a>
 </div>
     
     

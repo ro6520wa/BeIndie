@@ -304,7 +304,7 @@ div.filter_panel.show {
 }
 
 .project_img_opacity {
-    opacity: 0.7;
+    opacity: 0.3;
     z-index: -1;
 }
 
@@ -422,16 +422,17 @@ footer {
 }
 
 footer article {
-    padding-top: 50px;
+    padding-top: 90px;
 }
 
-#footer_link a {
+.footer_link a {
     line-height: 50px;
     text-decoration: none;
     color: #4CAF50;
+    padding: 10px;
 }
 
-#footer_link a:hover {
+.footer_link a:hover {
     text-decoration: underline;
 }
 
