@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 05. Feb 2017 um 18:52
+-- Erstellungszeit: 08. Feb 2017 um 16:35
 -- Server-Version: 10.1.19-MariaDB
 -- PHP-Version: 5.6.28
 
@@ -123,7 +123,13 @@ INSERT INTO `reward` (`reward_ID`, `project_ID`, `min_amount`, `r_title`, `r_tex
 (1, 2, 1, 'Thank you!', 'Danke für die Unterstützung'),
 (2, 2, 5, 'You are awesome!', 'Du erhälst eine Packung ''awesome'''),
 (3, 2, 50, 'You are more more awesome!', 'Du erhälst 4 Packungen ''awesome'''),
-(4, 2, 25, 'You are more awesome!', 'Du erhälst 10 Packungen ''awesome''');
+(4, 2, 25, 'You are more awesome!', 'Du erhälst 10 Packungen ''awesome'''),
+(11, 8, 5, 'Dankeskarte!', 'Du erhältst eine personalisierte Dankeskarte!'),
+(12, 8, 10, 'Ein StraCo Handbuch', 'Du erhältst ein StraCo Handbuch!'),
+(13, 8, 30, 'Dein Name auf dem StraCo!', 'Dein Name wird auf den StraCo v1 gedruckt!'),
+(14, 8, 50, 'Ein StraCo!', 'Du erhältst einen StraCo v1 nach Fertigstellung der ersten Produktionsreihe!'),
+(15, 8, 100, 'Goldener StraCo', 'Du erhältst einen limitierten goldenen StraCo v1 mit deinem Namen!'),
+(16, 8, 5000, 'StraCo Tech Tour', 'Wir laden dich ins Sillicon Valley ein und du erhältst eine Tour durch unsere Produktionsstätte und kannst dabei zu sehen wie dein eigener StraCo gefertigt wird.');
 
 -- --------------------------------------------------------
 
@@ -252,7 +258,7 @@ ALTER TABLE `project_image`
 -- AUTO_INCREMENT für Tabelle `reward`
 --
 ALTER TABLE `reward`
-  MODIFY `reward_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `reward_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT für Tabelle `transaction`
 --

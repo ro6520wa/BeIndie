@@ -53,7 +53,7 @@ if($output["user_name"] == $sess_user){
             <tr>
                 <td>
                     <a class="project_links" href="index.php?page=projects&q=<?=$output1["project_ID"]?>"><?=$output1["title"]?></a>
-                    <?php if($allow_edit == true) { ?> <a class="edit_links" href="index.php?page=new_project"><i class="fa fa-pencil" aria-hidden="true"></i></a> <?php } ?>
+                    <?php if($allow_edit == true) { $_POST["editid"] = $output1["project_ID"];?> <a class="edit_links" href="index.php?page=new_project2"><i class="fa fa-pencil" aria-hidden="true"></i></a> <?php } ?>
                 </td>
                 <td>
                     <?=$output1["category"]?>
