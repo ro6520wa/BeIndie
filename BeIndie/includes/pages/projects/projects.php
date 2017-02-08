@@ -14,7 +14,9 @@ if(isset ($_GET["succ"])){
     </div>
 </div>
 <div id="all_projects">
+    
     <?php  
+    
     include ("includes/functions/swConnect.php");
     ?>
     <?php

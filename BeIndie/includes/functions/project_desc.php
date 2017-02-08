@@ -13,7 +13,7 @@ session_start();
     
     
     $_SESSION["rewardunits"] = $_POST["rewardunits"];
-
+    unset($_SESSION["descbox"]);
     
     //header ('Location: ../../index.php?page=new_project2');
     header ('Location: ../../index.php?page=new_project3');

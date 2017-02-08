@@ -3,6 +3,7 @@ include ("includes/functions/swConnect.php");
 
     
 
+    echo $_SESSION["editid"];
     $pid = $_SESSION["new_pid"];
     $query1 = "select * from reward where project_ID = $pid";
     $result1 = mysqli_query($conn, $query1);
@@ -17,16 +18,21 @@ include ("includes/functions/swConnect.php");
     $rewardunits = $row3["count(project_ID)"];
     
     $i = $_SESSION["rewardunits"];
+    
      
 ?>
     <h1>Wie sollen deine Ünterstützer belohnt werden?</h1>
 
+    
         
+    
     <form  method="post" action="includes/functions/project_reward.php" enctype="multipart/form-data">
         
         <div id="newproject">
             
             <a href="index.php?page=new_project2" >speichern & zurück</a>
+            
+
             
             <?php 
             
@@ -59,8 +65,6 @@ include ("includes/functions/swConnect.php");
                     
                     while ($i > 0){
                         $i -= 1;
-                        $query2 = "insert reward(project_ID) values('$pid')";
-                        $result2 = mysqli_query($conn, $query2);
 
                         ?>
                         <div id = Rewards> 
@@ -71,7 +75,8 @@ include ("includes/functions/swConnect.php");
                         <h2>Belohnungsinhalt</h2>
                         <textarea id="rewarddesc" name="rewarddesc"></textarea> </div>           
                     
-                <?php
+                <?php   
+    
                 
                     } 
                 } 
@@ -87,10 +92,13 @@ include ("includes/functions/swConnect.php");
     
         </div> 
     </form>
+
     
-    
-    
-     
+     <script type="text/javascript">
+
+
+        
+    </script>
 
     
      <?php

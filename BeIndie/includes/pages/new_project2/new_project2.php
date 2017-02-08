@@ -1,16 +1,33 @@
 <!DOCTYPE html>
     <?php 
+    
+    
+    echo $_SESSION["editid"];
     include ("includes/functions/swConnect.php");
-        
+    
+    
+    if (isset($_SESSION["editid"]) == false){
+    
     $title = $_SESSION["form_title"] ;
-    $cat = $_SESSION["form_category"] ;
-    $user = $_SESSION["username"];
-        
+    
     $pid = "select project_ID from project where title = '$title'";
     $result1 = mysqli_query($conn, $pid);
     $row1 = mysqli_fetch_array($result1);    
     $newprojectID = $row1["project_ID"];
     $_SESSION["new_pid"] = $newprojectID;
+    }
+    else{
+        
+    $editid = $_SESSION["editid"];    
+    $query = "select title from project where project_ID= $editid";
+    $result = mysqli_query($conn, $query);  
+    $row = mysqli_fetch_array($result);   
+    $title = $row["title"];
+    
+
+    $_SESSION["new_pid"] = $editid;
+    $newprojectID = $_SESSION["new_pid"];
+    }
     
     $slideshow = "select image_path from project_image pi join project p on pi.project_ID = p.project_ID where pi.project_ID = '$newprojectID'";
     $result2 = mysqli_query($conn, $slideshow);
@@ -67,7 +84,6 @@
                 <textarea id="descbox" name="descbox" ><?=$text?></textarea>  
                 <h2>Wieviel Belohnung braucht dein Projekt?</h2>
                 <input type="text" name="rewardunits" value="<?=$rewardunits?>" id="rewardunits" >
-                
                 <button type="submit" class="next" > weiter... </button> 
             </form>
 

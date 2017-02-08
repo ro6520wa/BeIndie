@@ -26,7 +26,7 @@ include ("swConnect.php");
             $result1 = mysqli_query($conn, $query1);    
             
 
- 
+            
     
             header('Location: ../../index.php?page=new_project2');
             }

@@ -11,15 +11,28 @@ include ("swConnect.php");
     $ramount = $_SESSION["rewardamount"] = $_POST["rewardamount"];
     $rtext = $_SESSION["rewarddesc"] = $_POST["rewarddesc"];
     $pid = $_SESSION["new_pid"];
+       
     
-    $query1 = "update reward set r_title='$rtitle' WHERE project_ID= $pid";
-    $result1 = mysqli_query($conn, $query1);    
-    
-    $query2 = "update reward set min_amount='$ramount' WHERE project_ID= $pid";
+                        
+    $query2 = "insert reward(project_ID) values('$pid')";
     $result2 = mysqli_query($conn, $query2); 
     
-    $query3 = "update reward set r_text='$rtext' WHERE project_ID= $pid";
+    
+    $query = "select reward_ID from reward where project_ID = $pid";
+    $result = mysqli_query($conn, $query);  
+    $row = mysqli_fetch_array($result);
+    $rewardid = $row["reward_ID"];
+    
+
+    
+    $query3 = "update reward set r_text='$rtext' WHERE project_ID= $rewardid";
     $result3 = mysqli_query($conn, $query3);
+    
+    $query4 = "update reward set min_amount='$ramount' WHERE project_ID= $rewardid";
+    $result4 = mysqli_query($conn, $query4); 
+    
+    
+    unset($_SESSION["new_pid"],$_SESSION["editid"],$_SESSION["rewardname"],$_SESSION["rewardamount"],$_SESSION["rewarddesc"],$_SESSION["rewardunits"]);
     
     
     header('Location: ../../index.php?page=projects&q='.$pid);
