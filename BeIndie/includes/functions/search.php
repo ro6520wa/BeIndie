@@ -117,7 +117,7 @@ if ($no_cats == true) {
 }
 
 function search_output($output) {
-    $desc = utf8_encode($output["description"]);
+    $desc = $output["description"];
     if (strlen($desc) > 250) {
         $desc = substr($desc, 0, strpos($desc, ' ', 250)) . " [...]";
     }

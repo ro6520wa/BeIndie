@@ -79,12 +79,12 @@ $location_explode = explode(", ", $output1["location"]);
                     <i class="fa fa-times" aria-hidden="true"></i> Der Nutzername ist bereits vergeben!
             </div>
             <label><p>Vorname</p></label>
-            <input type="text" id="fname" name="fname" maxlength="200" placeholder="Vorname" <?php if ($output1["first_name"] != NULL){?> value="<?=utf8_encode($output1["first_name"])?>" <?php } ?>>
+            <input type="text" id="fname" name="fname" maxlength="200" placeholder="Vorname" <?php if ($output1["first_name"] != NULL){?> value="<?=$output1["first_name"]?>" <?php } ?>>
             <label><p>Nachname</p></label>
-            <input type="text" id="lname" name="lname" maxlength="200" placeholder="Nachname" <?php if ($output1["last_name"] != NULL){?> value="<?=utf8_encode($output1["last_name"])?>" <?php } ?>>
+            <input type="text" id="lname" name="lname" maxlength="200" placeholder="Nachname" <?php if ($output1["last_name"] != NULL){?> value="<?=$output1["last_name"]?>" <?php } ?>>
             <label><p>Standort</p></label>
-            <input type="text" id="city" name="location_city" placeholder="Stadt" class="location" maxlength="100" value="<?=utf8_encode($location_explode[0])?>">
-            <input type="text" id="country" name="location_country" placeholder="Land" class="location" maxlength="100" <?php if ($output1["location"] != NULL) {?> value="<?=utf8_encode($location_explode[1])?>" <?php } ?>>
+            <input type="text" id="city" name="location_city" placeholder="Stadt" class="location" maxlength="100" value="<?=$location_explode[0]?>">
+            <input type="text" id="country" name="location_country" placeholder="Land" class="location" maxlength="100" <?php if ($output1["location"] != NULL) {?> value="<?=$location_explode[1]?>" <?php } ?>>
             <label><p>Profilbild</p></label>
             <div id='img'>
                 <img src="<?php if($output1["avatar"] != NULL){ echo $output1["avatar"]; }else{ echo "images/u_images/standard_avatar.png"; }?>"><br/>
@@ -100,7 +100,7 @@ $location_explode = explode(", ", $output1["location"]);
                     <i class="fa fa-times" aria-hidden="true"></i> <?=$img_string//Das Bild wird nicht akzeptiert. Max. Dateigröße 5MB. Akzeptierte Dateiformate: JPG, JPEG, PNG, and GIF.?>
             </div>
             <label><p>Biografie</p></label>
-            <textarea name="bio" form="user_info" rows="10" cols="50" maxlength="500"><?php if($output1["user_bio"]!=NULL){echo utf8_encode($output1["user_bio"]);}else{echo "Deine Biografie. Schreibe hier unter anderem auch Kontaktdaten für andere Nutzer hinein.";} ?></textarea><br/>
+            <textarea name="bio" form="user_info" rows="10" cols="50" maxlength="500"><?php if($output1["user_bio"]!=NULL){echo $output1["user_bio"];}else{echo "Deine Biografie. Schreibe hier unter anderem auch Kontaktdaten für andere Nutzer hinein.";} ?></textarea><br/>
             <p id="reminder">Maximal 500 Zeichen</p>
             <button type="submit" class="save_button" name="submit">Speichern</button>
             <ul id='abort'><li><a href="index.php?page=user_profile&id=<?=$uid?>">Abbrechen</a></li></ul>

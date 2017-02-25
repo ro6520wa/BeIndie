@@ -129,8 +129,8 @@ if(isset ($_GET["succ"])){
             
             <div id ="Text">            
                 <div id ="desciption">
-                    <h2>Was ist '<?= utf8_encode($row1["title"]) ?>' ?</h2>
-                    <p><?= utf8_encode($row7["description"]) ?></p>
+                    <h2>Was ist '<?= $row1["title"] ?>' ?</h2>
+                    <p><?= $row7["description"] ?></p>
                 </div>
 
            <div id ="backing">                
@@ -141,8 +141,8 @@ if(isset ($_GET["succ"])){
             while ($row8 = mysqli_fetch_array($result8)){    
             ?>  
                     <h3>Ab <?= $row8["min_amount"]?> € oder mehr</h3>
-                    <h4><?= utf8_encode($row8["r_title"])?></h4>
-                    <p><?= utf8_encode($row8["r_text"]) ?></p>
+                    <h4><?= $row8["r_title"]?></h4>
+                    <p><?= $row8["r_text"] ?></p>
 
             <?php  } ?>
             </div>

@@ -81,16 +81,16 @@ if ($output_name["first_name"] == NULL) {
             <div id="user_info">
             <p>
                 <?php if ($output_name["first_name"] == NULL || $output_name["last_name"] == NULL) {
-                echo "<b>" . utf8_encode($output_name["user_name"]) . "</b>";
+                echo "<b>" . $output_name["user_name"] . "</b>";
             } else {
-                echo "<b>" . utf8_encode($output_name["first_name"]) . " " . utf8_encode($output_name["last_name"]) . "</b> <br/>";
-                echo utf8_encode($output_name["user_name"]);
+                echo "<b>" . $output_name["first_name"] . " " . $output_name["last_name"] . "</b> <br/>";
+                echo $output_name["user_name"];
             }?>
             </p>
             <p>
                 <b>
                    <?php if ($output_name["location"] != NULL) {?>
-                    <i class="fa fa-map-marker" aria-hidden="true" style='color:#4CAF50'></i><a href='http://maps.google.com/?q=<?=utf8_encode($output_name["location"])?>'> <?=utf8_encode($output_name["location"])?></a> 
+                    <i class="fa fa-map-marker" aria-hidden="true" style='color:#4CAF50'></i><a href='http://maps.google.com/?q=<?=$output_name["location"]?>'> <?=$output_name["location"]?></a> 
                    <?php } ?>
                 </b>
             </p>
@@ -104,7 +104,7 @@ if ($output_name["first_name"] == NULL) {
             <?php if($output_name["user_bio"] == NULL) {?>
             Dieser Nutzer hat leider noch keine Biografie festgelegt.
             <?php } else {
-                echo utf8_encode($output_name["user_bio"]);
+                echo $output_name["user_bio"];
             } ?>
         </div>
     </div>
