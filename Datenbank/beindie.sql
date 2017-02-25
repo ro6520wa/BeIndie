@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Erstellungszeit: 08. Feb 2017 um 16:35
--- Server-Version: 10.1.19-MariaDB
--- PHP-Version: 5.6.28
+-- Host: localhost
+-- Erstellungszeit: 25. Feb 2017 um 15:10
+-- Server-Version: 10.1.16-MariaDB
+-- PHP-Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -72,7 +72,9 @@ INSERT INTO `project` (`project_ID`, `creator`, `title`, `goal`, `current_status
 (5, 'ron.wagner@fh-erfurt.de', 'Fatbool - The football reinvented', 15000, 1255, '2016-07-25', '2017-07-25', 'Sport', 'Nicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für FetteNicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für FetteNicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für FetteNicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für FetteNicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für FetteNicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette. Nicht nur für Fette'),
 (6, 'wurstjay@web.de', 'Real Roschter - The Wurst for everyone', 35000, 23450, '2016-11-29', '2017-03-24', 'Beauty', 'Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!Ist sie zu fett, bist du zu dünn!'),
 (7, 'Not.Doe@gmail.com', 'The Face Enhancer - Be beautiful for once', 8000, 500, '2017-01-01', '2017-04-28', 'Beauty', 'Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! Auch du kannst es mit BiBi aufnehmen! '),
-(8, 'kelixf@gmx.de', 'Strawberry Cookie', 17500, 555, '2016-12-24', '2017-01-13', 'Technologie', 'Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? ');
+(8, 'kelixf@gmx.de', 'Strawberry Cookie', 17500, 5555, '2016-12-24', '2017-02-24', 'Technologie', 'Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? Was ist "raspberry pi" & banana pi? '),
+(9, 'jochen@schweizer.com', 'Jochen Schweizer - Das Buch Ã¼ber mich!', 9000, 0, '2017-02-10', '2017-05-11', 'sport', ''),
+(10, 'jochen@schweizer.com', 'Jochen Schweizer - Ich bin toll!', 9000, 0, '2017-02-10', '2017-05-11', 'technology', '');
 
 -- --------------------------------------------------------
 
@@ -156,7 +158,9 @@ INSERT INTO `transaction` (`transaction_ID`, `user_email`, `project_ID`, `amount
 (4, 'wurstjay@web.de', 7, 200, '2016-12-16'),
 (5, 'ron.wagner@fh-erfurt.de', 5, 5, '2017-01-17'),
 (30, 'ron.wagner@fh-erfurt.de', 2, 5, '2017-01-25'),
-(31, 'paul.hentgen@fh-erfurt.de', 3, 50, '2017-01-25');
+(31, 'paul.hentgen@fh-erfurt.de', 3, 50, '2017-01-25'),
+(32, 'jochen@schweizer.com', 8, 10, '2017-02-10'),
+(33, 'jochen@schweizer.com', 8, 4990, '2017-02-10');
 
 -- --------------------------------------------------------
 
@@ -187,7 +191,8 @@ INSERT INTO `user` (`user_ID`, `email`, `user_name`, `first_name`, `last_name`, 
 (5, 'ron.wagner@fh-erfurt.de', 'ro6520wa', 'Ron', 'Wagner', '', 'Weimar, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', ''),
 (6, 'wurstjay@web.de', 'WurstJay', 'Jonathan', 'Wurst', NULL, 'Oktoberfest, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', NULL),
 (7, 'paul.hentgen@fh-erfurt.de', 'pa8627he', 'Paul', 'Hentgen', NULL, 'Erfurt, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', NULL),
-(12, 'jochen@schweizer.com', 'Schwizzi', '', '', '', '', '$2y$10$g4Om1KaNaIzi1GJue2/.kecfwVWQQtSUoNIiw/puAocwv3Op8lAgq', '');
+(12, 'jochen@schweizer.com', 'Schwizzi', 'Jochen', 'Schweizer', 'images/u_images/12.jpg', 'Silicon Valley, USA', '$2y$10$g4Om1KaNaIzi1GJue2/.kecfwVWQQtSUoNIiw/puAocwv3Op8lAgq', 'Hallo, i bims, der Jochen.'),
+(13, 'kelixf@gmx.dk', 'asdf', NULL, NULL, NULL, NULL, '$2y$10$yLoUuOQLwsUyu1JEMfq9s.nD3GyE8aerztpykN2UbaZYUQKUWy.3y', NULL);
 
 --
 -- Indizes der exportierten Tabellen
@@ -248,7 +253,7 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT für Tabelle `project`
 --
 ALTER TABLE `project`
-  MODIFY `project_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `project_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT für Tabelle `project_image`
 --
@@ -263,12 +268,12 @@ ALTER TABLE `reward`
 -- AUTO_INCREMENT für Tabelle `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `transaction_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `transaction_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- Constraints der exportierten Tabellen
 --

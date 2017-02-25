@@ -1,8 +1,6 @@
 <!DOCTYPE html>
     <?php 
     
-    
-    echo $_SESSION["editid"];
     include ("includes/functions/swConnect.php");
     
     
