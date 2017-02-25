@@ -83,7 +83,12 @@ if ($_FILES['uimg']['size'] > 0) {
         exit(1);
     }
 } else {
-    $avatar = NULL;
+    if ($output1["avatar"] != NULL){
+        $avatar = $output1["avatar"];
+    }
+    else{
+        $avatar = NULL; 
+    }
 }
 
 $query2 = "SELECT user_name FROM user WHERE LOWER(user_name) ='" . strtolower($uname) . "' && user_id !='" . $uid . "'";

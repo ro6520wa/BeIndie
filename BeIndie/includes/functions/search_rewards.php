@@ -39,13 +39,13 @@ if($current_amount_donated > 0){
     $result_current_reward = mysqli_query($conn, $query_current_reward);
     $output_current_reward = mysqli_fetch_assoc($result_current_reward);
     $output_string = "<div class='cur_reward'><p class='current_reward'>Du hast dieses Projekt bereits mit <b>" . $current_amount_donated . "€</b> unterstützt. Damit erhältst du folgende Belohnung: </p><p class='reward_title'>" . 
-            utf8_encode($output_current_reward["r_title"]) . "</p><p>" . utf8_encode($output_current_reward["r_text"]) . "</p></div>";
+            $output_current_reward["r_title"] . "</p><p>" . $output_current_reward["r_text"] . "</p></div>";
     }
 $output_reward = mysqli_fetch_assoc($result_reward);
 echo $output_string;    //if he already has a reward return it
 if($data[0] != 0){      //return the reward he will get when he donates what the input suggests
     echo    "<div class='fut_reward'><p class='get_reward'>Du würdest dieses Projekt mit <b>" . $amount . "€</b> unterstützen. Damit würdest du folgende Belohnung erhalten: </p><p class='reward_title'>" .
-            utf8_encode($output_reward["r_title"]) ."</p><p>" . utf8_encode($output_reward["r_text"]) . "</p></div>";
+            $output_reward["r_title"] ."</p><p>" . $output_reward["r_text"] . "</p></div>";
     
 }
 
@@ -54,7 +54,7 @@ $result_higher_rewards = mysqli_query($conn, $query_higher_rewards);
 while($output_higher_rewards = mysqli_fetch_assoc($result_higher_rewards)){         //and return the rewards he can potentially get when donating more (MAX 3)?>      
 <article class="higher_reward">
     <p class="pay_more">Wenn du noch <b><?=$output_higher_rewards["min_amount"]-$amount?>€</b> mehr zahlst erhältst du folgende Belohnung</p>
-    <p class="reward_title"><?= utf8_encode($output_higher_rewards["r_title"])?></p>
-    <p class="reward_text"><?= utf8_encode($output_higher_rewards["r_text"])?></p>
+    <p class="reward_title"><?= $output_higher_rewards["r_title"]?></p>
+    <p class="reward_text"><?= $output_higher_rewards["r_text"]?></p>
 </article>
 <?php } ?>
