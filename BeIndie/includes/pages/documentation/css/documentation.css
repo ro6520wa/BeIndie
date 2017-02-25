@@ -4,3 +4,33 @@
     min-height: 500px;
 }
 
+#docu_wrap div{
+    margin: 20px 0;
+}
+
+#docu_wrap img{
+    margin: 10px 0 20px 0;
+}
+
+#docu_wrap h1,#docu_wrap h2,#docu_wrap h3,#docu_wrap h4{
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+#docu_wrap p{
+    line-height: 25px;
+}
+
+#docu_wrap table{
+    border-collapse: collapse;
+}
+
+#docu_wrap table,#docu_wrap  th,#docu_wrap  td{
+    border: 1px solid black;
+}
+
+#docu_wrap th,#docu_wrap  td{
+    text-align: left;
+    height: 30px;
+    padding-left: 5px;
+}
