@@ -25,6 +25,8 @@ if (!empty($_POST["loc_country"])) {
 if (!empty($_POST["loc_city"])) {
     $loc_city = $_POST["loc_city"];
 }
+
+//check if a location was entered and build the location string accordingly
 $location = NULL;
 if ($loc_city != NULL && $loc_country != NULL) {
     $location = $loc_city . ", " . $loc_country;
@@ -34,6 +36,7 @@ if ($loc_city != NULL && $loc_country != NULL) {
     $location = $loc_country;
 }
 
+//check if a user_bio was entered
 $user_bio = NULL;
 if ($_POST["bio"] != "Deine Biografie. Schreibe hier unter anderem auch Kontaktdaten für andere Nutzer hinein.") {
     $user_bio = $_POST["bio"];
@@ -94,14 +97,17 @@ if ($_FILES['uimg']['size'] > 0) {
 $query2 = "SELECT user_name FROM user WHERE LOWER(user_name) ='" . strtolower($uname) . "' && user_id !='" . $uid . "'";
 $result2 = mysqli_query($conn, $query2);
 
+//check if the entered username is already in use if not exit
 while ($row = mysqli_fetch_assoc($result2)) {
     header('Location: ../../index.php?page=edit_profile&id=' . $uid . "&err=uname");
     exit(1);
 }
 
+//if everthing was fine update accordingly
 $query3 = "UPDATE user SET user_name='" . $uname . "', first_name='" . $fname . "', last_name='" . $lname . "', avatar='" . $avatar . "', location='" . $location . "', user_bio ='" . $user_bio . "' WHERE user_ID ='" . $uid . "'";
 $result3 = mysqli_query($conn, $query3);
 
+//if the update was successful return a success msg
 if ($result3 == true) {
     header('Location: ../../index.php?page=edit_profile&id=' . $uid . "&succ=1");
     $_SESSION["username"] = $uname;

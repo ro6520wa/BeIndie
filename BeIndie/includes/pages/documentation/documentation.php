@@ -151,10 +151,14 @@
             und deshalb Abstände immer relativ groß gehalten. Außerdem war es uns wichtig immer und überall die wichtigsten Informationen zu sehen.
             Aus diesem Grund erhält man z.B. so viele Daten zu den Projekten wie möglich, ohne das die Seite überladen wirkt. Desweiteren war es uns
             wichtig, dass die Navbar am Kopf der Seite fixiert ist. Da bei der Suche beispielsweise eine relativ lange Seite entstehen könnte, war
-            es uns wichtig die wichtigsten Seite immer erreichbar zu haben. Die Farben sind auf allen Seiten einheitlich. Eine Grün/Grau/Hellgrau/Weiß Kombination
+            es uns wichtig die wichtigsten Seiten immer erreichbar zu haben. Die Suche haben wir direkt präsent auf die Startseite platziert,
+            da diese das Hauptelement der Seite darstellt. Die Farben sind auf allen Seiten einheitlich. Eine Grün/Grau/Hellgrau/Weiß Kombination
             erschien uns als sehr minimalistisch, aber dennoch modern und einladend. Bei der Schriftart haben wir uns einheitlich für die Schriftart
             "Raleway" ohne Serifen entschieden. Die Größen der jeweiligen Header und der Schrift ist nach eigenem Ermessen gewählt doch auch hier
-            haben wir wert auf gute Lesbarkeit und Modernität gesetzt. Eine Schriftart mit Serifen erschien uns dabei z.B. etwas altbacken.</p>
+            haben wir wert auf gute Lesbarkeit und Modernität gesetzt. Eine Schriftart mit Serifen erschien uns dabei z.B. etwas altbacken.
+            Das Bild des Waldes auf der Startseite haben wir gewählt, da es erstens mit unserem Farbschema gut harmoniert und desweiteren Natur zeigt.
+            Natur bietet immer Raum für Neues und achtet dabei nicht auf Herkunft. Ob nun kulturell oder wirtschaftlich. 
+            Genau diesen Raum wollen wir mit der BeIndie schaffen. </p>
         </div>
         <div id="seite">
             <h2>5. Seitenbeschreibung</h2>
@@ -207,9 +211,11 @@
             <h2>6. Datenbank</h2>
             <div id="er_modell">
                 <h3>6.1. ER-Modell</h3>
+                <img src="dokumentation/beindie_er.png" alt="beindie_er" width="980">
             </div>
             <div id="rel_modell">
                 <h3>6.2. Relationales Modell</h3>
+                <img src="dokumentation/beindie_rel.png" alt="beindie_rel" width="980">
             </div>
         </div>
         <div id="rollen">
@@ -238,6 +244,13 @@
                 <li>Einsehen einer Liste mit Nutzern die ein bestimmtes Projekt unterstützen</li>
                 <li>Füllen der Seite mit Inhalten/Blindtexte entfernen (außerdem z.B. hinzufügen von mehr Kategorien)</li>
                 <li>Implementieren von Seitenfunktion in der Suche</li>
+                <li>Der Nutzer kann sein Passwort nicht Zurücksetzen falls er dieses vergessen hat. Das wäre allerdings sicherlich nützlich.</li>
+                <li>Der Nutzer bekommt keine Fehlermeldung wenn seine Kontaktanfrage nicht gesendet werden konnte. Das wäre allerdings sicherlich nützlich.</li>
+            </ul>
+            <h3>Bekannte Probleme</h3>
+            <ul>
+                <li>In der Datenbank wurde die Email des Nutzers als Fremdschlüssel genutzt, ist aber selbst kein Primärschlüssel.
+                    Deshalb gab es Unstimmigkeiten und diese führten zu unnötigem Codeaufwand. Das haben wir jedoch zu spät in der Entwicklung festgestellt.</li>
             </ul>
         </div>
         <div id="projekt_man">

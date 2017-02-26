@@ -9,7 +9,9 @@ $psw = $_POST["psw"];
 $query = "SELECT crypt_pw, user_name FROM user WHERE LOWER(email) ='" . $email . "'";
 $result = mysqli_query($conn, $query);
 
+//check if the given email is in the database
 while ($row = mysqli_fetch_assoc($result)) {
+    //if the password matches the email set the session parameters and exit with a success msg
     if(password_verify($psw, $row["crypt_pw"]))
     {
         $_SESSION["username"] = $row["user_name"];
