@@ -168,6 +168,9 @@
             </div>
             <div id="projekt_erstellen">
                 <h3>5.2. Projekt erstellen</h3>
+                <img src="dokumentation/beindie_new_form1.png" alt="beindie_start" width="980">
+                <img src="dokumentation/beindie_new_form2.png" alt="beindie_start" width="980">
+                <img src="dokumentation/beindie_new_form3.png" alt="beindie_start" width="980">
                 <!--<img src="dokumentation/beindie_start.jpg" alt="beindie_start" width="600">-->
             </div>
             <div id="projektseite">
@@ -251,6 +254,7 @@
             <ul>
                 <li>In der Datenbank wurde die Email des Nutzers als Fremdschlüssel genutzt, ist aber selbst kein Primärschlüssel.
                     Deshalb gab es Unstimmigkeiten und diese führten zu unnötigem Codeaufwand. Das haben wir jedoch zu spät in der Entwicklung festgestellt.</li>
+                <li>Das Formular kann nicht richtig abgeschlossen werden, da es Probleme mit dem 'INSERT' der Belohnungen gibt.</li>
             </ul>
         </div>
         <div id="projekt_man">

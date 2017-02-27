@@ -10,8 +10,6 @@ session_start();
     $query1 = "update project set description='$newdesc' WHERE project_ID= $pid";
     $result1 = mysqli_query($conn, $query1); 
     
-    
-    
     $_SESSION["rewardunits"] = $_POST["rewardunits"];
     unset($_SESSION["descbox"]);
     

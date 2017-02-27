@@ -15,7 +15,7 @@
                 
                 <h2>Name des Projekts</h2>                  
                 
-                <input type="text" name="form_title"  id="title" placeholder="Projectname...">
+                <input type="text" name="form_title"  id="title" placeholder="Projectname..." required>
 
                 <h2>Kategorie</h2>
                     <input type="radio" name="form_category" value="games" id="cat">Spiele
@@ -24,10 +24,10 @@
                     <input type="radio" name="form_category" value="beauty" id="cat">Fashion & Beauty
 
                     <h2>Dein Ziel</h2>
-                    <input type="text" name="form_goal"  id="goal" placeholder="Ohne € angeben..." >  
+                    <input type="text" name="form_goal"  id="goal" placeholder="Ohne € angeben..." required>
 
                     <h2>Dauer</h2>
-                    <input type="text" name="form_time"  id="time" placeholder="In Tagen angeben...">
+                    <input type="text" name="form_time"  id="time" placeholder="In Tagen angeben..."required>
                     
                     <input type="submit" class="next" value="speichern" </button>
             </form>                

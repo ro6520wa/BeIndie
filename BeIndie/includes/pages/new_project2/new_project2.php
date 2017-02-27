@@ -39,6 +39,8 @@
     $result4 = mysqli_query($conn, $query3);  
     $row4 = mysqli_fetch_array($result4);
     $rewardunits = $row4["count(project_ID)"];
+    
+    
     ?>
 
 
@@ -66,7 +68,7 @@
 
             ?>               
                 <img class="slideshow" width="160" height="90" src=<?= $row2["image_path"] ?> >
-            <?php }
+            <?php }  
             ?> 
             <br>
                 
@@ -76,12 +78,14 @@
             </form>
             
             
-<!--            action="index.php?page=new_project3"-->
+<!--             -->
             <form  method="post" action="includes/functions/project_desc.php">
                 <h2>Beschreibe dein Projekt</h2>
-                <textarea id="descbox" name="descbox" ><?=$text?></textarea>  
-                <h2>Wieviel Belohnung braucht dein Projekt?</h2>
-                <input type="text" name="rewardunits" value="<?=$rewardunits?>" id="rewardunits" >
+                <textarea class="ckeditor" id="descbox" name="descbox" ><?=$text?></textarea> 
+                
+                <h2>Wieviele Belohnung braucht dein Projekt?</h2>
+                <input type="text" name="rewardunits" value="<?=$rewardunits?>" id="rewardunits" required>
+                
                 <button type="submit" class="next" > weiter... </button> 
             </form>
 
