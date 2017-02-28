@@ -109,6 +109,7 @@
             <h2>2. Ergebnisse der Recherche</h2>
             <div id="kickstarter">
                 <h3>2.1. Kickstarter</h3>
+                <a href="https://www.kickstarter.com">Kickstarter</a>
                 <p><b>Startseite</b></p>
                 <img src="dokumentation/kickstarter_start.jpg" alt="kickstarter_start" width="980">
                 <p><b>Projektseite</b></p>
@@ -118,6 +119,7 @@
             </div>
             <div id="indiegogo">
                 <h3>2.2. Indiegogo</h3>
+                <a href="https://www.indiegogo.com">Indiegogo</a>
                 <p><b>Startseite</b></p>
                 <img src="dokumentation/indiegogo_start.jpg" alt="indiegogo_start" width="980">
                 <p><b>Projektseite</b></p>
@@ -241,20 +243,43 @@
         </div>
         <div id="besonderheiten">
             <h2>9. Besonderheiten für die Nutzung oder Bewertung</h2>
+            <h3>Erfüllte Aufgabenstellungen und wo sie zu finden sind</h3>
+            <ul>
+                <li>Interaktivität: Bspw. Fixed Navbar in Datei "nav.js"</li>
+                <li>CSS3 Transitions: Bspw. Text beim hovern über Suchergebnisse in Datei style.css(Zeile 337)</li>
+                <li>CSS3 Font: Raleway in Datei style.css(Zeile 6)</li>
+                <li>Fehleingaben: Werden nicht vor Weitergabe an den Server abgefangen(wäre cleverer gewesen), sondern im php Skript geprüft.
+                Größtenteils aber nicht anders möglich(ohne ajax), da Daten aus der Datenbank benötigt werden um Fehleingaben abzufangen.
+                Aber Übereinstimmung der Passwörter (in Datei/auf Seite login.php) hätte z.B. in javascript gelöst werden. Ansonsten werden
+                Fehleingaben bspw. in der Datei check_profile_edit.php abgefangen.</li>
+                <li>MySQL-Datenbank: Datenbank beindie.sql Verknüpfung über 3 Tabellen (transaction -> user -> project) oder in Datei my_projects.php</li>
+                <li>PHP Dynamischer Seitenaufbau: Bspw. in Datei search.php</li>
+                <li>PHP Häufig verwendete Seitenelemente: Nach Vorlage des starter_kit, bspw in der Datei index.php</li>
+                <li>PHP Datenabfrage (Auslesen und Anzeigen): Bspw. in der Datei/auf der Seite projects.php</li>
+                <li>PHP Datenabfrage (Suchformular): Bspw. Auf der Startseite/ in der Datei search.php</li>
+                <li>PHP Dateneingabe (Daten in Datenbank einfügen/ändern): Bspw. in der Datei edit_profile.php</li>
+                <li>PHP Dateneingabe (Formularelemente dynamischen Wert zuweisen): Bspw. in der Datei edit_profile.php</li>
+                <li>PHP Dateneingabe (Mehrseitiges Formular): In den Dateien new_project.php, new_project2.php, new_project3.php</li>
+                <li>PHP Dateneingabe (Prüfung auf Vollständigkeit und Plausibilität): Bspw. in Datei edit_profile.php</li>
+            </ul>
             <h3>Mögliche Erweiterung/TODO</h3>
             <ul>
-                <li>Passwörter in php Funktion überprüfen lassen beim Registrieren und Constraints festlegen</li>
+                <li>Responsive Design, da wichtig für das Konzept der Seite (sollte alles so schnell wie möglich(auch mobil) erreichbar sein)</li>
+                <li>Passwörter in php Funktion überprüfen lassen beim Registrieren und Constraints festlegen Datei(register_user.php)</li>
                 <li>Einsehen einer Liste mit Nutzern die ein bestimmtes Projekt unterstützen</li>
                 <li>Füllen der Seite mit Inhalten/Blindtexte entfernen (außerdem z.B. hinzufügen von mehr Kategorien)</li>
                 <li>Implementieren von Seitenfunktion in der Suche</li>
                 <li>Der Nutzer kann sein Passwort nicht Zurücksetzen falls er dieses vergessen hat. Das wäre allerdings sicherlich nützlich.</li>
                 <li>Der Nutzer bekommt keine Fehlermeldung wenn seine Kontaktanfrage nicht gesendet werden konnte. Das wäre allerdings sicherlich nützlich.</li>
+                <li>Fehlermeldungen werden in php meist per GET oder POST weitergegeben. Schlauer wäre gewesen dies mit Sessions zu lösen.</li>
+                <li>Beendete Projekte werden bis jetzt von uns per Hand aus der Datenbank ausgetragen. Dies wäre zu automatisieren.</li>
             </ul>
             <h3>Bekannte Probleme</h3>
             <ul>
                 <li>In der Datenbank wurde die Email des Nutzers als Fremdschlüssel genutzt, ist aber selbst kein Primärschlüssel.
                     Deshalb gab es Unstimmigkeiten und diese führten zu unnötigem Codeaufwand. Das haben wir jedoch zu spät in der Entwicklung festgestellt.</li>
                 <li>Das Formular kann nicht richtig abgeschlossen werden, da es Probleme mit dem 'INSERT' der Belohnungen gibt.</li>
+                <li>Keine bekannten Browserkonsolenfehler(Chrome)</li>
             </ul>
         </div>
         <div id="projekt_man">

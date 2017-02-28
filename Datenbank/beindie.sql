@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Erstellungszeit: 25. Feb 2017 um 15:10
--- Server-Version: 10.1.16-MariaDB
--- PHP-Version: 5.6.24
+-- Host: 127.0.0.1
+-- Erstellungszeit: 28. Feb 2017 um 10:40
+-- Server-Version: 10.1.19-MariaDB
+-- PHP-Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -187,7 +187,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`user_ID`, `email`, `user_name`, `first_name`, `last_name`, `avatar`, `location`, `crypt_pw`, `user_bio`) VALUES
 (2, 'John.D@gmail.com', 'JD', 'John', 'Doe', 'images/u_images/2.jpg', 'Erfurt, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', NULL),
 (3, 'Not.Doe@gmail.com', 'NotD', 'Not', 'Doe', 'images/u_images/3.jpg', 'Weimar, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', NULL),
-(4, 'kelixf@gmx.de', 'TheFiesling', 'Kelix', 'Fiessling', 'images/u_images/4.jpg', 'Waynetrain, No Mans Sky', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', ''),
+(4, 'kelixf@gmx.de', 'TheFießling', 'Kelix', 'Fießling', 'images/u_images/4.jpg', 'Waynetrain, No Mans Sky', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', ''),
 (5, 'ron.wagner@fh-erfurt.de', 'ro6520wa', 'Ron', 'Wagner', '', 'Weimar, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', ''),
 (6, 'wurstjay@web.de', 'WurstJay', 'Jonathan', 'Wurst', NULL, 'Oktoberfest, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', NULL),
 (7, 'paul.hentgen@fh-erfurt.de', 'pa8627he', 'Paul', 'Hentgen', NULL, 'Erfurt, Germany', '$2y$10$88pYVXdm03EyGa4Z2.zB2OCrbFIadc6E..Rd8PgYMnZ64Acjshof.', NULL),
